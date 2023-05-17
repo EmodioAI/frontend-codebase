@@ -52,16 +52,6 @@ If you're a contributer to this project, please read these.
     - `README.md` : Gives a quick detail on how the component should be used; the props it takes, for example.
 
 
-
-## Creating a production build
-
-- Pull the latest changes and install all dependencies as instructed above.
-- Open the `package.json` file. Under the `build` section, identify the `icon` option. (Look for `"icon": "resources/icons/icon.icns"`)
-  - On Windows: Change the icon file format to the appropriate one - change `icon.icns` to `icon.ico`.
-  - On Mac: Leave the extension as `.icns`.
-- run `npm run electron:build` to create a production build of the app.
-- In the created `dist/` directory, look for a sub-directory with a name relating to your system. "mac-arm64" or "win-x64" for example. The built `.exe` or `.app` file should be in this sub-directory with the name `school-vue`.
-
 ### Making changes to the repository
 
 - switch to the main branch using `git checkout main`.
@@ -87,6 +77,6 @@ If you're a contributer to this project, please read these.
   > Delete your feature branches that are merged.
 
 
-##License
+## License
 
 This project is licensed under the MIT License, which grants permissions to use, modify, and distribute the codebase. Please review the license file for more details.
