@@ -8,7 +8,7 @@ function PageModal(){
         <section className={styles.container} data-testid='page-modal'>
             <div className={styles.modal}>
                 <aside className={styles.leftside}>
-                    <ProgressBar/>
+                    <ProgressBar step={2}/>
                 </aside>
                 <aside className={styles.rightside}>
 

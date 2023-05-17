@@ -1,111 +1,115 @@
-
-.leftHeading{
-    color:var(--Main_Colour);
-    font-size: 1.8rem;
-    font-weight: 800;
-    font-family: var(--Comfortaa);
-   
+.leftHeading {
+	color: var(--Main_Colour);
+	font-size: 1.8rem;
+	font-weight: 800;
+	font-family: var(--Comfortaa);
 }
-.stepsContent{
-    margin-top:30px;
+.stepsContent {
+	margin-top: 30px;
 }
-.stepsContent h3{
-    font-size: 1.3rem;
-    font-family: var(--Poppins);
-    color:var(--Main_Colour);
+.stepsContent h3 {
+	font-size: 1.3rem;
+	font-family: var(--Poppins);
+	color: var(--Main_Colour);
 }
-.stepsContent p{
-    font-size:1rem;
-    margin-top:15px;
-    font-family: var(--Roboto);
-}
-
-.displayNone{
-   display:none;   
-} 
-
-.progressBar{
-    margin-top:10px;
-    font-size: 0.9rem;
-    font-weight:800;
-    cursor: pointer;
+.stepsContent p {
+	font-size: 1rem;
+	margin-top: 15px;
+	font-family: var(--Roboto);
+	height: 3.5rem;
+	max-height: 3.5rem;
 }
 
-.progressBar li{
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: end;
+.displayNone {
+	display: none;
 }
 
-.progressBar li div{
-    position: relative;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    line-height:25px;
-    border:1px solid #fff;
-    z-index:10;
-    background-color: var(--Tint_One);
-    color: var(--Tint_Two);
-    margin: 20px 20px  20px 20px ;
-
-}
-.progressBar li p{
-    font-family: var(--Poppins);
-    font-size: 0.9rem;
-    color: var(--Tint_Two);
-}
-.progressBar li div::after{
-    content: '';
-    position: absolute;
-    height: 70px;
-    width: 2px;
-    background-color: var(--Tint_Two);
-    z-index: 1;
-    bottom: -1px;
+.progressBar {
+	margin-top: 10px;
+	font-size: 0.9rem;
+	font-weight: 800;
+	cursor: pointer;
 }
 
-.progressBar li div::before{
-    content:"";
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    position: absolute;
-    text-align: center;
-    display: grid;
-    place-items: center;
-    line-height:25px;
-    z-index:10;
-    background-color: var(--Tint_One);
-    color: var(--Tint_Two);
-    cursor: pointer;
-    border:1px solid var(--Tint_Two);
+.progressBar li {
+	list-style: none;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: end;
 }
 
-.progressBar li div i{
-    z-index: 11;
+.progressBar li div {
+	position: relative;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	display: grid;
+	place-items: center;
+	line-height: 25px;
+	border: 1px solid #fff;
+	z-index: 10;
+	background-color: var(--Tint_One);
+	color: var(--Tint_Two);
+	margin: 21px 20px 20px 20px;
+}
+.progressBar li div i {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.progressBar li p {
+	font-family: var(--Poppins);
+	font-size: 0.9rem;
+	color: var(--Tint_Two);
+}
+.progressBar li div::after {
+	content: "";
+	position: absolute;
+	height: 70px;
+	width: 2px;
+	background-color: var(--Tint_Two);
+	z-index: 1;
+	bottom: -1px;
+}
+
+.progressBar li div::before {
+	content: "";
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	position: absolute;
+	text-align: center;
+	display: grid;
+	place-items: center;
+	line-height: 25px;
+	z-index: 10;
+	background-color: var(--Tint_One);
+	color: var(--Tint_Two);
+	cursor: pointer;
+	border: 1px solid var(--Tint_Two);
+}
+
+.progressBar li div i {
+	z-index: 11;
 }
 .first::after {
-    display:none;   
-  }
-
-.progressBar li div.active::after{
-    background-color: var(--Main_Colour);
-    color: var(--Main_Colour);
+	display: none;
 }
 
-.progressBar li div.active::before{
-    color:var(--Main_Colour);
-    border:1px solid var(--Main_Colour);
+.progressBar li div.active::after {
+	background-color: var(--Main_Colour);
+	color: var(--Main_Colour);
 }
 
-.progressBar li.active p{
-    color:var(--Main_Colour);
+.progressBar li div.active::before {
+	color: var(--Main_Colour);
+	border: 1px solid var(--Main_Colour);
 }
-.progressBar li p ~ div.active{
-    color:var(--Main_Colour);
+
+.progressBar li.active p {
+	color: var(--Main_Colour);
+}
+.progressBar li p ~ div.active {
+	color: var(--Main_Colour);
 }
