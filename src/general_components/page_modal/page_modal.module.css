@@ -4,8 +4,7 @@
     height: 100vh;
     background: linear-gradient(45deg,#d2001a,#9733ee);
     background-size: 300% 300%;
-    pointer-events: none;
-    user-select: none;
+  
     animation: color 12s ease-in-out infinite;
 }
 
@@ -30,7 +29,24 @@
     transform: translate(-50%,-50%);
     width: 70%;
     height: 85%;
-    padding: 50px;
     background: #ebeef1;
     border-radius: 20px;
+}
+
+.leftside{
+    width: 30%;
+    height:100%;
+    float: left;
+    background: #F0D8FF;
+    padding:20px 30px;
+    box-sizing:border-box;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.rightside{
+    width: 70%;
+    height:100%;
+    float: right;
+    /* outline: 3px solid blue; */
 }
