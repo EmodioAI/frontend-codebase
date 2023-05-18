@@ -73,7 +73,7 @@ If you're a contributer to this project, please read these.
 - Finally, push your work to GitHub using
   - `git push origin <your_branch_name>` : this will create a new feature branch on the remote repository to track your changes.
 - Log onto github.com and create a PR of your branch onto the **main** and await review and merging.
-  > Do NOT try to merge your own PRs onto the main or main.
+  > Do NOT try to merge your own PRs onto the main without a review.
   > Delete your feature branches that are merged.
 
 
