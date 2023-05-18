@@ -29,7 +29,7 @@
     transform: translate(-50%,-50%);
     width: 70%;
     height: 85%;
-    background: #ebeef1;
+    background:var(--Background_Colour);
     border-radius: 20px;
 }
 
@@ -48,5 +48,6 @@
     width: 70%;
     height:100%;
     float: right;
-    /* outline: 3px solid blue; */
+    padding:20px 30px;
+    outline: 3px solid blue;
 }
