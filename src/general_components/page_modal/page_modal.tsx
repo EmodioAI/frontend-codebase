@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './page_modal.module.css'
 import ProgressBar from '../progress_bar/progress_bar';
 

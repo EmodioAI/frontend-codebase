@@ -1,7 +1,6 @@
 import {describe, test,expect} from 'vitest';
 import {render} from '@testing-library/react';
 import PageModal from './page_modal';
-import ProgressBar from '../progress_bar/progress_bar';
 
 
 // checks if Page Modal component is mounted

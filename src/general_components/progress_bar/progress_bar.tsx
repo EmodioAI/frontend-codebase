@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import styles from "./progress_bar.module.css";
 import { ProgressBarProps } from "./progress_bar.props";
 import { FaHandPointer } from "react-icons/fa";
