@@ -1,19 +1,21 @@
 .button {
 	font-size: 1.1rem;
-	font-weight: 550;
+	font-weight: 580;
 	padding: 0.45rem;
-	/* margin: 1rem; */
 	width: 150px;
 	background: var(--Background_Colour);
 	cursor: pointer;
 	border: none;
 	border-radius: 50px;
 	font-family: var(--Poppins);
-	transition: all 2s ease-in-out 3s;
-	-moz-transition: all 2s ease-in-out 3s; /* Firefox 4 */
-	-webkit-transition: all 2s ease-in-out 3s; /* Safari and Chrome */
-	-o-transition: all 2s ease-in-out 3s; /* Opera */
-	-ms-transition: all 2s ease-in-out 3s; /* Explorer 10 */
+	transition: display 20s ease ;
+	-moz-transition: display 20s ease ; /* Firefox 4 */
+	-webkit-transition: display 20s ease ; /* Safari and Chrome */
+	-o-transition: display 20s ease ; /* Opera */
+	-ms-transition: display 20s ease-in-out ; /* Explorer 10 */
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .next {
@@ -27,8 +29,11 @@
 	box-shadow: inset 3px 3px 16px -1px rgba(10, 99, 169, 0.2),
 		inset -10px -10px 10px -1px rgba(255, 255, 255, 0.9);
 }
+
 .button i {
-	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .button.prev i {
@@ -38,7 +43,7 @@
 
 .button.prev:hover i {
 	margin-right: 0.5rem;
-	display: unset;
+	display: flex;
 }
 
 .button.next i {
@@ -48,5 +53,5 @@
 
 .button.next:hover i {
 	margin-left: 0.5rem;
-	display: unset;
-}
+	display:flex;
+} 
