@@ -16,7 +16,7 @@ function ProgressBar(props: ProgressBarProps) {
 				<div className={styles.stepsContent}>
 					<h3>
 						Step{" "}
-						<span className={styles.stepNumber}>{props.step}</span>
+						<span className={styles.stepNumber} data-testid='step-number'>{props.step}</span>
 					</h3>
 					<p
 						className={`${styles.stepNumberContent} ${
