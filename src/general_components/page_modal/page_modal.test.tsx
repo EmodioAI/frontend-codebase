@@ -1,5 +1,5 @@
 import {describe, test,expect} from 'vitest';
-import {render} from '@testing-library/react';
+import {render, fireEvent} from '@testing-library/react';
 import PageModal from './page_modal';
 
 
@@ -17,18 +17,43 @@ describe('Page Modal', () => {
 describe('PageModal component', () => {
   it('should render progress bar with a step number', () => {
 
-    const {getByTestId,getByText}= render(<PageModal />);
+    const {getByTestId}= render(<PageModal />);
 
-    const valueElement = getByText(2);
+    const valueElement = getByTestId('step-number')
     const progressBar = getByTestId('progress-bar');
 
 		// Retrieve the value from the element and convert it to a number
-		const value = valueElement?.textContent
-			? parseInt(valueElement.textContent)
-			: null;
+		const value = valueElement.textContent
 
     expect(progressBar).toBeInTheDocument();
     expect(progressBar).toHaveTextContent(`Step ${value}`);
 
   });
 });
+
+
+//checks if step number changes with button click
+describe('PageModal component', () => {
+  it('should change step number when a button is clicked', () => {
+
+    const {getByTestId,getByText}= render(<PageModal />);
+
+    const valueElement_one = getByTestId('step-number')
+    const navButton = getByText('Next')
+  
+    // Retrieve the value from the element before clicking
+    const valueOne = valueElement_one.textContent
+
+    //click on the button
+    fireEvent.click(navButton)
+
+    const valueElement_two = getByTestId('step-number')
+
+    //retrieve the value from the element after clicking
+    const valueTwo = valueElement_two.textContent
+
+    expect(valueOne).not.toBe(valueTwo)
+
+  });
+}
+);

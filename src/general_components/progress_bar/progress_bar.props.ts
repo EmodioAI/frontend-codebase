@@ -1,5 +1,5 @@
 
-type StepNumber = 1 | 2 | 3 | 4 ;
+export type StepNumber = 1 | 2 | 3 | 4 ;
 export interface ProgressBarProps {
     step: StepNumber;
   }

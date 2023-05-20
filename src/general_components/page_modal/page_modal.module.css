@@ -4,7 +4,6 @@
     height: 100vh;
     background: linear-gradient(45deg,#d2001a,#9733ee);
     background-size: 300% 300%;
-  
     animation: color 12s ease-in-out infinite;
 }
 
@@ -29,7 +28,7 @@
     transform: translate(-50%,-50%);
     width: 70%;
     height: 85%;
-    background: #ebeef1;
+    background:var(--Background_Colour);
     border-radius: 20px;
 }
 
@@ -48,5 +47,6 @@
     width: 70%;
     height:100%;
     float: right;
-    /* outline: 3px solid blue; */
+    padding:20px 30px;
+    outline: 3px solid blue;
 }
