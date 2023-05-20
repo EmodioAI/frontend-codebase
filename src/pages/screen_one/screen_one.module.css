@@ -1,0 +1,98 @@
+.screenOneContents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 2rem
+}
+
+.upperContent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    }
+
+.upperContent h2{
+    font-size: 1.3rem;
+    font-weight: 550;
+    margin-bottom: 0.3rem;
+    font-family: var(--Poppins);
+}
+
+.upperContent p{
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: var(--Poppins);
+    color: #F00055;
+}
+
+.lowerContent{
+    margin-top: 3rem;
+    height: 100%    ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+}
+
+.lowerContent div{
+    margin: 30px 0;
+}
+
+.lowerContent div label{
+    cursor: pointer;
+}
+
+.lowerContent div label input[type="checkbox"]{
+    display: none;
+}
+
+.lowerContent div label span{
+    position: relative;
+    display: inline-flex;
+    padding: 0.6rem 1.5rem;
+    background: var(--Tint_Two);
+    color: var(--Main_Colour);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, .5);
+    width: 12rem;
+    font-size: 1.2rem;
+    transition: 0.5s;
+    user-select: none;
+    overflow: hidden;
+    border-radius: 4px;
+    font-weight: 570;
+    font-family: var(--Roboto);
+}
+
+.lowerContent div label span i{
+    margin-right: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lowerContent div label span::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.lowerContent div:nth-child(1) label input[type="checkbox"]:checked ~ span{
+    background: #008CF0;
+    color:#ffffff;
+    box-shadow: 0 2px 20px  #008CF0;
+}
+
+.lowerContent div:nth-child(2) label input[type="checkbox"]:checked ~ span{
+    background: #A100CD;
+    color: #ffffff;
+    box-shadow: 0 2px 20px  #A100CD;
+}
