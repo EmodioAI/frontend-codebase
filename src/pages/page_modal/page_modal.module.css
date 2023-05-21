@@ -52,6 +52,7 @@
 
 .rightside .screensBox{
     height: 85%;
+    transition: all 2s ease-in ;
 }
 
 .rightside .buttonContainer{

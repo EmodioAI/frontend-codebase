@@ -41,7 +41,11 @@ function PageModal() {
 					</aside>
 					<aside className={styles.rightside}>
 						<div className={styles.screensBox}>
-							<ScreenOne changeButton={changeButtonStatus} />
+							{step === 1 ? (
+								<ScreenOne changeButton={changeButtonStatus} />
+							) : (
+								"Screen 2"
+							)}
 						</div>
 						<div className={styles.buttonContainer}>
 							{step === 1 ? null : (

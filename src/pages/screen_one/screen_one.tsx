@@ -1,28 +1,49 @@
+import { useEffect } from "react";
 import styles from "./screen_one.module.css";
 import { FaRegKeyboard } from "react-icons/fa";
 import { MdUploadFile } from "react-icons/md";
 import { ScreenOneProps } from "./screen_one.props";
 
-function ScreenOne(props:ScreenOneProps) {
+function ScreenOne(props: ScreenOneProps) {
+    
+	useEffect(() => {
+		const checkboxOne = document.getElementById(
+			"checkbox_one"
+		) as HTMLInputElement;
+		const checkboxTwo = document.getElementById(
+			"checkbox_two"
+		) as HTMLInputElement;
 
-    //prevents a button from being checked when the other is checked
-    function handleCheckboxClick(e: React.ChangeEvent<HTMLInputElement>) {
-        const checkboxOne = document.getElementById("checkbox_one") as HTMLInputElement;
-        const checkboxTwo = document.getElementById("checkbox_two") as HTMLInputElement;
-        if (e.target.id === "checkbox_one") {
-            checkboxTwo.checked = false;
-            props.changeButton('enabled')
-            if(!checkboxOne.checked){
-                props.changeButton('disabled')
-            }
-        } else {
-            checkboxOne.checked = false;
-            props.changeButton('enabled')
-            if(!checkboxTwo.checked){
-                props.changeButton('disabled')
-            }
-        }
-    }
+		if (!checkboxOne.checked && !checkboxTwo.checked) {
+			props.changeButton("disabled");
+		}
+	}, []);
+
+	//prevents a button from being checked when the other is checked
+	function handleCheckboxClick(e: React.ChangeEvent<HTMLInputElement>) {
+		const checkboxOne = document.getElementById(
+			"checkbox_one"
+		) as HTMLInputElement;
+		const checkboxTwo = document.getElementById(
+			"checkbox_two"
+		) as HTMLInputElement;
+
+		if (e.target.id === "checkbox_one") {
+			checkboxTwo.checked = false;
+			props.changeButton("enabled");
+
+			if (!checkboxOne.checked) {
+				props.changeButton("disabled");
+			}
+		} else {
+			checkboxOne.checked = false;
+			props.changeButton("enabled");
+
+			if (!checkboxTwo.checked) {
+				props.changeButton("disabled");
+			}
+		}
+	}
 
 	return (
 		<>
@@ -35,8 +56,12 @@ function ScreenOne(props:ScreenOneProps) {
 				</div>
 				<div className={styles.lowerContent}>
 					<div>
-						<label htmlFor="checkbox_one" >
-							<input type="checkbox" id="checkbox_one" onChange={handleCheckboxClick}/>
+						<label htmlFor="checkbox_one">
+							<input
+								type="checkbox"
+								id="checkbox_one"
+								onChange={handleCheckboxClick}
+							/>
 							<span>
 								<i>
 									<FaRegKeyboard />
@@ -47,7 +72,11 @@ function ScreenOne(props:ScreenOneProps) {
 					</div>
 					<div>
 						<label htmlFor="checkbox_two">
-							<input type="checkbox" id="checkbox_two" onChange={handleCheckboxClick}/>
+							<input
+								type="checkbox"
+								id="checkbox_two"
+								onChange={handleCheckboxClick}
+							/>
 							<span>
 								<i>
 									<MdUploadFile />
