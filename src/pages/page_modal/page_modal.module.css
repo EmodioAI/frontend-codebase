@@ -48,5 +48,18 @@
     height:100%;
     float: right;
     padding:20px 30px;
-    outline: 3px solid blue;
+}
+
+.rightside .screensBox{
+    height: 85%;
+    transition: all 2s ease-in ;
+}
+
+.rightside .buttonContainer{
+    height: 15%;
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.5s ease-in-out;
 }

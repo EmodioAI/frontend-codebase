@@ -20,13 +20,13 @@
 
 .next {
 	color: #003af0;
-	box-shadow: 3px 3px 16px -1px rgba(10, 99, 169, 0.2),
+	box-shadow: 3px 3px 16px -1px rgba(10, 99, 169, 0.3),
 		-10px -10px 10px -1px rgba(255, 255, 255, 0.9);
 }
 
 .prev {
 	color: #f0007e;
-	box-shadow: inset 3px 3px 16px -1px rgba(10, 99, 169, 0.2),
+	box-shadow: inset 3px 3px 16px -1px rgba(10, 99, 169, 0.3),
 		inset -10px -10px 10px -1px rgba(255, 255, 255, 0.9);
 }
 

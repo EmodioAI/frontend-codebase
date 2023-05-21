@@ -57,3 +57,22 @@ describe('PageModal component', () => {
   });
 }
 );
+
+//checks if status of navigation button changes with button click
+describe('PageModal component', () => {
+  it('should change status of navigation button when a button is clicked', () => {
+
+    const {getByTestId}= render(<PageModal />);
+
+    const navButton = getByTestId('nav-button')
+
+    //click on the button
+    fireEvent.click(navButton)
+    fireEvent.click(navButton)
+
+    const navButtonClassName = navButton.className;
+
+    expect(navButtonClassName).toContain('inactive')
+
+  });
+});

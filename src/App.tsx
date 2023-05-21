@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import PageModal from './general_components/page_modal/page_modal'
+import PageModal from './pages/page_modal/page_modal'
 
 function App():JSX.Element {
   return (
