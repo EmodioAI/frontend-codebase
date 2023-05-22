@@ -1,17 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Poppins:wght@300&family=Roboto:wght@300&display=swap');
-*{
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Poppins:wght@300&family=Roboto:wght@300&display=swap");
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
-
 :root {
-  --Background_Colour:#ebeef1;
-  --Main_Colour:#9400EF;
-  --Tint_One:#F0D8FF;
-  --Tint_Two:#E1B2FF;
-  --Comfortaa:'Comfortaa', cursive;
-  --Poppins:'Poppins', sans-serif;
-  --Roboto:'Roboto', sans-serif;
+    --Background_Colour: #ebeef1;
+    --Main_Colour: #9400ef;
+    --Tint_One: #f0d8ff;
+    --Tint_Two: #e1b2ff;
+    --Comfortaa: "Comfortaa", cursive;
+    --Poppins: "Poppins", sans-serif;
+    --Roboto: "Roboto", sans-serif;
 }

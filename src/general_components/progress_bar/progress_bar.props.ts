@@ -1,8 +1,7 @@
-
-export type StepNumber = 1 | 2 | 3 | 4 ;
+export type StepNumber = 1 | 2 | 3 | 4;
 export interface ProgressBarProps {
     step: StepNumber;
-  }
+}
 
 /**
  * Structure of props to pass to a progress bar
@@ -25,7 +24,6 @@ export interface ProgressBarProps {
      * 
      * @description
      * The step prop is used to determine which step of the progress bar to display
- */ 
-  
+ */
+
 // Path: /src/general_components/progress_bar/progress_bar.tsx
-  
