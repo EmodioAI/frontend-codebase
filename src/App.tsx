@@ -1,12 +1,11 @@
-import PageModal from './pages/page_modal/page_modal'
+import PageModal from "./pages/page_modal/page_modal";
 
-function App():JSX.Element {
-  return (
-    <>
-    
-      <PageModal/>
-    </>
-  )
+function App(): JSX.Element {
+    return (
+        <>
+            <PageModal />
+        </>
+    );
 }
 
-export default App
+export default App;

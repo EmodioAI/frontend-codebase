@@ -1,61 +1,61 @@
-.container{
+.container {
     position: relative;
     width: 100%;
     height: 100vh;
-    background: linear-gradient(45deg,#d2001a,#9733ee);
+    background: linear-gradient(45deg, #d2001a, #9733ee);
     background-size: 300% 300%;
     animation: color 12s ease-in-out infinite;
 }
 
 @keyframes color {
-    0%{
+    0% {
         background-position: 0 50%;
     }
 
-    50%{
+    50% {
         background-position: 100% 50%;
     }
 
-    100%{
+    100% {
         background-position: 0 50%;
     }
 }
 
-.modal{
+.modal {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     width: 70%;
     height: 85%;
-    background:var(--Background_Colour);
+    background: var(--Background_Colour);
     border-radius: 20px;
 }
 
-.leftside{
+.leftside {
     width: 30%;
-    height:100%;
+    height: 100%;
     float: left;
-    background: #F0D8FF;
-    padding:20px 30px;
-    box-sizing:border-box;
+    background: #f0d8ff;
+    padding: 20px 30px;
+    box-sizing: border-box;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
 }
 
-.rightside{
+.rightside {
     width: 70%;
-    height:100%;
+    height: 100%;
     float: right;
-    padding:20px 30px;
+    padding: 20px 30px;
 }
 
-.rightside .screensBox{
+.rightside .screensBox {
     height: 85%;
-    transition: all 2s ease-in ;
+    transition: all 2s ease-in;
 }
 
-.rightside .buttonContainer{
+.rightside .buttonContainer {
     height: 15%;
     width: 60%;
     display: flex;
