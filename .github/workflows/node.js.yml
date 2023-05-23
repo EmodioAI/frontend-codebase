@@ -28,4 +28,6 @@ jobs:
         cache: 'npm'
         cache-dependency-path: '**/package.json'
     - run: npm install
+    - run: npm run ts-check
+    - run: npx prettier -w .
     - run: npm test
