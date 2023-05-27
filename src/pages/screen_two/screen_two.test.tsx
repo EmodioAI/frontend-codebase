@@ -1,5 +1,5 @@
 import { describe, test, expect } from "vitest";
-import { render} from "@testing-library/react";
+import { render } from "@testing-library/react";
 import ScreenTwo from "./screen_two";
 import TextEditor from "./components/text_editor/text_editor";
 
