@@ -66,3 +66,7 @@
     font-weight: 550;
     border-radius: 4px;
 }
+
+.textArea textarea::-webkit-scrollbar {
+    width: 0px;
+}
