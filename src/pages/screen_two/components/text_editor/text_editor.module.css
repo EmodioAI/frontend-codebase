@@ -1,0 +1,68 @@
+.toolBox {
+    width: 100%;
+    /* height: 40px; */
+    border-radius: 4px;
+    background-color: var(--Tint_One);
+    margin-bottom: 1.2rem;
+    padding: 5px;
+}
+
+.toolBox .box {
+    display: inline-flex;
+    padding: 0 5px;
+}
+
+.toolBox .box h4 {
+    font-size: 1.2rem;
+    color: #131c35;
+    margin: 0px;
+    padding: 10px 0px;
+    font-weight: 500;
+    margin:0 10px;
+    font-family: var(--Poppins);
+}
+
+.toolBox .first {
+    border-right: 2px solid #40576d33;
+}
+
+.toolBox input[type="number"] {
+    outline: none;
+    border: none;
+    width: 40px;
+    color: #131c35;
+    font-size: 1.2rem;
+    padding: 10px 0px;
+    margin-left: 10px;
+    border-radius: 4px;
+    background-color: var(--Tint_One);
+}
+.toolBox .second span {
+    width: 60px;
+    color: #131c35;
+    font-size: 1.2rem;
+    padding: 10px 0px;
+    margin-left: 10px;
+    font-family: var(--Poppins);
+
+}
+
+.textArea {
+    width: 100%;
+    height: 300px;
+    border-radius: 4px;
+    background-color: var(--Tint_One);
+    /* box-shadow: #00000059 0px 0.5px 5px; */
+
+}
+
+.textArea textarea{
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    outline: none;
+    border: none;
+    resize: none;
+    background-color: var(--Tint_One);
+    font-family: var(--Roboto);
+}
