@@ -4,12 +4,12 @@ import FileUpload from "./components/file_upload/file_upload";
 import styles from "./screen_two.module.css";
 import { ScreenTwoProps } from "./screen_two.props";
 
-function ScreenTwo(props:ScreenTwoProps) {
+function ScreenTwo(props: ScreenTwoProps) {
     return (
         <section data-testid="screen-two">
             <div className={styles.container}>
                 {/* <TextEditor changeButton={props.changeButton}/> */}
-                <FileUpload changeButton={props.changeButton}/>
+                <FileUpload changeButton={props.changeButton} />
             </div>
         </section>
     );

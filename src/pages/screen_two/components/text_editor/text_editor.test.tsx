@@ -5,7 +5,7 @@ import TextEditor from "./text_editor";
 // checks if Page Modal component is mounted
 describe("Text Editor", () => {
     test("should render the component", () => {
-        const { getByTestId } = render(<TextEditor changeButton={()=>{}} />);
+        const { getByTestId } = render(<TextEditor changeButton={() => {}} />);
         const component = getByTestId("text-editor");
 
         expect(component).toBeInTheDocument();
@@ -14,7 +14,7 @@ describe("Text Editor", () => {
 
 // checks if text area is typeable
 test("typing in text area", () => {
-    render(<TextEditor changeButton={()=>{}} />);
+    render(<TextEditor changeButton={() => {}} />);
     const textArea = screen.getByPlaceholderText(
         "Start typing here..."
     ) as HTMLTextAreaElement;
@@ -26,7 +26,7 @@ test("typing in text area", () => {
 
 //checks count of words
 test("counting words", () => {
-    render(<TextEditor changeButton={()=>{}}  />);
+    render(<TextEditor changeButton={() => {}} />);
     const textArea = screen.getByPlaceholderText(
         "Start typing here..."
     ) as HTMLTextAreaElement;
