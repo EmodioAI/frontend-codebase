@@ -40,6 +40,7 @@ function TextEditor() {
                             max={35}
                             ref={fontSize}
                             onChange={handlePixel}
+                            value={pixels}
                         />
                     </div>
                     <div className={`${styles.second} ${styles.box}`}>
