@@ -1,0 +1,68 @@
+.toolBox {
+    width: 100%;
+    /* height: 40px; */
+    border-radius: 4px;
+    background-color: var(--TE_Background_Color);
+    margin-bottom: 1.2rem;
+    padding: 5px;
+}
+
+.toolBox .box {
+    display: inline-flex;
+    padding: 0 5px;
+}
+
+.toolBox .box h4 {
+    font-size: 1.2rem;
+    color: var(--TE_Text_Color);
+    margin: 0px;
+    padding: 10px 0px;
+    font-weight: 590;
+    margin: 0 10px;
+    font-family: var(--Poppins);
+}
+
+.toolBox .first {
+    border-right: 2px solid var(--TE_Text_Color);
+}
+
+.toolBox input[type="number"] {
+    outline: none;
+    border: none;
+    width: 40px;
+    color: var(--TE_Text_Color);
+    font-size: 1.2rem;
+    padding: 10px 0px;
+    margin-left: 10px;
+    border-radius: 4px;
+    background-color: var(--TE_Background_Color);
+}
+.toolBox .second span {
+    width: 60px;
+    color: var(--TE_Text_Color);
+    font-size: 1.2rem;
+    padding: 10px 0px;
+    margin-left: 10px;
+    font-family: var(--Poppins);
+}
+
+.textArea {
+    width: 100%;
+    height: 300px;
+    border-radius: 4px;
+    /* box-shadow: #00000059 0px 0.5px 5px; */
+}
+
+.textArea textarea {
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    outline: none;
+    border: none;
+    resize: none;
+    background-color: var(--TE_Background_Color);
+    font-family: var(--Roboto);
+    color: var(--TE_Text_Color);
+    font-weight: 550;
+    border-radius: 4px;
+}
