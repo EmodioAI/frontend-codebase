@@ -45,7 +45,7 @@ function TextEditor() {
                     </div>
                     <div className={`${styles.second} ${styles.box}`}>
                         <h4>Word Count:</h4>
-                        <span>{wordCount}</span>
+                        <span data-testid='word-count'>{wordCount}</span>
                     </div>
                 </div>
                 <div className={styles.textArea}>
