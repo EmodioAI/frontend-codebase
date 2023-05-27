@@ -36,6 +36,9 @@ function PageModal() {
     return (
         <>
             <section className={styles.container} data-testid="page-modal">
+                <div className={styles.stars}></div>
+                <div className={styles.starsTwo}></div>
+                <div className={styles.starsThree}></div>
                 <div className={styles.modal}>
                     <aside className={styles.leftside}>
                         <ProgressBar step={step} />
