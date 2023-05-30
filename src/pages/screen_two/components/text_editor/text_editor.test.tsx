@@ -2,7 +2,7 @@ import { describe, test, expect } from "vitest";
 import { render, fireEvent, screen } from "@testing-library/react";
 import TextEditor from "./text_editor";
 
-// checks if Page Modal component is mounted
+// checks if Text Editor component is mounted
 describe("Text Editor", () => {
     test("should render the component", () => {
         const { getByTestId } = render(<TextEditor changeButton={() => {}} />);

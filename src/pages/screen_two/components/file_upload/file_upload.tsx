@@ -65,9 +65,10 @@ function FileUpload(props: ScreenTwoProps) {
             <div data-testid="file-upload" className={styles.container}>
                 <form onClick={handleFormClick}>
                     <input
+                        data-testid="input-file-uploader"
                         type="file"
                         className={styles.fileInput}
-                        accept=".pdf,.doc,.docx"
+                        accept=".pdf,.doc,.docx,.PDF"
                         hidden
                         onChange={handleFileChange}
                         ref={fileInputRef}
@@ -77,19 +78,25 @@ function FileUpload(props: ScreenTwoProps) {
                     </i>
                     <p>Browse File to Upload</p>
                     <p className={styles.formInfo}>
-                        Supported files: DOCX, DOC, PDF{" "}
+                        Supported files: DOCX, DOC, PDF
                     </p>
                 </form>
 
                 {selectedFile ? (
-                    <section className={styles.uploadedArea}>
+                    <section
+                        className={styles.uploadedArea}
+                        data-testid="upload-file-details"
+                    >
                         <li className={styles.row}>
                             <div className={styles.content}>
                                 <i>
                                     <BsFileTextFill />
                                 </i>
                                 <div className={styles.details}>
-                                    <span className={styles.name}>
+                                    <span
+                                        className={styles.name}
+                                        data-testid="file-name"
+                                    >
                                         {selectedFile.name}
                                     </span>
                                     <span className={styles.size}>
