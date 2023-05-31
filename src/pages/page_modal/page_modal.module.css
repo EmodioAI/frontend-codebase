@@ -55,6 +55,8 @@
 
 .rightside .screensBox {
     height: 85%;
+    min-height: 85%;
+    max-height: 85%;
     transition: all 2s ease-in;
 }
 
@@ -660,6 +662,7 @@
 .starsThree {
     width: 3px;
     height: 3px;
+    border-radius: 50%;
     background: transparent;
     animation: animateStars 150s linear infinite;
     box-shadow: 387px 1878px #fff, 760px 1564px #fff, 1487px 999px #fff,
@@ -701,6 +704,7 @@
     top: 2000px;
     width: 3px;
     height: 3px;
+    border-radius: 50%;
     background: transparent;
     box-shadow: 387px 1878px #fff, 760px 1564px #fff, 1487px 999px #fff,
         948px 1828px #fff, 1977px 1001px #fff, 1284px 1963px #fff,

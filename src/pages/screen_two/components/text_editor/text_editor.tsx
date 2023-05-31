@@ -1,12 +1,22 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import styles from "./text_editor.module.css";
+import { ScreenTwoProps } from "../../screen_two.props";
 
-function TextEditor() {
+function TextEditor(props: ScreenTwoProps) {
     const [pixels, setPixels] = useState<number>(17);
     const [wordCount, setWordCount] = useState<number>(0);
 
     const [inputText, setInputText] = useState<string>("");
     const fontSize = useRef<HTMLInputElement | null>(null);
+
+    useEffect(() => {
+        // Function to run once when the component mounts or page reloads
+        props.changeButton("disabled");
+        // Clean-up function (optional)
+        return () => {
+            props.changeButton("disabled");
+        };
+    }, []);
 
     //function to handle font size
     function handlePixel() {
@@ -24,7 +34,11 @@ function TextEditor() {
             const text = event.target.value;
             const words = text.trim().split(" ");
             setWordCount(words.length);
-        } else setWordCount(0);
+            props.changeButton("enabled");
+        } else {
+            setWordCount(0);
+            props.changeButton("disabled");
+        }
     }
 
     return (
@@ -45,7 +59,7 @@ function TextEditor() {
                     </div>
                     <div className={`${styles.second} ${styles.box}`}>
                         <h4>Word Count:</h4>
-                        <span>{wordCount}</span>
+                        <span data-testid="word-count">{wordCount}</span>
                     </div>
                 </div>
                 <div className={styles.textArea}>
