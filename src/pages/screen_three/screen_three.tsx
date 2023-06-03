@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import styles from "./screen_three.module.css";
-import { Item } from "./screen_three.props";
+import { Item, ScreenThreeProps } from "./screen_three.props";
 
-function ScreenThree() {
+function ScreenThree(props: ScreenThreeProps) {
     const colors = [
         "#F7AEF8",
         "#B388EB",
@@ -38,6 +38,7 @@ function ScreenThree() {
         }
 
         setEmotionColors(randomizedColors);
+        props.changeButton("enabled");
     }, []);
 
     function getColorByName(

@@ -96,7 +96,7 @@ function ProgressBar(props: ProgressBarProps) {
                         </div>
                     </li>
                     <li className={props.step >= 4 ? styles.active : ""}>
-                        <p>Download Audio</p>
+                        <p>Audio</p>
 
                         <div className={props.step >= 4 ? styles.active : ""}>
                             <i>

@@ -51,7 +51,9 @@ function PageModal() {
                             ) : step === 2 ? (
                                 <ScreenTwo changeButton={changeButtonStatus} />
                             ) : step === 3 ? (
-                                <ScreenThree />
+                                <ScreenThree
+                                    changeButton={changeButtonStatus}
+                                />
                             ) : (
                                 "Screen 4"
                             )}

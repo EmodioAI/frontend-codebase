@@ -5,7 +5,7 @@ import ScreenThree from "./screen_three";
 // checks if screen three component is mounted
 describe("Screen Three", () => {
     test("should render the component", () => {
-        const { getByTestId } = render(<ScreenThree />);
+        const { getByTestId } = render(<ScreenThree changeButton={() => {}} />);
         const component = getByTestId("screen-three");
 
         expect(component).toBeInTheDocument();
@@ -16,7 +16,9 @@ describe("Screen Three", () => {
 describe("Color display ", () => {
     test("should do color list order comparison", () => {
         // Render the component
-        const { rerender, getAllByRole } = render(<ScreenThree />);
+        const { rerender, getAllByRole } = render(
+            <ScreenThree changeButton={() => {}} />
+        );
 
         // Get the li list from the component
         const actualList = getAllByRole("listitem").map((element) => {
@@ -31,7 +33,7 @@ describe("Color display ", () => {
         });
 
         // Simulate component refresh
-        rerender(<ScreenThree />);
+        rerender(<ScreenThree changeButton={() => {}} />);
 
         // Get the li list from the component
         const notExpectedList = getAllByRole("listitem").map((element) => {
