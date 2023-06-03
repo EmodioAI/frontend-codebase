@@ -1,0 +1,59 @@
+.container {
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.descriptionBox {
+    height: 10%;
+    min-height: 10%;
+    max-height: 10%;
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.descriptionBox ul {
+    list-style: none;
+    display: flex;
+}
+
+.descriptionBox ul li {
+    padding: 8px 10px;
+    margin: 0px 4px;
+    font-family: var(--Roboto);
+    font-weight: 600;
+    border-radius: 5px;
+}
+
+.textBox {
+    height: 90%;
+    min-height: 90%;
+    max-height: 90%;
+    width: 85%;
+    overflow-y: scroll;
+}
+
+.textBox::-webkit-scrollbar {
+    width: 5px;
+}
+
+.textBox::-webkit-scrollbar-thumb {
+    background-color: #fff;
+    border-radius: 20px;
+}
+
+.textBox::-webkit-scrollbar-track {
+    background-color: rgb(216, 215, 215);
+}
+
+.paragraph {
+    height: fit-content;
+    font-size: 1rem;
+    font-family: var(--Poppins);
+}

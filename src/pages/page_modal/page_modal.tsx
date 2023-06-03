@@ -6,6 +6,7 @@ import { StepNumber } from "../../general_components/progress_bar/progress_bar.p
 import ScreenOne from "../screen_one/screen_one";
 import { NavButtonStatus } from "../../general_components/navigation_button/navigation_button.props";
 import ScreenTwo from "../screen_two/screen_two";
+import ScreenThree from "../screen_three/screen_three";
 
 function PageModal() {
     // state to keep track of the step
@@ -49,8 +50,12 @@ function PageModal() {
                                 <ScreenOne changeButton={changeButtonStatus} />
                             ) : step === 2 ? (
                                 <ScreenTwo changeButton={changeButtonStatus} />
+                            ) : step === 3 ? (
+                                <ScreenThree
+                                    changeButton={changeButtonStatus}
+                                />
                             ) : (
-                                "Screen 3"
+                                "Screen 4"
                             )}
                         </div>
                         <div className={styles.buttonContainer}>
