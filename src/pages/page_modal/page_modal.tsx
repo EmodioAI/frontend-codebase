@@ -7,10 +7,11 @@ import ScreenOne from "../screen_one/screen_one";
 import { NavButtonStatus } from "../../general_components/navigation_button/navigation_button.props";
 import ScreenTwo from "../screen_two/screen_two";
 import ScreenThree from "../screen_three/screen_three";
+import ScreenFour from "../screen_four/screen_four";
 
 function PageModal() {
     // state to keep track of the step
-    const [step, setStep] = useState<StepNumber>(1);
+    const [step, setStep] = useState<StepNumber>(4);
 
     //state to keep track of the button status
     const [buttonStatus, setButtonStatus] =
@@ -54,13 +55,21 @@ function PageModal() {
                                 <ScreenThree
                                     changeButton={changeButtonStatus}
                                 />
-                            ) : (
-                                "Screen 4"
-                            )}
+                            ) : step == 4 ? (
+                                <ScreenFour changeButton={changeButtonStatus} />
+                            ) : null}
                         </div>
                         <div className={styles.buttonContainer}>
-                            {step === 1 ? null : (
+                            {step === 1 ? null : step == 4 ? (
                                 <NavButton
+                                    text="Previous"
+                                    type={"previous"}
+                                    status={buttonStatus}
+                                    onClick={() => changeStep("prev")}
+                                />
+                            ) : (
+                                <NavButton
+                                    text="Previous"
                                     type={"previous"}
                                     status={"enabled"}
                                     onClick={() => changeStep("prev")}
@@ -68,6 +77,7 @@ function PageModal() {
                             )}
                             {step === 4 ? null : (
                                 <NavButton
+                                    text="Next"
                                     type={"next"}
                                     status={buttonStatus}
                                     onClick={() => changeStep("next")}

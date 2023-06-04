@@ -14,7 +14,7 @@ function NavButton(props: NavigationButtonProps) {
                     data-testid="nav-button"
                     onClick={props.onClick}
                 >
-                    <span className={styles.text}>Next</span>
+                    <span className={styles.text}>{props.text}</span>
                     <i>
                         <HiOutlineArrowNarrowRight />
                     </i>
@@ -30,7 +30,7 @@ function NavButton(props: NavigationButtonProps) {
                     <i>
                         <HiOutlineArrowNarrowLeft />
                     </i>
-                    <span className={styles.text}>Previous</span>
+                    <span className={styles.text}>{props.text}</span>
                 </button>
             )}
         </>
