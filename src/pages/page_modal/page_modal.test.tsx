@@ -31,10 +31,10 @@ describe("PageModal component", () => {
 //checks if step number changes with button click
 describe("PageModal component", () => {
     it("should change step number when a button is clicked", () => {
-        const { getByTestId, getByText } = render(<PageModal />);
+        const { getByTestId, getAllByTestId } = render(<PageModal />);
 
         const valueElement_one = getByTestId("step-number");
-        const navButton = getByText("Next");
+        const navButton = getAllByTestId("nav-button")[1];
 
         // Retrieve the value from the element before clicking
         const valueOne = valueElement_one.textContent;
@@ -50,5 +50,3 @@ describe("PageModal component", () => {
         expect(valueOne).not.toBe(valueTwo);
     });
 });
-
-

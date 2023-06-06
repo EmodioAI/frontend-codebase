@@ -6,7 +6,12 @@ import NavButton from "./navigation_button";
 describe("Navigation button ", () => {
     test("should render the component", () => {
         const { getByTestId } = render(
-            <NavButton type="next" status="enabled" onClick={() => {}} />
+            <NavButton
+                text="Next"
+                type="next"
+                status="enabled"
+                onClick={() => {}}
+            />
         );
         const component = getByTestId("nav-button");
 
@@ -18,7 +23,12 @@ describe("Navigation button ", () => {
 describe("Navigation button ", () => {
     it("should render the component", () => {
         const { getByTestId } = render(
-            <NavButton type="next" status="enabled" onClick={() => {}} />
+            <NavButton
+                text="Next"
+                type="next"
+                status="enabled"
+                onClick={() => {}}
+            />
         );
         const component = getByTestId("nav-button");
 
