@@ -11,7 +11,7 @@ import ScreenFour from "../screen_four/screen_four";
 
 function PageModal() {
     // state to keep track of the step
-    const [step, setStep] = useState<StepNumber>(4);
+    const [step, setStep] = useState<StepNumber>(2);
 
     //state to keep track of the button status
     const [buttonStatus, setButtonStatus] =
