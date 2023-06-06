@@ -85,12 +85,12 @@ function ScreenFour(props: ScreenFourProps) {
 
     return (
         <>
-            <section className={styles.container} data-testid='screen-four'>
+            <section className={styles.container} data-testid="screen-four">
                 <div className={styles.title}>
                     <h3>Listen with different preferences.</h3>
                 </div>
                 <div
-                    data-testid='active-page-box'
+                    data-testid="active-page-box"
                     className={
                         changePage === "page_one"
                             ? styles.box_one
@@ -105,7 +105,7 @@ function ScreenFour(props: ScreenFourProps) {
                             handleAudioEnded();
                             setProgress(0);
                         }}
-                        data-testid='play-button'
+                        data-testid="play-button"
                     >
                         <i>
                             <GoPlay />
