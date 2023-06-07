@@ -13,7 +13,7 @@ describe("Navigation button ", () => {
                 onClick={() => {}}
             />
         );
-        const component = getByTestId("nav-button");
+        const component = getByTestId("nav-button-one");
 
         expect(component).toBeInTheDocument();
     });
@@ -21,7 +21,7 @@ describe("Navigation button ", () => {
 
 //checks if the correct type of button is rendered
 describe("Navigation button ", () => {
-    it("should render the component", () => {
+    it("should render the specified button component", () => {
         const { getByTestId } = render(
             <NavButton
                 text="Next"
@@ -30,7 +30,7 @@ describe("Navigation button ", () => {
                 onClick={() => {}}
             />
         );
-        const component = getByTestId("nav-button");
+        const component = getByTestId("nav-button-one");
 
         expect(component).toHaveTextContent("Next");
     });

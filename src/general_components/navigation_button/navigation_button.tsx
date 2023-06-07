@@ -11,7 +11,7 @@ function NavButton(props: NavigationButtonProps) {
                     className={`${styles.button} ${styles.next} ${
                         props.status === "enabled" ? null : styles.inactive
                     }`}
-                    data-testid="nav-button"
+                    data-testid="nav-button-one"
                     onClick={props.onClick}
                 >
                     <span className={styles.text}>{props.text}</span>
@@ -24,7 +24,7 @@ function NavButton(props: NavigationButtonProps) {
                     className={`${styles.button} ${styles.prev} ${
                         props.status === "enabled" ? null : styles.inactive
                     }`}
-                    data-testid="nav-button"
+                    data-testid="nav-button-two"
                     onClick={props.onClick}
                 >
                     <i>

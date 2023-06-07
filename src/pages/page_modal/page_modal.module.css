@@ -758,11 +758,11 @@
     }
 
     .leftside {
-        width: 30%;
+        width: 35%;
     }
 
     .rightside {
-        width: 70%;
+        width: 65%;
     }
 
     .rightside .screensBox {
@@ -783,7 +783,7 @@
     }
 
     .modal {
-        width: 85%;
+        width: 80%;
         height: 80%;
     }
 
@@ -837,14 +837,13 @@
     }
 }
 
-
 @media (min-width: 1024px) and (max-width: 1199px) {
     .container {
         background-size: 200% 200%;
     }
 
     .modal {
-        width: 85%;
+        width: 75%;
         height: 80%;
     }
 
@@ -864,11 +863,9 @@
 
     .rightside .buttonContainer {
         height: 15%;
-        width: 60%;
+        width: 100%;
     }
 }
-
-
 
 @media (min-width: 800px) and (max-width: 1023px) {
     .container {
@@ -896,10 +893,9 @@
 
     .rightside .buttonContainer {
         height: 15%;
-        width: 60%;
+        width: 100%;
     }
 }
-
 
 @media (min-width: 500px) and (max-width: 799px) {
     .container {
@@ -914,13 +910,11 @@
     .leftside {
         width: 40%;
         padding: 0.6rem 0.9rem;
-
     }
 
     .rightside {
         width: 60%;
         padding: 0.6rem 0.9rem;
-
     }
 
     .rightside .screensBox {
@@ -931,10 +925,9 @@
 
     .rightside .buttonContainer {
         height: 15%;
-        width: 60%;
+        width: 100%;
     }
 }
-
 
 @media screen and (max-width: 499px) {
     .container {
@@ -945,19 +938,16 @@
         width: 95%;
         height: 90%;
         border-radius: 10px;
-
     }
 
     .leftside {
         width: 40%;
         padding: 0.6rem 0.9rem;
-
     }
 
     .rightside {
         width: 60%;
         padding: 0.6rem 0.9rem;
-
     }
 
     .rightside .screensBox {
@@ -968,6 +958,6 @@
 
     .rightside .buttonContainer {
         height: 15%;
-        width: 60%;
+        width: 100%;
     }
 }

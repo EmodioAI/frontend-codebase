@@ -162,9 +162,7 @@
         line-height: 40px;
         z-index: 10;
     }
-
 }
-
 
 @media (min-width: 1500px) and (max-width: 1899px) {
     .leftHeading {
@@ -260,76 +258,73 @@
     }
 }
 
-
 @media (min-width: 1024px) and (max-width: 1199px) {
     .leftHeading {
-        font-size: 2.4rem;
+        font-size: 2rem;
     }
     .stepsContent {
         margin-top: 20px;
     }
     .stepsContent h3 {
-        font-size: 1.5rem;
+        font-size: 1.1rem;
     }
     .stepsContent p {
-        font-size: 1.3rem;
+        font-size: 1rem;
         margin-top: 10px;
-        height: 4rem;
-        max-height: 4rem;
+        height: 3rem;
+        max-height: 3rem;
     }
 
     .progressBar {
         margin-top: 30px;
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 
     .progressBar li div {
-        width: 40px;
-        height: 40px;
+        width: 30px;
+        height: 30px;
         line-height: 30px;
-        margin: 21px 20px 20px 20px;
+        margin: 11px 20px 20px 20px;
     }
 
     .progressBar li p {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
     .progressBar li div::after {
-        height: 5.6rem;
+        height: 3.8rem;
         width: 0.225rem;
         z-index: 1;
         bottom: -1px;
     }
 
     .progressBar li div::before {
-        width: 40px;
-        height: 40px;
+        width: 30px;
+        height: 30px;
         line-height: 30px;
         z-index: 10;
     }
-
 }
-
 
 @media (min-width: 800px) and (max-width: 1023px) {
     .leftHeading {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
     .stepsContent {
-        margin-top: 30px;
+        margin-top: 20px;
     }
     .stepsContent h3 {
-        font-size: 1.4rem;
+        font-size: 1rem;
     }
     .stepsContent p {
-        font-size: 1rem;
-        margin-top: 30px;
+        font-size: 0.9rem;
+        margin-top: 20px;
         height: 3rem;
         max-height: 3rem;
     }
 
     .progressBar {
-        margin-top: 40px;
-        font-size: 1.2rem;
+        margin-top: 20px;
+        font-size: 1rem;
     }
 
     .progressBar li div {
@@ -355,9 +350,7 @@
         line-height: 30px;
         z-index: 10;
     }
-
 }
-
 
 @media (min-width: 500px) and (max-width: 799px) {
     .leftHeading {
@@ -404,12 +397,15 @@
         line-height: 30px;
         z-index: 10;
     }
-
 }
 
 @media screen and (max-width: 499px) {
+    .leftside {
+        padding: 0.2rem 0.1rem;
+    }
+
     .leftHeading {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
     .stepsContent {
         margin-top: 30px;
@@ -425,13 +421,13 @@
     }
 
     .progressBar {
-        margin-top: 20px;
-        font-size: 0.7rem;
+        margin-top: 10px;
+        font-size: 0.9rem;
     }
 
     .progressBar li div {
-        width: 20px;
-        height: 20px;
+        width: 1.8rem;
+        height: 1.8rem;
         line-height: 30px;
         margin: 21px 0px 20px 10px;
     }
@@ -440,17 +436,16 @@
         font-size: 0.6rem;
     }
     .progressBar li div::after {
-        height: 3.8rem;
-        width: 0.225rem;
+        height: 4.4rem;
+        width: 0.155rem;
         z-index: 1;
         bottom: -1px;
     }
 
     .progressBar li div::before {
-        width: 20px;
-        height: 20px;
+        width: 1.8rem;
+        height: 1.8rem;
         line-height: 30px;
         z-index: 10;
     }
-
 }
