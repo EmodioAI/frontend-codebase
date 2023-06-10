@@ -1,11 +1,17 @@
 import { describe, test, expect } from "vitest";
 import { render } from "@testing-library/react";
 import PageModal from "./page_modal";
+import { Provider } from "react-redux";
+import store from "../../store/store";
 
 // checks if Page Modal component is mounted
 describe("Page Modal", () => {
     test("should render the component", () => {
-        const { getByTestId } = render(<PageModal />);
+        const { getByTestId } = render(
+            <Provider store={store}>
+                <PageModal />
+            </Provider>
+        );
         const component = getByTestId("page-modal");
 
         expect(component).toBeInTheDocument();
@@ -15,7 +21,9 @@ describe("Page Modal", () => {
 // checks if Progress bar component is mounted with right step number
 describe("PageModal component", () => {
     it("should render progress bar with a step number", () => {
-        const { getByTestId } = render(<PageModal />);
+        const { getByTestId } = render ( <Provider store={store}>
+        <PageModal />
+    </Provider>);
 
         const valueElement = getByTestId("step-number");
         const progressBar = getByTestId("progress-bar");

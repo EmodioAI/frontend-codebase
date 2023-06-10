@@ -9,15 +9,18 @@ function FileUpload(props: ScreenTwoProps) {
     const fileInputRef = useRef<HTMLInputElement>(null);
 
     useEffect(() => {
-        // Function to run once when the component mounts or page reloads
-        if (selectedFile) {
+        // Function to run when the selectedFile state changes
+        if (!selectedFile) {
             props.changeButton("disabled");
+        } else {
+            props.changeButton("enabled");
         }
+
         // Clean-up function (optional)
         return () => {
             props.changeButton("disabled");
         };
-    }, []);
+    }, [selectedFile]);
 
     const handleFormClick = () => {
         if (fileInputRef.current) {
@@ -41,7 +44,7 @@ function FileUpload(props: ScreenTwoProps) {
             } else {
                 // File is rejected
                 alert("Invalid file type. Please select a PDF or DOC file.");
-                props.changeButton("enabled");
+                props.changeButton("disabled");
             }
         }
     };
