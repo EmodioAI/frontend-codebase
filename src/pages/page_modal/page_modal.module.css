@@ -2,11 +2,8 @@
     position: relative;
     width: 100%;
     height: 100vh;
-    /* background: linear-gradient(45deg, #d2001a, #9733ee); */
-    /* background: #202731; */
     background: radial-gradient(ellipse at bottom, #d2001a 0%, #9733ee 100%);
     background-size: 300% 300%;
-    /* animation: color 12s ease-in-out infinite; */
     overflow: hidden;
 }
 
@@ -745,5 +742,222 @@
     }
     100% {
         transform: translateY(-2000px);
+    }
+}
+
+/* Media Queries */
+
+@media screen and (min-width: 1900px) {
+    .container {
+        background-size: 200% 200%;
+    }
+
+    .modal {
+        width: 1200px;
+        height: 1000px;
+    }
+
+    .leftside {
+        width: 35%;
+    }
+
+    .rightside {
+        width: 65%;
+    }
+
+    .rightside .screensBox {
+        height: 85%;
+        min-height: 85%;
+        max-height: 85%;
+    }
+
+    .rightside .buttonContainer {
+        height: 15%;
+        width: 60%;
+    }
+}
+
+@media (min-width: 1500px) and (max-width: 1899px) {
+    .container {
+        background-size: 200% 200%;
+    }
+
+    .modal {
+        width: 80%;
+        height: 80%;
+    }
+
+    .leftside {
+        width: 33%;
+    }
+
+    .rightside {
+        width: 66%;
+    }
+
+    .rightside .screensBox {
+        height: 85%;
+        min-height: 85%;
+        max-height: 85%;
+    }
+
+    .rightside .buttonContainer {
+        height: 15%;
+        width: 60%;
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1499px) {
+    .container {
+        background-size: 200% 200%;
+    }
+
+    .modal {
+        width: 70%;
+        height: 80%;
+    }
+
+    .leftside {
+        width: 30%;
+    }
+
+    .rightside {
+        width: 70%;
+    }
+
+    .rightside .screensBox {
+        height: 85%;
+        min-height: 85%;
+        max-height: 85%;
+    }
+
+    .rightside .buttonContainer {
+        height: 15%;
+        width: 60%;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1199px) {
+    .container {
+        background-size: 200% 200%;
+    }
+
+    .modal {
+        width: 75%;
+        height: 80%;
+    }
+
+    .leftside {
+        width: 35%;
+    }
+
+    .rightside {
+        width: 65%;
+    }
+
+    .rightside .screensBox {
+        height: 85%;
+        min-height: 85%;
+        max-height: 85%;
+    }
+
+    .rightside .buttonContainer {
+        height: 15%;
+        width: 100%;
+    }
+}
+
+@media (min-width: 800px) and (max-width: 1023px) {
+    .container {
+        background-size: 200% 200%;
+    }
+
+    .modal {
+        width: 90%;
+        height: 90%;
+    }
+
+    .leftside {
+        width: 35%;
+    }
+
+    .rightside {
+        width: 65%;
+    }
+
+    .rightside .screensBox {
+        height: 85%;
+        min-height: 85%;
+        max-height: 85%;
+    }
+
+    .rightside .buttonContainer {
+        height: 15%;
+        width: 100%;
+    }
+}
+
+@media (min-width: 500px) and (max-width: 799px) {
+    .container {
+        background-size: 200% 200%;
+    }
+
+    .modal {
+        width: 95%;
+        height: 90%;
+    }
+
+    .leftside {
+        width: 40%;
+        padding: 0.6rem 0.9rem;
+    }
+
+    .rightside {
+        width: 60%;
+        padding: 0.6rem 0.9rem;
+    }
+
+    .rightside .screensBox {
+        height: 85%;
+        min-height: 85%;
+        max-height: 85%;
+    }
+
+    .rightside .buttonContainer {
+        height: 15%;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 499px) {
+    .container {
+        background-size: 200% 200%;
+    }
+
+    .modal {
+        width: 95%;
+        height: 90%;
+        border-radius: 10px;
+    }
+
+    .leftside {
+        width: 40%;
+        padding: 0.6rem 0.9rem;
+    }
+
+    .rightside {
+        width: 60%;
+        padding: 0.6rem 0.9rem;
+    }
+
+    .rightside .screensBox {
+        height: 85%;
+        min-height: 85%;
+        max-height: 85%;
+    }
+
+    .rightside .buttonContainer {
+        height: 15%;
+        width: 100%;
     }
 }

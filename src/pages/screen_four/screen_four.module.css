@@ -188,3 +188,363 @@
     transition: all 1s linear;
     height: 100%;
 }
+
+/* Media Queries */
+
+@media screen and (min-width: 1900px) {
+    .container {
+        height: 100%;
+        padding: 20px;
+    }
+
+    .title {
+        font-size: 1.8rem;
+    }
+
+    .box_one {
+        width: 60%;
+        height: 60%;
+        left: 450px;
+        overflow: auto;
+    }
+    .box_two {
+        width: 60%;
+        height: 60%;
+        left: 450px;
+        overflow: auto;
+        left: 500%;
+    }
+
+    /* Buuton Box */
+    .buttonBox {
+        padding: 0.6rem 1.1rem;
+        width: 12rem;
+        font-size: 1.6rem;
+    }
+
+    /* Audio box */
+
+    .audioBox {
+        height: 200px;
+        margin-top: 100px;
+    }
+
+    .player {
+        width: 600px;
+        height: 80px;
+    }
+
+    .playBtn {
+        font-size: 30px;
+        padding: 15px;
+    }
+
+    .info {
+        font-size: 1.7rem;
+    }
+    .current {
+        font-size: 20px;
+    }
+}
+
+@media (min-width: 1500px) and (max-width: 1899px) {
+    .container {
+        height: 100%;
+        padding: 20px;
+    }
+
+    .title {
+        font-size: 1.8rem;
+    }
+
+    .box_one {
+        width: 60%;
+        height: 60%;
+        left: 450px;
+        overflow: auto;
+    }
+    .box_two {
+        width: 60%;
+        height: 60%;
+        left: 450px;
+        overflow: auto;
+        left: 500%;
+    }
+
+    /* Buuton Box */
+    .buttonBox {
+        padding: 0.6rem 1.1rem;
+        width: 12rem;
+        font-size: 1.6rem;
+    }
+
+    /* Audio box */
+
+    .audioBox {
+        height: 200px;
+        margin-top: 100px;
+    }
+
+    .player {
+        width: 600px;
+        height: 80px;
+    }
+
+    .playBtn {
+        font-size: 30px;
+        padding: 15px;
+    }
+
+    .info {
+        font-size: 1.7rem;
+    }
+    .current {
+        font-size: 20px;
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1499px) {
+    .container {
+        height: 100%;
+        padding: 20px;
+    }
+
+    .box_one {
+        width: 60%;
+        height: 60%;
+        left: 300px;
+        overflow: auto;
+    }
+    .box_two {
+        width: 60%;
+        height: 60%;
+        left: 300px;
+        overflow: auto;
+        left: 500%;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1199px) {
+    .container {
+        height: 100%;
+        padding: 20px;
+    }
+
+    .title {
+        font-size: 1.2rem;
+    }
+
+    .box_one {
+        width: 60%;
+        height: 60%;
+        left: 290px;
+        overflow: auto;
+    }
+    .box_two {
+        width: 60%;
+        height: 60%;
+        left: 290px;
+        overflow: auto;
+        left: 500%;
+    }
+
+    /* Buuton Box */
+    .buttonBox {
+        padding: 0.6rem 1.1rem;
+        width: 10rem;
+        font-size: 1.3rem;
+    }
+
+    /* Audio box */
+
+    .audioBox {
+        height: 200px;
+        margin-top: 10px;
+    }
+
+    .player {
+        width: 600px;
+        height: 50px;
+    }
+
+    .playBtn {
+        font-size: 17px;
+        padding: 0px;
+    }
+
+    .info {
+        font-size: 1rem;
+    }
+    .current {
+        font-size: 15px;
+    }
+}
+
+@media (min-width: 800px) and (max-width: 1023px) {
+    .container {
+        height: 100%;
+        padding: 20px;
+    }
+
+    .title {
+        font-size: 1rem;
+    }
+
+    .box_one {
+        width: 60%;
+        height: 60%;
+        left: 40%;
+        overflow: auto;
+    }
+    .box_two {
+        width: 60%;
+        height: 60%;
+        left: 40%;
+        overflow: auto;
+        left: 500%;
+    }
+
+    /* Buuton Box */
+    .buttonBox {
+        padding: 0.5rem 1.1rem;
+        width: 10rem;
+        font-size: 1.2rem;
+    }
+
+    /* Audio box */
+
+    .audioBox {
+        height: 200px;
+        margin-top: 10px;
+    }
+
+    .player {
+        width: 600px;
+        height: 50px;
+    }
+
+    .playBtn {
+        font-size: 17px;
+        padding: 0px;
+    }
+
+    .info {
+        font-size: 1rem;
+    }
+    .current {
+        font-size: 15px;
+    }
+}
+
+@media (min-width: 500px) and (max-width: 799px) {
+    .container {
+        height: 100%;
+        padding: 5px;
+    }
+
+    .title {
+        font-size: 0.7rem;
+    }
+
+    .box_one {
+        width: 60%;
+        height: 60%;
+        left: 40%;
+        overflow: auto;
+    }
+    .box_two {
+        width: 60%;
+        height: 60%;
+        left: 40%;
+        overflow: auto;
+        left: 500%;
+    }
+
+    /* Buuton Box */
+    .buttonBox {
+        padding: 0.5rem 1.1rem;
+        width: 7rem;
+        font-size: 0.9rem;
+    }
+
+    /* Audio box */
+
+    .audioBox {
+        height: 200px;
+        margin-top: 10px;
+    }
+
+    .player {
+        width: 300px;
+        height: 50px;
+    }
+
+    .playBtn {
+        font-size: 15px;
+        padding: 0px;
+    }
+
+    .info {
+        font-size: 0.7rem;
+    }
+    .current {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 499px) {
+    .container {
+        height: 100%;
+        padding: 5px;
+    }
+
+    .title {
+        font-size: 0.6rem;
+    }
+
+    .box_one {
+        width: 60%;
+        height: 60%;
+        left: 40%;
+        overflow: auto;
+    }
+    .box_two {
+        width: 60%;
+        height: 60%;
+        left: 40%;
+        overflow: auto;
+        left: 500%;
+    }
+
+    /* Buuton Box */
+    .buttonBox {
+        padding: 0.5rem 1.1rem;
+        width: 6rem;
+        font-size: 0.7rem;
+    }
+
+    /* Audio box */
+
+    .audioBox {
+        height: 200px;
+        margin-top: 10px;
+    }
+
+    .player {
+        width: 300px;
+        height: 40px;
+        padding: 2px 10px;
+    }
+
+    .playBtn {
+        font-size: 10px;
+        padding: 0px;
+    }
+
+    .info {
+        font-size: 0.6rem;
+    }
+    .current {
+        font-size: 10px;
+    }
+}

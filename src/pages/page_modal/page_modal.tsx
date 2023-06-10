@@ -8,10 +8,17 @@ import { NavButtonStatus } from "../../general_components/navigation_button/navi
 import ScreenTwo from "../screen_two/screen_two";
 import ScreenThree from "../screen_three/screen_three";
 import ScreenFour from "../screen_four/screen_four";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../store/store";
+import { setPageStep } from "../../store/actions";
 
 function PageModal() {
+    //get state from store
+    const dispatch = useDispatch();
+    const pageStep = useSelector((state: RootState) => state.page_step);
+
     // state to keep track of the step
-    const [step, setStep] = useState<StepNumber>(4);
+    const [step, setStep] = useState<StepNumber>(pageStep);
 
     //state to keep track of the button status
     const [buttonStatus, setButtonStatus] =
@@ -20,13 +27,21 @@ function PageModal() {
     // function to change step based on the button clicked
     function changeStep(value: string) {
         if (value === "next") {
-            setStep((prev: StepNumber) =>
-                prev === 4 ? 4 : ((prev + 1) as StepNumber)
-            );
+            setStep((prev: StepNumber) => {
+                var value: StepNumber;
+                prev === 4 ? (value = 4) : (value = (prev + 1) as StepNumber);
+                dispatch(setPageStep(value));
+
+                return value;
+            });
         } else {
-            setStep((prev: StepNumber) =>
-                prev === 1 ? 1 : ((prev - 1) as StepNumber)
-            );
+            setStep((prev: StepNumber) => {
+                prev === 1 ? 1 : ((prev - 1) as StepNumber);
+                var value: StepNumber;
+                prev === 1 ? (value = 1) : (value = (prev - 1) as StepNumber);
+                dispatch(setPageStep(value));
+                return value;
+            });
         }
     }
 

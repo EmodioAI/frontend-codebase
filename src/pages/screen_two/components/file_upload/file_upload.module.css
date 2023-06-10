@@ -85,3 +85,258 @@ section .details span.name {
     font-size: 15px;
     color: #6990f2;
 }
+
+/* Media Queries */
+
+@media screen and (min-width: 1900px) {
+    .container {
+        width: 100%;
+    }
+
+    .container form {
+        height: 400px;
+    }
+
+    .container form i {
+        font-size: 6rem;
+    }
+
+    .container form p {
+        font-size: 1.8rem;
+    }
+    .container form p.formInfo {
+        font-size: 1rem;
+    }
+
+    section .row {
+        margin: 40px 0;
+        padding: 30px 20px;
+        border-radius: 5px;
+    }
+
+    section .row i {
+        font-size: 1.5rem;
+    }
+
+    section .details span {
+        font-size: 1.4rem;
+    }
+    section .details span.name {
+        width: 550px;
+    }
+
+    .uploadedArea .row .details {
+        margin-left: 15px;
+    }
+
+    .uploadedArea .details .size {
+        font-size: 20px;
+    }
+
+    .uploadedArea i {
+        font-size: 20px;
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1499px) {
+    .container {
+        width: 100%;
+    }
+
+    .container form {
+        height: 200px;
+    }
+
+    .container form i {
+        font-size: 4rem;
+    }
+
+    .container form p {
+        font-size: 1.3rem;
+    }
+    .container form p.formInfo {
+        font-size: 1rem;
+    }
+
+    section .row {
+        margin: 40px 0;
+        padding: 10px 20px;
+        border-radius: 5px;
+    }
+
+    section .row i {
+        font-size: 1rem;
+    }
+
+    section .details span {
+        font-size: 1rem;
+    }
+    section .details span.name {
+        width: 350px;
+    }
+
+    .uploadedArea .row .details {
+        margin-left: 15px;
+    }
+
+    .uploadedArea .details .size {
+        font-size: 15px;
+    }
+
+    .uploadedArea i {
+        font-size: 15px;
+    }
+}
+
+@media (min-width: 800px) and (max-width: 1023px) {
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .container form {
+        height: 200px;
+    }
+
+    .container form i {
+        font-size: 4rem;
+    }
+
+    .container form p {
+        font-size: 1.3rem;
+    }
+    .container form p.formInfo {
+        font-size: 1rem;
+    }
+
+    section .row {
+        margin: 40px 0;
+        padding: 10px 20px;
+        border-radius: 5px;
+    }
+
+    section .row i {
+        font-size: 0.8rem;
+    }
+
+    section .details span {
+        font-size: 0.8rem;
+    }
+    section .details span.name {
+        width: 300px;
+    }
+
+    .uploadedArea .row .details {
+        margin-left: 12px;
+    }
+
+    .uploadedArea .details .size {
+        font-size: 12px;
+    }
+
+    .uploadedArea i {
+        font-size: 12px;
+    }
+}
+
+@media (min-width: 500px) and (max-width: 799px) {
+    .container {
+        width: 100%;
+        padding: 5px;
+    }
+
+    .container form {
+        height: 200px;
+    }
+
+    .container form i {
+        font-size: 3rem;
+    }
+
+    .container form p {
+        font-size: 1rem;
+    }
+    .container form p.formInfo {
+        font-size: 0.7rem;
+    }
+
+    section .row {
+        margin: 50px 0;
+        padding: 5px 5px;
+        border-radius: 5px;
+    }
+
+    section .row i {
+        font-size: 0.8rem;
+    }
+
+    section .details span {
+        font-size: 0.5rem;
+    }
+    section .details span.name {
+        width: 200px;
+    }
+
+    .uploadedArea .row .details {
+        margin-left: 10px;
+    }
+
+    .uploadedArea .details .size {
+        font-size: 10px;
+    }
+
+    .uploadedArea i {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 499px) {
+    .container {
+        width: 100%;
+        padding: 5px;
+    }
+
+    .container form {
+        height: 200px;
+    }
+
+    .container form i {
+        font-size: 3rem;
+    }
+
+    .container form p {
+        font-size: 0.9rem;
+    }
+    .container form p.formInfo {
+        font-size: 0.5rem;
+    }
+
+    section .row {
+        margin: 50px 0;
+        padding: 5px 5px;
+        border-radius: 5px;
+    }
+
+    section .row i {
+        font-size: 0.6rem;
+    }
+
+    section .details span {
+        font-size: 0.5rem;
+    }
+    section .details span.name {
+        width: 100px;
+    }
+
+    .uploadedArea .row .details {
+        margin-left: 8px;
+    }
+
+    .uploadedArea .details .size {
+        font-size: 8px;
+    }
+
+    .uploadedArea i {
+        font-size: 10px;
+    }
+}

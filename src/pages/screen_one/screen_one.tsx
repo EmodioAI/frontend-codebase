@@ -3,8 +3,12 @@ import styles from "./screen_one.module.css";
 import { FaRegKeyboard } from "react-icons/fa";
 import { MdUploadFile } from "react-icons/md";
 import { ScreenOneProps } from "./screen_one.props";
+import { useDispatch } from "react-redux";
+import { setInputChoice } from "../../store/actions";
 
 function ScreenOne(props: ScreenOneProps) {
+    const dispatch = useDispatch();
+
     useEffect(() => {
         const checkboxOne = document.getElementById(
             "checkbox_one"
@@ -30,16 +34,20 @@ function ScreenOne(props: ScreenOneProps) {
         if (e.target.id === "checkbox_one") {
             checkboxTwo.checked = false;
             props.changeButton("enabled");
+            dispatch(setInputChoice(1));
 
             if (!checkboxOne.checked) {
                 props.changeButton("disabled");
+                dispatch(setInputChoice(0));
             }
         } else {
             checkboxOne.checked = false;
             props.changeButton("enabled");
+            dispatch(setInputChoice(2));
 
             if (!checkboxTwo.checked) {
                 props.changeButton("disabled");
+                dispatch(setInputChoice(0));
             }
         }
     }

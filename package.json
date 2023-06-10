@@ -10,13 +10,16 @@
         "preview": "vite preview",
         "test": "vitest",
         "prepare": "husky install",
-        "ts-check":"tsc --noEmit"
+        "ts-check": "tsc --noEmit"
     },
     "dependencies": {
+        "@reduxjs/toolkit": "^1.9.5",
         "prettier": "^2.8.8",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
-        "react-icons": "^4.8.0"
+        "react-icons": "^4.8.0",
+        "react-redux": "^8.0.7",
+        "redux-persist": "^6.0.0"
     },
     "devDependencies": {
         "@testing-library/jest-dom": "^5.16.5",
