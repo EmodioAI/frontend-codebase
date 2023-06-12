@@ -3,6 +3,8 @@ import styles from "./file_upload.module.css";
 import { FaCheck, FaCloudUploadAlt } from "react-icons/fa";
 import { BsFileTextFill } from "react-icons/bs";
 import { ScreenTwoProps } from "../../screen_two.props";
+import { getParagraphs } from "../read_files.module";
+
 
 function FileUpload(props: ScreenTwoProps) {
     const [selectedFile, setselectedFile] = useState<File>();
@@ -29,11 +31,13 @@ function FileUpload(props: ScreenTwoProps) {
     };
 
     // function to accept file input
-    const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    function handleFileChange(
+        event: React.ChangeEvent<HTMLInputElement>
+    ) {
         const file = event.target.files?.[0];
 
         if (file) {
-            const allowedExtensions = ["pdf", "doc", "docx"];
+            const allowedExtensions = ["pdf", "doc", "docx",'txt'];
             const fileExtension =
                 file.name.split(".").pop()?.toLowerCase() || "";
 
@@ -41,13 +45,32 @@ function FileUpload(props: ScreenTwoProps) {
                 // File is accepted
                 setselectedFile(file);
                 props.changeButton("enabled");
+
+                if (fileExtension === "docx" || fileExtension === "doc") {
+                    const reader = new FileReader();
+
+                    reader.onload = (event: ProgressEvent<FileReader>) => {
+                        const content = event.target?.result as string;
+                        const paragraphs = getParagraphs(content);
+                        console.log(paragraphs);
+                    };
+
+                    reader.onerror = (err) => console.error(err);
+
+                    reader.readAsBinaryString(file);
+                }
+               
+                
+                else {
+                    console.log("Unsupported file format");
+                }
             } else {
                 // File is rejected
                 alert("Invalid file type. Please select a PDF or DOC file.");
                 props.changeButton("disabled");
             }
         }
-    };
+    }
 
     //function to format file size
     function formatFileSize(sizeInBytes: number): string {

@@ -21,9 +21,11 @@ describe("Page Modal", () => {
 // checks if Progress bar component is mounted with right step number
 describe("PageModal component", () => {
     it("should render progress bar with a step number", () => {
-        const { getByTestId } = render ( <Provider store={store}>
-        <PageModal />
-    </Provider>);
+        const { getByTestId } = render(
+            <Provider store={store}>
+                <PageModal />
+            </Provider>
+        );
 
         const valueElement = getByTestId("step-number");
         const progressBar = getByTestId("progress-bar");
