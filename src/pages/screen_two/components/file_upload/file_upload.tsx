@@ -5,25 +5,30 @@ import { BsFileTextFill } from "react-icons/bs";
 import { ScreenTwoProps } from "../../screen_two.props";
 import { getParagraphs, readPDFText } from "../read_files.module";
 import { useDispatch, useSelector } from "react-redux";
-import { setUploadedFile } from "../../../../store/actions";
-import store, { RootState } from "../../../../store/store";
+import {
+    setUploadedFile,
+    setUploadedFileContent,
+} from "../../../../store/actions";
+import { RootState } from "../../../../store/store";
 
 function FileUpload(props: ScreenTwoProps) {
     const dispatch = useDispatch();
     const uploadedFile = useSelector((state: RootState) => state.file);
+    const uploadedFileContent = useSelector(
+        (state: RootState) => state.file_content
+    );
 
-    const [selectedFile, setSelectedFile] = useState<File>();
+    const [selectedFile, setSelectedFile] = useState<{
+        name: string;
+        size: number;
+    } | null>();
     const fileInputRef = useRef<HTMLInputElement>(null);
 
     useEffect(() => {
-        console.log(store.getState());
-
         //checks is file has already been uploaded after reload
-        if (uploadedFile instanceof File) {
+        if (uploadedFile?.name !== "" && uploadedFileContent.length > 0) {
             setSelectedFile(uploadedFile);
-            console.log(uploadedFile);
         }
-        console.log(uploadedFile);
     }, []);
 
     useEffect(() => {
@@ -59,12 +64,13 @@ function FileUpload(props: ScreenTwoProps) {
 
             if (allowedExtensions.includes(fileExtension)) {
                 // File is accepted
-                setSelectedFile(file);
+                const fileDetails = {
+                    name: file.name,
+                    size: file.size,
+                };
+                setSelectedFile(fileDetails);
                 // Dispatch the action
-                dispatch(setUploadedFile(file));
-                console.log(store.getState());
-
-                props.changeButton("enabled");
+                dispatch(setUploadedFile(fileDetails));
 
                 if (fileExtension === "docx" || fileExtension === "doc") {
                     const reader = new FileReader();
@@ -72,7 +78,8 @@ function FileUpload(props: ScreenTwoProps) {
                     reader.onload = (event: ProgressEvent<FileReader>) => {
                         const content = event.target?.result as string;
                         const paragraphs = getParagraphs(content);
-                        console.log(paragraphs);
+                        dispatch(setUploadedFileContent(paragraphs));
+                        props.changeButton("enabled");
                     };
 
                     reader.onerror = (err) => console.error(err);
@@ -81,6 +88,7 @@ function FileUpload(props: ScreenTwoProps) {
                 } else if (fileExtension === "pdf") {
                     const fileText = await readPDFText(file);
                     console.log(fileText);
+                    props.changeButton("enabled");
                 } else {
                     console.log("Unsupported file format");
                 }

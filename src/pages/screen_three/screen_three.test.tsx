@@ -1,11 +1,17 @@
 import { describe, test, expect } from "vitest";
 import { render } from "@testing-library/react";
 import ScreenThree from "./screen_three";
+import { Provider } from "react-redux";
+import store from "../../store/store";
 
 // checks if screen three component is mounted
 describe("Screen Three", () => {
     test("should render the component", () => {
-        const { getByTestId } = render(<ScreenThree changeButton={() => {}} />);
+        const { getByTestId } = render(
+            <Provider store={store}>
+                <ScreenThree changeButton={() => {}} />
+            </Provider>
+        );
         const component = getByTestId("screen-three");
 
         expect(component).toBeInTheDocument();
@@ -17,7 +23,9 @@ describe("Color display ", () => {
     test("should do color list order comparison", () => {
         // Render the component
         const { rerender, getAllByRole } = render(
-            <ScreenThree changeButton={() => {}} />
+            <Provider store={store}>
+                <ScreenThree changeButton={() => {}} />
+            </Provider>
         );
 
         // Get the li list from the component
@@ -33,7 +41,11 @@ describe("Color display ", () => {
         });
 
         // Simulate component refresh
-        rerender(<ScreenThree changeButton={() => {}} />);
+        rerender(
+            <Provider store={store}>
+                <ScreenThree changeButton={() => {}} />
+            </Provider>
+        );
 
         // Get the li list from the component
         const notExpectedList = getAllByRole("listitem").map((element) => {
