@@ -3,10 +3,33 @@ import styles from "./file_upload.module.css";
 import { FaCheck, FaCloudUploadAlt } from "react-icons/fa";
 import { BsFileTextFill } from "react-icons/bs";
 import { ScreenTwoProps } from "../../screen_two.props";
+import { getParagraphs, readPDFText } from "../read_files.module";
+import { useDispatch, useSelector } from "react-redux";
+import {
+    setUploadedFile,
+    setUploadedFileContent,
+} from "../../../../store/actions";
+import { RootState } from "../../../../store/store";
 
 function FileUpload(props: ScreenTwoProps) {
-    const [selectedFile, setselectedFile] = useState<File>();
+    const dispatch = useDispatch();
+    const uploadedFile = useSelector((state: RootState) => state.file);
+    const uploadedFileContent = useSelector(
+        (state: RootState) => state.file_content
+    );
+
+    const [selectedFile, setSelectedFile] = useState<{
+        name: string;
+        size: number;
+    } | null>();
     const fileInputRef = useRef<HTMLInputElement>(null);
+
+    useEffect(() => {
+        //checks is file has already been uploaded after reload
+        if (uploadedFile?.name !== "" && uploadedFileContent.length > 0) {
+            setSelectedFile(uploadedFile);
+        }
+    }, []);
 
     useEffect(() => {
         // Function to run when the selectedFile state changes
@@ -29,25 +52,53 @@ function FileUpload(props: ScreenTwoProps) {
     };
 
     // function to accept file input
-    const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    async function handleFileChange(
+        event: React.ChangeEvent<HTMLInputElement>
+    ) {
         const file = event.target.files?.[0];
 
         if (file) {
-            const allowedExtensions = ["pdf", "doc", "docx"];
+            const allowedExtensions = ["pdf", "doc", "docx", "txt"];
             const fileExtension =
                 file.name.split(".").pop()?.toLowerCase() || "";
 
             if (allowedExtensions.includes(fileExtension)) {
                 // File is accepted
-                setselectedFile(file);
-                props.changeButton("enabled");
+                const fileDetails = {
+                    name: file.name,
+                    size: file.size,
+                };
+                setSelectedFile(fileDetails);
+                // Dispatch the action
+                dispatch(setUploadedFile(fileDetails));
+
+                if (fileExtension === "docx" || fileExtension === "doc") {
+                    const reader = new FileReader();
+
+                    reader.onload = (event: ProgressEvent<FileReader>) => {
+                        const content = event.target?.result as string;
+                        const paragraphs = getParagraphs(content);
+                        dispatch(setUploadedFileContent(paragraphs));
+                        props.changeButton("enabled");
+                    };
+
+                    reader.onerror = (err) => console.error(err);
+
+                    reader.readAsBinaryString(file);
+                } else if (fileExtension === "pdf") {
+                    const fileText = await readPDFText(file);
+                    console.log(fileText);
+                    props.changeButton("enabled");
+                } else {
+                    console.log("Unsupported file format");
+                }
             } else {
                 // File is rejected
                 alert("Invalid file type. Please select a PDF or DOC file.");
                 props.changeButton("disabled");
             }
         }
-    };
+    }
 
     //function to format file size
     function formatFileSize(sizeInBytes: number): string {

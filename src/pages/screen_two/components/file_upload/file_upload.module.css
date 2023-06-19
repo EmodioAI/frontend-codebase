@@ -187,6 +187,56 @@ section .details span.name {
         font-size: 15px;
     }
 }
+@media (min-width: 1024px) and (max-width: 1199px) {
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .container form {
+        height: 200px;
+    }
+
+    .container form i {
+        font-size: 4rem;
+    }
+
+    .container form p {
+        font-size: 1.3rem;
+    }
+    .container form p.formInfo {
+        font-size: 1rem;
+    }
+
+    section .row {
+        margin: 40px 0;
+        padding: 10px 20px;
+        border-radius: 5px;
+    }
+
+    section .row i {
+        font-size: 0.8rem;
+    }
+
+    section .details span {
+        font-size: 0.8rem;
+    }
+    section .details span.name {
+        width: 300px;
+    }
+
+    .uploadedArea .row .details {
+        margin-left: 12px;
+    }
+
+    .uploadedArea .details .size {
+        font-size: 12px;
+    }
+
+    .uploadedArea i {
+        font-size: 12px;
+    }
+}
 
 @media (min-width: 800px) and (max-width: 1023px) {
     .container {

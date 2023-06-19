@@ -1,5 +1,10 @@
 import { StepNumber } from "../general_components/progress_bar/progress_bar.props";
-import { SET_INPUT_CHOICE, SET_PAGE_STEP } from "./actionTypes";
+import {
+    SET_INPUT_CHOICE,
+    SET_PAGE_STEP,
+    SET_FILE,
+    SET_FILE_CONTENT,
+} from "./actionTypes";
 
 // sets the page step
 export const setPageStep = (page_step: StepNumber) => {
@@ -14,5 +19,21 @@ export const setInputChoice = (input_choice: 0 | 1 | 2) => {
     return {
         type: SET_INPUT_CHOICE,
         payload: input_choice,
+    };
+};
+
+//sets uploaded file
+export const setUploadedFile = (file: { name: string; size: number }) => {
+    return {
+        type: SET_FILE,
+        payload: file,
+    };
+};
+
+//sets uploaded file content
+export const setUploadedFileContent = (file_content: string[]) => {
+    return {
+        type: SET_FILE_CONTENT,
+        payload: file_content,
     };
 };

@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
 import styles from "./screen_three.module.css";
 import { Item, ScreenThreeProps } from "./screen_three.props";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store/store";
 
 function ScreenThree(props: ScreenThreeProps) {
+    const fileContent = useSelector((state: RootState) => state.file_content);
+
     const colors = [
         "#F7AEF8",
         "#B388EB",
@@ -15,6 +19,7 @@ function ScreenThree(props: ScreenThreeProps) {
     ];
 
     const [emotionColors, setEmotionColors] = useState<Item[]>([]);
+    const [contents] = useState<string[]>(fileContent);
 
     useEffect(() => {
         const tempColors: string[] = [...colors];
@@ -139,66 +144,22 @@ function ScreenThree(props: ScreenThreeProps) {
                     </ul>
                 </div>
                 <div className={styles.textBox}>
-                    <div
-                        className={styles.paragraph}
-                        style={{ backgroundColor: "#F7AEF8" }}
-                    >
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Adipisci quibusdam culpa voluptatem distinctio illum
-                        ipsum similique itaque earum iste molestias!
-                    </div>
-                    <div
-                        className={styles.paragraph}
-                        style={{ backgroundColor: "#B388EB" }}
-                    >
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Quisquam sint error porro doloremque, quia harum.
-                    </div>
-                    <div
-                        className={styles.paragraph}
-                        style={{ backgroundColor: "#D8E2DC" }}
-                    >
-                        Lorem, ipsum dolor sit amet consectetur adipisicing
-                        elit. Perferendis natus laudantium veniam blanditiis,
-                        dignissimos quo dicta placeat, id nulla neque in magni!
-                        Temporibus, libero! Accusamus, ipsum.{" "}
-                    </div>
-                    <div
-                        className={styles.paragraph}
-                        style={{ backgroundColor: "#72DDF7" }}
-                    >
-                        Lorem, ipsum dolor sit amet consectetur adipisicing
-                        elit. Perferendis natus laudantium veniam blanditiis,
-                        dignissimos quo dicta placeat, id nulla neque in magni!
-                        Temporibus, libero! Accusamus, ipsum.{" "}
-                    </div>
-                    <div
-                        className={styles.paragraph}
-                        style={{ backgroundColor: "#8AEA92" }}
-                    >
-                        Lorem, ipsum dolor sit amet consectetur adipisicing
-                        elit. Perferendis natus laudantium veniam blanditiis,
-                        dignissimos quo dicta placeat, id nulla neque in magni!
-                        Temporibus, libero! Accusamus, ipsum.{" "}
-                    </div>
-                    <div
-                        className={styles.paragraph}
-                        style={{ backgroundColor: "#9BD1E5" }}
-                    >
-                        Lorem, ipsum dolor sit amet consectetur adipisicing
-                        elit. Perferendis natus laudantium veniam blanditiis,
-                        dignissimos quo dicta placeat, id nulla neque in magni!
-                        Temporibus, libero! Accusamus, ipsum.{" "}
-                    </div>
-                    <div
-                        className={styles.paragraph}
-                        style={{ backgroundColor: "#DBF4A7" }}
-                    >
-                        Lorem, ipsum dolor sit amet consectetur adipisicing
-                        elit. Perferendis natus laudantium veniam blanditiis,
-                        dignissimos quo dicta placeat, id nulla neque in magni!
-                        Temporibus, libero! Accusamus, ipsum.{" "}
-                    </div>
+                    {contents.map((paragraph: string, index: number) => {
+                        return (
+                            <div
+                                className={styles.paragraph}
+                                style={{
+                                    backgroundColor: `${getColorByName(
+                                        "neutral",
+                                        emotionColors
+                                    )}`,
+                                }}
+                                key={index}
+                            >
+                                {paragraph}
+                            </div>
+                        );
+                    })}
                 </div>
             </section>
         </>
