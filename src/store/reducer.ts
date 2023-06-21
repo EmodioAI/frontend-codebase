@@ -1,5 +1,4 @@
 import { PayloadAction } from "@reduxjs/toolkit";
-import { PURGE } from "redux-persist";
 import { StepNumber } from "../general_components/progress_bar/progress_bar.props";
 import {
     SET_PAGE_STEP,
@@ -24,9 +23,7 @@ const initialState: IState = {
 
 const Reducers = (state = initialState, action: PayloadAction<any>) => {
     switch (action.type) {
-        case PURGE:
-            return initialState;
-
+  
         case SET_PAGE_STEP:
             return {
                 ...state,

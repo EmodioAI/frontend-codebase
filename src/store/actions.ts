@@ -37,3 +37,4 @@ export const setUploadedTextContent = (text_content: string[]) => {
         payload: text_content,
     };
 };
+

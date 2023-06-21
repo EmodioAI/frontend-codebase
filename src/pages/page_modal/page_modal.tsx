@@ -9,8 +9,9 @@ import ScreenTwo from "../screen_two/screen_two";
 import ScreenThree from "../screen_three/screen_three";
 import ScreenFour from "../screen_four/screen_four";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../store/store";
+import { RootState, persistor } from "../../store/store";
 import { setPageStep } from "../../store/actions";
+import { GrClose } from "react-icons/gr";
 
 function PageModal() {
     //get state from store
@@ -50,6 +51,15 @@ function PageModal() {
         setButtonStatus(data);
     }
 
+    //function to purge the store
+    function purgeStore() {
+        persistor.purge();
+        setStep(() => {
+            dispatch(setPageStep(1));
+            return 1;
+        });
+    }
+
     return (
         <>
             <section className={styles.container} data-testid="page-modal">
@@ -57,6 +67,11 @@ function PageModal() {
                 <div className={styles.starsTwo}></div>
                 <div className={styles.starsThree}></div>
                 <div className={styles.modal}>
+                    <div className={styles.closeButton} onClick={purgeStore}>
+                        <i>
+                            <GrClose />
+                        </i>
+                    </div>
                     <aside className={styles.leftside}>
                         <ProgressBar step={step} />
                     </aside>
