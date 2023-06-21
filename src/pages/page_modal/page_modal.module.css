@@ -66,6 +66,50 @@
     transition: all 0.5s ease-in-out;
 }
 
+.closeButton {
+    position: absolute;
+    right: -15px;
+    top: -15px;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    font-weight: 600;
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+}
+.closeButton i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100%;
+}
+
+.closeButton i path {
+    stroke: #fff;
+}
+
+.modal:hover .closeButton {
+    visibility: visible;
+    opacity: 1;
+}
+
+.closeButton:hover {
+    background-color: rgba(0, 0, 0, 1);
+    width: 2.5rem;
+    height: 2.5rem;
+    right: -17.5px;
+    top: -17.5px;
+}
+
+.closeButton:hover i {
+    font-size: 130%;
+}
 .stars {
     width: 1px;
     height: 1px;
@@ -927,6 +971,15 @@
         height: 15%;
         width: 100%;
     }
+    .closeButton {
+        width: 1.5rem;
+        height: 1.5rem;
+        top: -10px;
+        right: -10px;
+    }
+    .closeButton i {
+        font-size: 90%;
+    }
 }
 
 @media screen and (max-width: 499px) {
@@ -959,5 +1012,14 @@
     .rightside .buttonContainer {
         height: 15%;
         width: 100%;
+    }
+    .closeButton {
+        width: 1.5rem;
+        height: 1.5rem;
+        top: -10px;
+        right: -10px;
+    }
+    .closeButton i {
+        font-size: 90%;
     }
 }
