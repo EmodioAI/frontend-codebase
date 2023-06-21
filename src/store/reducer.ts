@@ -23,7 +23,6 @@ const initialState: IState = {
 
 const Reducers = (state = initialState, action: PayloadAction<any>) => {
     switch (action.type) {
-  
         case SET_PAGE_STEP:
             return {
                 ...state,

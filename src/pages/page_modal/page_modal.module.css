@@ -66,7 +66,7 @@
     transition: all 0.5s ease-in-out;
 }
 
-.closeButton{
+.closeButton {
     position: absolute;
     right: -15px;
     top: -15px;
@@ -83,23 +83,23 @@
     opacity: 0;
     transition: all 0.2s ease-in-out;
 }
-.closeButton i{
+.closeButton i {
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 100%;
 }
 
-.closeButton i path{
+.closeButton i path {
     stroke: #fff;
 }
 
-.modal:hover .closeButton{
+.modal:hover .closeButton {
     visibility: visible;
     opacity: 1;
 }
 
-.closeButton:hover{
+.closeButton:hover {
     background-color: rgba(0, 0, 0, 1);
     width: 2.5rem;
     height: 2.5rem;
@@ -107,7 +107,7 @@
     top: -17.5px;
 }
 
-.closeButton:hover i{
+.closeButton:hover i {
     font-size: 130%;
 }
 .stars {
@@ -971,13 +971,13 @@
         height: 15%;
         width: 100%;
     }
-    .closeButton{
+    .closeButton {
         width: 1.5rem;
         height: 1.5rem;
         top: -10px;
         right: -10px;
     }
-    .closeButton i{
+    .closeButton i {
         font-size: 90%;
     }
 }
@@ -1013,13 +1013,13 @@
         height: 15%;
         width: 100%;
     }
-    .closeButton{
+    .closeButton {
         width: 1.5rem;
         height: 1.5rem;
         top: -10px;
         right: -10px;
     }
-    .closeButton i{
+    .closeButton i {
         font-size: 90%;
     }
 }
