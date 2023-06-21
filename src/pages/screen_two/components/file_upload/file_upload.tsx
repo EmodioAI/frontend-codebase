@@ -7,7 +7,7 @@ import { getParagraphs, readPDFText } from "../read_files.module";
 import { useDispatch, useSelector } from "react-redux";
 import {
     setUploadedFile,
-    setUploadedFileContent,
+    setUploadedTextContent,
 } from "../../../../store/actions";
 import { RootState } from "../../../../store/store";
 
@@ -15,7 +15,7 @@ function FileUpload(props: ScreenTwoProps) {
     const dispatch = useDispatch();
     const uploadedFile = useSelector((state: RootState) => state.file);
     const uploadedFileContent = useSelector(
-        (state: RootState) => state.file_content
+        (state: RootState) => state.text_content
     );
 
     const [selectedFile, setSelectedFile] = useState<{
@@ -78,7 +78,7 @@ function FileUpload(props: ScreenTwoProps) {
                     reader.onload = (event: ProgressEvent<FileReader>) => {
                         const content = event.target?.result as string;
                         const paragraphs = getParagraphs(content);
-                        dispatch(setUploadedFileContent(paragraphs));
+                        dispatch(setUploadedTextContent(paragraphs));
                         props.changeButton("enabled");
                     };
 

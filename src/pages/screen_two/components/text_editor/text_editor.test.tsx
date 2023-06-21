@@ -1,11 +1,17 @@
 import { describe, test, expect } from "vitest";
 import { render, fireEvent, screen } from "@testing-library/react";
 import TextEditor from "./text_editor";
+import { Provider } from "react-redux";
+import store from "../../../../store/store";
 
 // checks if Text Editor component is mounted
 describe("Text Editor", () => {
     test("should render the component", () => {
-        const { getByTestId } = render(<TextEditor changeButton={() => {}} />);
+        const { getByTestId } = render(
+            <Provider store={store}>
+                <TextEditor changeButton={() => {}} />
+            </Provider>
+        );
         const component = getByTestId("text-editor");
 
         expect(component).toBeInTheDocument();
@@ -14,7 +20,11 @@ describe("Text Editor", () => {
 
 // checks if text area is typeable
 test("typing in text area", () => {
-    render(<TextEditor changeButton={() => {}} />);
+    render(
+        <Provider store={store}>
+            <TextEditor changeButton={() => {}} />
+        </Provider>
+    );
     const textArea = screen.getByPlaceholderText(
         "Start typing here..."
     ) as HTMLTextAreaElement;
@@ -26,7 +36,11 @@ test("typing in text area", () => {
 
 //checks count of words
 test("counting words", () => {
-    render(<TextEditor changeButton={() => {}} />);
+    render(
+        <Provider store={store}>
+            <TextEditor changeButton={() => {}} />
+        </Provider>
+    );
     const textArea = screen.getByPlaceholderText(
         "Start typing here..."
     ) as HTMLTextAreaElement;

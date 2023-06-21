@@ -49,7 +49,6 @@ export async function readPDFText(file: File): Promise<string> {
     for (let pageNumber = 1; pageNumber <= totalPages; pageNumber++) {
         const page = await pdf.getPage(pageNumber);
         const content = await page.getTextContent();
-        console.log(content);
 
         const pageText = content.items
             .map((item) => {

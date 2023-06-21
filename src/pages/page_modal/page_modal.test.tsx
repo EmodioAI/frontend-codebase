@@ -38,12 +38,18 @@ describe("PageModal component", () => {
     });
 });
 
-// //checks if step number changes with button click
+//checks if step number changes with button click
 // describe("PageModal component", () => {
 //     it("should change step number when a button is clicked", () => {
-//         const { container,getByTestId } = render(<PageModal />);
+//         const { container, getByTestId } = render(
+//             <Provider store={store}>
+//                 <PageModal />
+//             </Provider>
+//         );
 
-//         const checkboxTwo = container.querySelector("#checkbox_two") as HTMLInputElement;
+//         const checkboxTwo = container.querySelector(
+//             "#checkbox_two"
+//         ) as HTMLInputElement;
 
 //         const valueElement_one = getByTestId("step-number");
 //         const navButton = getByTestId("nav-button-two");

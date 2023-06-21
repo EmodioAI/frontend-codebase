@@ -1,8 +1,10 @@
 .toolBox {
     width: 100%;
     border-radius: 4px;
-    background-color: var(--TE_Background_Color);
-    margin-bottom: 1.2rem;
+    background-color: white;
+    border: 1px solid var(--Tint_Two);
+    color: var(--Main_Colour);
+    margin-bottom: 0.3rem;
     padding: 5px;
 }
 
@@ -13,7 +15,6 @@
 
 .toolBox .box h4 {
     font-size: 1.2rem;
-    color: var(--TE_Text_Color);
     margin: 0px;
     padding: 10px 0px;
     font-weight: 590;
@@ -29,45 +30,67 @@
     outline: none;
     border: none;
     width: 40px;
-    color: var(--TE_Text_Color);
     font-size: 1.2rem;
     padding: 10px 0px;
     margin-left: 10px;
     border-radius: 4px;
-    background-color: var(--TE_Background_Color);
+    color: var(--Main_Colour);
 }
 .toolBox .second span {
     width: 60px;
-    color: var(--TE_Text_Color);
     font-size: 1.2rem;
     padding: 10px 0px;
     margin-left: 10px;
     font-family: var(--Poppins);
+    color: var(--Main_Colour);
+}
+.textAreaContainer {
+    display: flex;
+}
+
+.lineNumbers {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-right: 10px;
+    overflow-y: scroll;
+    height: 300px;
+    scrollbar-width: thin; /* Add this line to adjust the scrollbar width */
+    scrollbar-color: transparent transparent;
+    padding: 5px;
+}
+.lineNumbers::-webkit-scrollbar {
+    display: none;
+}
+
+.lineNumber {
+    color: #999;
+    white-space: nowrap;
+    font-family: var(--Roboto);
 }
 
 .textArea {
     width: 100%;
     height: 300px;
     border-radius: 4px;
-    /* box-shadow: #00000059 0px 0.5px 5px; */
-}
 
-.textArea textarea {
-    width: 100%;
-    height: 100%;
-    padding: 5px;
     outline: none;
-    border: none;
+    border: 1px solid var(--Tint_Two);
     resize: none;
-    background-color: var(--TE_Background_Color);
+    padding: 5px;
     font-family: var(--Roboto);
-    color: var(--TE_Text_Color);
+    color: var(--Main_Colour);
     font-weight: 550;
     border-radius: 4px;
 }
 
-.textArea textarea::-webkit-scrollbar {
-    width: 0px;
+.textArea::-webkit-scrollbar {
+    width: 8px;
+}
+
+.textArea::-webkit-scrollbar-thumb {
+    background: linear-gradient(transparent, var(--Main_Colour));
+    border-radius: 4px;
 }
 
 /* Media Queries */
