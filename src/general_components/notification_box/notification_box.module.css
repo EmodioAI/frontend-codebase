@@ -1,0 +1,121 @@
+.notificationBoxDown {
+    position: absolute;
+    top: 1%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #e1b2ff;
+    display: flex;
+    align-items: center;
+    border-radius: 500px;
+    padding: 0.5rem;
+    pointer-events: none;
+    transition: 0.2s ease-in-out;
+    transition-delay: unset;
+    z-index: 10;
+}
+
+.notificationBoxUp {
+    position: absolute;
+    top: -10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--Main_Color);
+    display: flex;
+    align-items: center;
+    border-radius: 500px;
+    padding: 0.5rem;
+    pointer-events: none;
+    transition: 0.2s ease-in-out;
+    transition-delay: 1000ms;
+    z-index: 10;
+}
+
+.notificationEmoji {
+    background-color: #ececec;
+    padding: 0.4rem 0.6rem;
+    border-radius: 500px;
+    box-shadow: inset -3px -3px 7px #ffffff73,
+        inset 3px 3px 5px rgba(94, 104, 121, 0.283);
+}
+
+.notificationEmoji img {
+    width: 2rem;
+    height: 2rem;
+}
+
+.notificationMessageOpen {
+    font-size: 1.3rem;
+    margin: 0px 10px;
+    color: #200033;
+    font-weight: 500;
+    font-family: var(--Poppins);
+    transition: 0.2s ease-in-out;
+    transition-delay: 500ms;
+}
+
+.notificationMessageClose {
+    font-size: 0px;
+    margin: 0px;
+    color: #000;
+    transition: 0.2s ease-in-out;
+}
+
+/* Media queries */
+
+@media screen and (min-width: 1900px) {
+    .notificationEmoji {
+        padding: 0.6rem 1rem;
+    }
+
+    .notificationEmoji img {
+        width: 3rem;
+        height: 3rem;
+    }
+    .notificationMessageOpen {
+        font-size: 1.6rem;
+        margin: 0px 10px;
+    }
+}
+@media (min-width: 800px) and (max-width: 1023px) {
+    .notificationEmoji {
+        padding: 0.3rem 0.5rem;
+    }
+
+    .notificationEmoji img {
+        width: 1.7rem;
+        height: 1.7rem;
+    }
+    .notificationMessageOpen {
+        font-size: 1rem;
+        margin: 0px 5px;
+    }
+}
+@media (min-width: 500px) and (max-width: 799px) {
+    .notificationEmoji {
+        padding: 0.2rem 0.4rem;
+    }
+
+    .notificationEmoji img {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+    .notificationMessageOpen {
+        font-size: 0.8rem;
+        margin: 0px 5px;
+    }
+}
+
+@media screen and (max-width: 499px) {
+    .notificationEmoji {
+        padding: 0.2rem 0.4rem;
+    }
+
+    .notificationEmoji img {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+    .notificationMessageOpen {
+        font-size: 0.8rem;
+        margin: 0px 5px;
+    }
+}

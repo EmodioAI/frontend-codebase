@@ -6,10 +6,12 @@ import { ScreenTwoProps } from "../../screen_two.props";
 import { getParagraphs, readPDFText } from "../read_files.module";
 import { useDispatch, useSelector } from "react-redux";
 import {
+    setNotificationDetails,
     setUploadedFile,
     setUploadedTextContent,
 } from "../../../../store/actions";
 import { RootState } from "../../../../store/store";
+import Notification from "../../../../general_components/notification_box/notification_box";
 
 function FileUpload(props: ScreenTwoProps) {
     const dispatch = useDispatch();
@@ -17,6 +19,7 @@ function FileUpload(props: ScreenTwoProps) {
     const uploadedFileContent = useSelector(
         (state: RootState) => state.text_content
     );
+    const status = useSelector((state: RootState) => state.status);
 
     const [selectedFile, setSelectedFile] = useState<{
         name: string;
@@ -80,22 +83,56 @@ function FileUpload(props: ScreenTwoProps) {
                         const paragraphs = getParagraphs(content);
                         dispatch(setUploadedTextContent(paragraphs));
                         props.changeButton("enabled");
+                        dispatch(
+                            setNotificationDetails({
+                                status: true,
+                                message: "File upload successful",
+                                state: "success",
+                            })
+                        );
                     };
 
-                    reader.onerror = (err) => console.error(err);
+                    reader.onerror = () => {
+                        dispatch(
+                            setNotificationDetails({
+                                status: true,
+                                message: "A problem occurred. Try again",
+                                state: "error",
+                            })
+                        );
+                    };
 
                     reader.readAsBinaryString(file);
                 } else if (fileExtension === "pdf") {
                     const fileText = await readPDFText(file);
                     console.log(fileText);
                     props.changeButton("enabled");
+                    dispatch(
+                        setNotificationDetails({
+                            status: true,
+                            message: "File upload successful",
+                            state: "success",
+                        })
+                    );
                 } else {
-                    console.log("Unsupported file format");
+                    dispatch(
+                        setNotificationDetails({
+                            status: true,
+                            message: "Unsupported file format",
+                            state: "error",
+                        })
+                    );
                 }
             } else {
                 // File is rejected
-                alert("Invalid file type. Please select a PDF or DOC file.");
                 props.changeButton("disabled");
+                dispatch(
+                    setNotificationDetails({
+                        status: true,
+                        message: "Unsupported file format",
+                        state: "error",
+                    })
+                );
             }
         }
     }
@@ -116,13 +153,14 @@ function FileUpload(props: ScreenTwoProps) {
 
     return (
         <>
+            {status && <Notification />}
             <div data-testid="file-upload" className={styles.container}>
                 <form onClick={handleFormClick}>
                     <input
                         data-testid="input-file-uploader"
                         type="file"
                         className={styles.fileInput}
-                        accept=".pdf,.doc,.docx,.PDF"
+                        accept=".pdf,.doc,.docx,.PDF,.txt"
                         hidden
                         onChange={handleFileChange}
                         ref={fileInputRef}
