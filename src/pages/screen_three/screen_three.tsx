@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
 
 function ScreenThree(props: ScreenThreeProps) {
-    const fileContent = useSelector((state: RootState) => state.file_content);
+    const fileContent = useSelector((state: RootState) => state.text_content);
 
     const colors = [
         "#F7AEF8",

@@ -103,13 +103,19 @@
     }
 }
 @media (min-width: 1024px) and (max-width: 1400px) {
+    .container {
+        padding: 10px;
+    }
     .descriptionBox {
-        height: 10%;
-        min-height: 10%;
-        max-height: 10%;
+        height: 15%;
+        min-height: 15%;
+        max-height: 15%;
         margin-bottom: 10px;
         overflow-x: scroll;
         justify-content: flex-start;
+    }
+    .descriptionBox::-webkit-scrollbar {
+        width: 0px;
     }
 }
 
@@ -124,6 +130,9 @@
         margin-bottom: 10px;
         overflow-x: scroll;
         justify-content: flex-start;
+    }
+    .descriptionBox::-webkit-scrollbar {
+        width: 0px;
     }
 
     .descriptionBox ul li {
@@ -157,6 +166,9 @@
         overflow-x: scroll;
         justify-content: flex-start;
     }
+    .descriptionBox::-webkit-scrollbar {
+        width: 0px;
+    }
 
     .descriptionBox ul li {
         padding: 10px 10px;
@@ -188,6 +200,9 @@
         margin-bottom: 8px;
         overflow-x: scroll;
         justify-content: flex-start;
+    }
+    .descriptionBox::-webkit-scrollbar {
+        width: 0px;
     }
 
     .descriptionBox ul li {

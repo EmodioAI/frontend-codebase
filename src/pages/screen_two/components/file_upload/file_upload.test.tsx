@@ -1,6 +1,5 @@
 import { describe, test, expect } from "vitest";
-import { render } from "@testing-library/react";
-
+import { fireEvent, render, waitFor } from "@testing-library/react";
 import FileUpload from "./file_upload";
 import { Provider } from "react-redux";
 import store from "../../../../store/store";
@@ -20,34 +19,34 @@ describe("File upload", () => {
 });
 
 // checks if file can be uploaded
-// describe("Simulate file upload", () => {
-//     let file: File;
+describe("Simulate file upload", () => {
+    let file: File;
 
-//     beforeEach(() => {
-//         file = new File(["Hello"], "Test_File.pdf", { type: "pdf" });
-//     });
-//     test("should upload file when input box is clicked", async () => {
-//         const { getByTestId } = render(
-//             <Provider store={store}>
-//                 <FileUpload changeButton={() => {}} />
-//             </Provider>
-//         );
-//         const input = getByTestId("input-file-uploader");
+    beforeEach(() => {
+        file = new File(["Hello"], "Test_File.docx", { type: "docx" });
+    });
+    test("should upload file when input box is clicked", async () => {
+        const { getByTestId } = render(
+            <Provider store={store}>
+                <FileUpload changeButton={() => {}} />
+            </Provider>
+        );
+        const input = getByTestId("input-file-uploader");
 
-//         // simulate upload event and wait until finish
-//         await waitFor(() =>
-//             fireEvent.change(input, {
-//                 target: { files: [file] },
-//             })
-//         );
+        // simulate upload event and wait until finish
+        await waitFor(() =>
+            fireEvent.change(input, {
+                target: { files: [file] },
+            })
+        );
 
-//         //get rendered component that displays uploaded file content
-//         const uploadedFileSection = getByTestId("upload-file-details");
-//         const fileNameSpan = getByTestId("file-name");
+        //get rendered component that displays uploaded file content
+        const uploadedFileSection = getByTestId("upload-file-details");
+        const fileNameSpan = getByTestId("file-name");
 
-//         const uploadedFileName = fileNameSpan?.textContent;
+        const uploadedFileName = fileNameSpan?.textContent;
 
-//         expect(uploadedFileSection).toBeInTheDocument();
-//         expect(uploadedFileName).toBe("Test_File.pdf");
-//     });
-// });
+        expect(uploadedFileSection).toBeInTheDocument();
+        expect(uploadedFileName).toBe("Test_File.docx");
+    });
+});

@@ -3,7 +3,7 @@ import {
     SET_INPUT_CHOICE,
     SET_PAGE_STEP,
     SET_FILE,
-    SET_FILE_CONTENT,
+    SET_TEXT_CONTENT,
 } from "./actionTypes";
 
 // sets the page step
@@ -31,9 +31,9 @@ export const setUploadedFile = (file: { name: string; size: number }) => {
 };
 
 //sets uploaded file content
-export const setUploadedFileContent = (file_content: string[]) => {
+export const setUploadedTextContent = (text_content: string[]) => {
     return {
-        type: SET_FILE_CONTENT,
-        payload: file_content,
+        type: SET_TEXT_CONTENT,
+        payload: text_content,
     };
 };

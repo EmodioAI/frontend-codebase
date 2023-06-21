@@ -1,8 +1,12 @@
 import { useRef, useState, useEffect } from "react";
 import styles from "./text_editor.module.css";
 import { ScreenTwoProps } from "../../screen_two.props";
+import { useDispatch } from "react-redux";
+import { setUploadedTextContent } from "../../../../store/actions";
 
 function TextEditor(props: ScreenTwoProps) {
+    const dispatch = useDispatch();
+
     const [pixels, setPixels] = useState<number>(17);
     const [wordCount, setWordCount] = useState<number>(0);
 
@@ -18,13 +22,6 @@ function TextEditor(props: ScreenTwoProps) {
         // Clean-up function (optional)
         return () => {
             props.changeButton("disabled");
-
-            // //function to handle submit
-            // function handleSubmit() {
-            //     const paragraphs = inputText.split("\n"); // Split input by newline character to get separate paragraphs
-            //     console.log(paragraphs);
-            // }
-            // handleSubmit();
         };
     }, []);
 
@@ -53,10 +50,11 @@ function TextEditor(props: ScreenTwoProps) {
     }
 
     //function to count words
-    function countWords(
+    function handleInput(
         event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
     ) {
         setInputText(event.target.value);
+
         if (event.target.value) {
             const text = event.target.value;
             const words = text.trim().split(" ");
@@ -66,6 +64,7 @@ function TextEditor(props: ScreenTwoProps) {
             setWordCount(0);
             props.changeButton("disabled");
         }
+        dispatch(setUploadedTextContent(event.target.value.split("\n")));
     }
 
     const lineCount = inputText.split("\n").length; // Count the number of lines
@@ -115,7 +114,7 @@ function TextEditor(props: ScreenTwoProps) {
                         <textarea
                             ref={textareaRef}
                             value={inputText}
-                            onChange={countWords}
+                            onChange={handleInput}
                             placeholder="Start typing here..."
                             className={styles.textArea}
                             style={{ fontSize: `${pixels}px` }}
