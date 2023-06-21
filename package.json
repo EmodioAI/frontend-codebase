@@ -15,6 +15,7 @@
     "dependencies": {
         "@reduxjs/toolkit": "^1.9.5",
         "@xmldom/xmldom": "^0.8.8",
+        "fluent-emoji": "^0.1.2",
         "pdfjs-dist": "^3.7.107",
         "pizzip": "^3.1.4",
         "prettier": "^2.8.8",

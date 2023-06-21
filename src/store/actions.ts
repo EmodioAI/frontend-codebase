@@ -1,9 +1,11 @@
+import { NotificationProps } from "../general_components/notification_box/notification_box.props";
 import { StepNumber } from "../general_components/progress_bar/progress_bar.props";
 import {
     SET_INPUT_CHOICE,
     SET_PAGE_STEP,
     SET_FILE,
     SET_TEXT_CONTENT,
+    SET_NOTIFICATION_DETAILS,
 } from "./actionTypes";
 
 // sets the page step
@@ -35,5 +37,13 @@ export const setUploadedTextContent = (text_content: string[]) => {
     return {
         type: SET_TEXT_CONTENT,
         payload: text_content,
+    };
+};
+
+//sets notification details
+export const setNotificationDetails = (details: NotificationProps) => {
+    return {
+        type: SET_NOTIFICATION_DETAILS,
+        payload: details,
     };
 };
