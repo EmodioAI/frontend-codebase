@@ -3,13 +3,16 @@ import { render } from "@testing-library/react";
 import PageModal from "./page_modal";
 import { Provider } from "react-redux";
 import store from "../../store/store";
+import { BrowserRouter } from "react-router-dom";
 
 // checks if Page Modal component is mounted
 describe("Page Modal", () => {
     test("should render the component", () => {
         const { getByTestId } = render(
             <Provider store={store}>
-                <PageModal />
+                <BrowserRouter>
+                    <PageModal />
+                </BrowserRouter>
             </Provider>
         );
         const component = getByTestId("page-modal");
@@ -23,7 +26,9 @@ describe("PageModal component", () => {
     it("should render progress bar with a step number", () => {
         const { getByTestId } = render(
             <Provider store={store}>
-                <PageModal />
+                <BrowserRouter>
+                    <PageModal />
+                </BrowserRouter>
             </Provider>
         );
 

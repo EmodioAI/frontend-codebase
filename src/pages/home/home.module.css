@@ -1,0 +1,160 @@
+.headerBar {
+    width: 100%;
+    height: 70x;
+    background: #ffffff;
+    position: sticky;
+}
+
+.container {
+    margin: 0 auto;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.leftContent h1 {
+    font-size: 1.4rem;
+    font-family: var(--Comfortaa);
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--Main_Colour);
+}
+
+.rightContent ul {
+    list-style: none;
+    text-transform: none;
+    display: inline-flex;
+}
+
+.rightContent ul li {
+    padding: 0 20px;
+    font-size: 1rem;
+    font-family: var(--Poppins);
+    font-weight: 500;
+}
+
+/* Intro Section */
+.introSection {
+    height: 22rem;
+    background-color: #7100b6;
+    position: relative;
+}
+
+.wave {
+    position: absolute;
+    bottom: -190px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.wave svg {
+    position: relative;
+    display: block;
+    width: calc(108% + 1.3px);
+    height: 200px;
+    transform: rotateY(180deg);
+}
+
+.wave .shapeFill {
+    fill: #7100b6;
+}
+
+.introContents {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.introContentTitle {
+    width: 100%;
+    margin-top: 30px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.introContentTitle h1 {
+    font-size: 4rem;
+    font-weight: 600;
+    line-height: 93px;
+    font-family: var(--Roboto);
+}
+
+.introContentInfo {
+    margin-top: 10px;
+    width: 70%;
+    text-align: center;
+}
+
+.introContentInfo p {
+    font-size: 1.2rem;
+    color: #ffffff;
+    font-family: var(--Comfortaa);
+    font-weight: 600;
+}
+
+.introContentButton {
+    margin-top: 10px;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.introContentButton button {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.6rem 1.5rem;
+    background: #ab58d6;
+    color: #fff;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+    width: 12rem;
+    font-size: 1.2rem;
+    transition: 0.5s;
+    user-select: none;
+    overflow: hidden;
+    font-weight: 570;
+    font-family: var(--Roboto);
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin: 20px 0;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: inset 4px 4px 8px 0px #7b00b166;
+}
+
+.introContentImage {
+    width: 350px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.introContentImage img {
+    width: 100%;
+    height: 100%;
+}
+
+/* Emotions section */
+.emotionsSection {
+    outline: 1px solid red;
+    height: 20rem;
+    margin-top: 10rem;
+    padding-top: 0.5rem;
+}
+
+.emotionContentTitle {
+    font-size: 1.5rem;
+    font-family: var(--Poppins);
+    font-weight: 600;
+}
