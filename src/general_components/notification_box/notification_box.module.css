@@ -31,7 +31,7 @@
 }
 
 .notificationEmoji {
-    background-color: #ececec;
+    background-color: var(--Emoji_Bac_Color);
     padding: 0.4rem 0.6rem;
     border-radius: 500px;
     box-shadow: inset -3px -3px 7px #ffffff73,
