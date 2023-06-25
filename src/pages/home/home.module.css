@@ -50,6 +50,7 @@
     overflow: hidden;
     line-height: 0;
     transform: rotate(180deg);
+    z-index: -2;
 }
 
 .wave svg {
@@ -147,14 +148,107 @@
 
 /* Emotions section */
 .emotionsSection {
-    outline: 1px solid red;
-    height: 20rem;
+    width: 100%;
     margin-top: 10rem;
     padding-top: 0.5rem;
+}
+.emotionsContents {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .emotionContentTitle {
     font-size: 1.5rem;
     font-family: var(--Poppins);
     font-weight: 600;
+}
+
+.emotionsList {
+    width: 100%;
+    height: 3rem;
+}
+
+.emotionsList ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.emotionsList ul li {
+    font-size: 1.2rem;
+    font-family: var(--Poppins);
+    font-weight: 500;
+    color: #000000;
+    padding: 0.7rem 1rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 12rem;
+    user-select: none;
+    overflow: hidden;
+    font-weight: bold;
+    font-family: var(--Roboto);
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    cursor: pointer;
+    text-align: center;
+    border: 2px solid #ffffff;
+    transition: 0.5s ease-in-out;
+}
+
+.emotionsList ul li:hover,
+.emotionsList ul li.active,
+.emotionsList ul li:focus {
+    border: 2px solid var(--Li_Colour);
+    /* background-color: rgba(var(--Li-Colour), 0.2); */
+}
+
+.emotionInfoList {
+    margin-top: 10px;
+    width: 27%;
+    outline: 1px solid var(--Li_Colour);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    transition: 0.2s ease-in-out;
+    box-shadow: 1px 2px 5px 0px var(--Li_Colour);
+}
+
+.emotionInfoList ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.emotionInfoList ul li {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 5px;
+    margin: 10px 0;
+}
+.emotionInfoList ul li i {
+    float: left;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--Li_Colour);
+}
+.emotionInfoList ul li p {
+    float: right;
+    width: 70%;
+    font-size: 1rem;
+    font-family: var(--Roboto);
 }
