@@ -15,6 +15,7 @@
     "dependencies": {
         "@reduxjs/toolkit": "^1.9.5",
         "@xmldom/xmldom": "^0.8.8",
+        "aos": "^2.3.4",
         "fluent-emoji": "^0.1.2",
         "npm": "^9.7.2",
         "pdfjs-dist": "^3.7.107",
@@ -30,6 +31,7 @@
     "devDependencies": {
         "@testing-library/jest-dom": "^5.16.5",
         "@testing-library/react": "^14.0.0",
+        "@types/aos": "^3.0.4",
         "@types/jest": "^29.5.1",
         "@types/react": "^18.0.28",
         "@types/react-dom": "^18.0.11",

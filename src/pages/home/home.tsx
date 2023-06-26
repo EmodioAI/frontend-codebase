@@ -1,11 +1,28 @@
-import { CSSProperties, useState } from "react";
+import { CSSProperties, useEffect, useState } from "react";
 import styles from "./home.module.css";
 import style from "../page_modal/page_modal.module.css";
 import group_emotions from "../../assets/Group 6841.png";
+import phone_image from "../../assets/phone.png";
+import thumb_image from "../../assets/thumb.png";
 import { FiCheckCircle } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 function Home() {
+    const navigate = useNavigate();
     const [activeItem, setActiveItem] = useState<number>(0);
+
+    useEffect(() => {
+        Aos.init({ duration: 2000 });
+    }, []);
+
+    function scrollToSection(className: string) {
+        const elements = document.getElementsByClassName(className);
+        if (elements.length > 0) {
+            elements[0].scrollIntoView({ behavior: "smooth" });
+        }
+    }
 
     const emotions = [
         {
@@ -100,7 +117,7 @@ function Home() {
 
     return (
         <>
-            <div data-testid="home-page">
+            <div className={styles.homeBody} data-testid="home-page">
                 <header className={styles.headerBar}>
                     <div className={styles.container}>
                         <div className={styles.leftContent}>
@@ -108,14 +125,32 @@ function Home() {
                         </div>
                         <nav className={styles.rightContent}>
                             <ul>
-                                <li>Services</li>
-                                <li>Why Coose Us</li>
-                                <li>Contact</li>
+                                <li
+                                    onClick={() =>
+                                        scrollToSection(styles.emotionsSection)
+                                    }
+                                >
+                                    Services
+                                </li>
+                                <li
+                                    onClick={() =>
+                                        scrollToSection(styles.reasonsSection)
+                                    }
+                                >
+                                    Why Coose Us
+                                </li>
+                                <li
+                                    onClick={() =>
+                                        scrollToSection(styles.footer)
+                                    }
+                                >
+                                    Contact
+                                </li>
                             </ul>
                         </nav>
                     </div>
                 </header>
-                <section className={styles.introSection}>
+                <section className={styles.introSection} >
                     <div className={styles.wave}>
                         <svg
                             data-name="Layer 1"
@@ -150,7 +185,9 @@ function Home() {
                                 </p>
                             </div>
                             <div className={styles.introContentButton}>
-                                <button>Get Started</button>
+                                <button onClick={() => navigate("/workspace")}>
+                                    Get Started
+                                </button>
                             </div>
                             <div className={styles.introContentImage}>
                                 <img
@@ -162,9 +199,9 @@ function Home() {
                     </div>
                 </section>
 
-                <section className={styles.emotionsSection}>
+                <section className={styles.emotionsSection} >
                     <div className={styles.container}>
-                        <div className={styles.emotionsContents}>
+                        <div className={styles.emotionsContents} >
                             <div className={styles.emotionContentTitle}>
                                 <h3>
                                     Take a glance at the emotions we look into
@@ -220,6 +257,108 @@ function Home() {
                         </div>
                     </div>
                 </section>
+                <section className={styles.reasonsSection} >
+                    <div className={styles.container}>
+                        <div className={styles.reasonsContents}>
+                            <h3>Why Emodio?</h3>
+                            <div className={styles.reasonsContentsMain}>
+                                <div className={styles.reasonsContainer}>
+                                    <div
+                                        className={`${styles.reasonsBox} ${styles.reasonsRight}`}
+                                    >
+                                        <h4>Emodio</h4>
+                                        <p>
+                                            Lorem ipsum dolor sit, amet
+                                            consectetur adipisicing elit. Qui,
+                                            fuga?
+                                        </p>
+                                    </div>
+                                    <div
+                                        className={`${styles.reasonsBox} ${styles.reasonsLeft}`}
+                                        
+                                    >
+                                        <h4>Emodio</h4>
+                                        <p>
+                                            Lorem ipsum dolor sit, amet
+                                            consectetur adipisicing elit. Qui,
+                                            fuga?
+                                        </p>
+                                    </div>
+                                    <div
+                                        className={`${styles.reasonsBox} ${styles.reasonsRight}`}
+                                      
+                                    >
+                                        <h4>Emodio</h4>
+                                        <p>
+                                            Lorem ipsum dolor sit, amet
+                                            consectetur adipisicing elit. Qui,
+                                            fuga?
+                                        </p>
+                                    </div>
+                                    <div
+                                        className={`${styles.reasonsBox} ${styles.reasonsLeft}`}
+                                        
+                                    >
+                                        <h4>Emodio</h4>
+                                        <p>
+                                            Lorem ipsum dolor sit, amet
+                                            consectetur adipisicing elit. Qui,
+                                            fuga?
+                                        </p>
+                                    </div>
+                                </div>
+                                <aside className={styles.reasonsImage}>
+                                    <img
+                                        src={phone_image}
+                                        alt={"phone image"}
+                                    />
+                                </aside>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section className={styles.lowerSection}>
+                    <div className={styles.container}>
+                        <div
+                            className={styles.lowerContents}
+                        >
+                            <div className={styles.lowerFirstContent}>
+                                <h3>
+                                    Start using{" "}
+                                    <span
+                                        style={
+                                            {
+                                                color: "var(--Home_Text_Colour)",
+                                            } as CSSProperties
+                                        }
+                                    >
+                                        EMODIO
+                                    </span>{" "}
+                                    today
+                                </h3>
+                                <img src={thumb_image} alt={"thumb image"} />
+                            </div>
+                            <h3>
+                                ...for unique customization and pricing
+                                arrangements
+                            </h3>
+                            <button onClick={() => navigate("/workspace")}>
+                                Get Started
+                            </button>
+                        </div>
+                    </div>
+                </section>
+                <footer className={styles.footer}>
+                    <div className={styles.container}>
+                        <div className={styles.footerContents}>
+                            <div>
+                                &copy; {new Date().getFullYear()} Emodio All
+                                rights reserved
+                            </div>
+                            <div>+233 24 278 8852</div>
+                        </div>
+                    </div>
+                </footer>
             </div>
         </>
     );
