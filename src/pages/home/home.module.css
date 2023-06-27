@@ -1,10 +1,9 @@
-.homeBody{
+.homeBody {
     width: 100vw;
     height: 100vh;
     overflow-x: hidden;
-
 }
-.homeBody::-webkit-scrollbar{
+.homeBody::-webkit-scrollbar {
     width: 0px;
 }
 .headerBar {
@@ -212,10 +211,23 @@
 }
 
 .emotionsList ul li:hover,
-.emotionsList ul li.active,
-.emotionsList ul li:focus {
+.emotionsList ul li.active{
     border: 2px solid var(--Li_Colour);
     /* background-color: rgba(var(--Li-Colour), 0.2); */
+}
+
+.emotionsBox{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+
+}
+
+.emotionsBoxIcon{
+    padding-right: 40rem;
+    width: 100px;
 }
 
 .emotionInfoList {
@@ -239,6 +251,7 @@
     align-items: center;
     flex-direction: column;
     width: 100%;
+
 }
 
 .emotionInfoList ul li {
@@ -337,12 +350,12 @@
 }
 
 /* Lower section */
-.lowersection{
+.lowersection {
     width: 100%;
     margin-top: 0.5rem;
 }
 
-.lowerContents{
+.lowerContents {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -350,26 +363,26 @@
     flex-direction: column;
 }
 
-.lowerFirstContent{
+.lowerFirstContent {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height:50px;
+    height: 50px;
     margin-top: 10px;
 }
 
 .lowerFirstContent h3,
-.lowerContents h3{
-    color:#455A63;
+.lowerContents h3 {
+    color: #455a63;
     font-size: 2.1rem;
     font-family: var(--Roboto);
 }
 
-.lowerFirstContent img{
+.lowerFirstContent img {
     width: 100px;
 }
 
-.lowerContents button{
+.lowerContents button {
     font-size: 1.2rem;
     font-family: var(--Poppins);
     font-weight: 500;
@@ -394,13 +407,12 @@
     margin-top: 40px;
 }
 
-.footer{
+.footer {
     width: 100%;
     background: var(--Home_Bac_Colour);
-    
 }
 
-.footerContents{
+.footerContents {
     margin-top: 10px;
     width: 100%;
     display: flex;
@@ -409,7 +421,7 @@
     color: #fff;
 }
 
-.footerContents div{
+.footerContents div {
     font-size: 1.1rem;
     font-family: var(--Roboto);
     font-weight: 600;

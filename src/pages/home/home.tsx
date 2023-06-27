@@ -1,21 +1,23 @@
-import { CSSProperties, useEffect, useState } from "react";
+import { CSSProperties, useState } from "react";
 import styles from "./home.module.css";
 import style from "../page_modal/page_modal.module.css";
 import group_emotions from "../../assets/Group 6841.png";
 import phone_image from "../../assets/phone.png";
 import thumb_image from "../../assets/thumb.png";
+import happy_button from '../../assets/Happy button.png';
+import disgust_button from "../../assets/Disgust button.png";
+import fear_button from "../../assets/Fear button.png";
+import sad_button from "../../assets/Sad button.png";
+import anger_button from "../../assets/Anger button.png";
 import { FiCheckCircle } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
-import Aos from "aos";
-import "aos/dist/aos.css";
+
 
 function Home() {
     const navigate = useNavigate();
     const [activeItem, setActiveItem] = useState<number>(0);
 
-    useEffect(() => {
-        Aos.init({ duration: 2000 });
-    }, []);
+
 
     function scrollToSection(className: string) {
         const elements = document.getElementsByClassName(className);
@@ -35,6 +37,7 @@ function Home() {
                 "Feeling complimented",
             ],
             color: "#FFC800",
+            button: happy_button,
         },
         {
             emotion: "Sad",
@@ -45,7 +48,8 @@ function Home() {
                 "Withdrawing from activities",
                 "Lack of energy",
             ],
-            color: "#00A5FF",
+            color: "#008EFF ",
+            button: sad_button
         },
         {
             emotion: "Anger",
@@ -56,7 +60,8 @@ function Home() {
                 "Raising voice",
                 "Tense body language",
             ],
-            color: "#5C67A7",
+            color: "#FF0000",
+            button: anger_button
         },
         {
             emotion: "Fear",
@@ -67,7 +72,8 @@ function Home() {
                 "Avoidance behavior",
                 "Increased heart rate",
             ],
-            color: "#F0002C",
+            color: "#BD00FF" ,
+            button:fear_button,
         },
         {
             emotion: "Disgust",
@@ -78,7 +84,8 @@ function Home() {
                 "Frowning",
                 "Avoiding contact",
             ],
-            color: "#ACF000",
+            color: "#00CB51",
+            button:disgust_button
         },
         {
             emotion: "Surprised",
@@ -90,6 +97,7 @@ function Home() {
                 "Sudden reaction",
             ],
             color: "#f38375",
+            button: happy_button
         },
         {
             emotion: "Calm",
@@ -101,6 +109,7 @@ function Home() {
                 "Clear mind",
             ],
             color: "#354f52",
+            button:fear_button
         },
         {
             emotion: "Neutral",
@@ -112,6 +121,7 @@ function Home() {
                 "Unbiased",
             ],
             color: "#0ead69",
+            button: disgust_button
         },
     ];
 
@@ -150,7 +160,7 @@ function Home() {
                         </nav>
                     </div>
                 </header>
-                <section className={styles.introSection} >
+                <section className={styles.introSection}>
                     <div className={styles.wave}>
                         <svg
                             data-name="Layer 1"
@@ -199,9 +209,9 @@ function Home() {
                     </div>
                 </section>
 
-                <section className={styles.emotionsSection} >
+                <section className={styles.emotionsSection}>
                     <div className={styles.container}>
-                        <div className={styles.emotionsContents} >
+                        <div className={styles.emotionsContents}>
                             <div className={styles.emotionContentTitle}>
                                 <h3>
                                     Take a glance at the emotions we look into
@@ -233,31 +243,37 @@ function Home() {
                                     ))}
                                 </ul>
                             </div>
-                            <div
-                                className={styles.emotionInfoList}
-                                style={
-                                    {
-                                        "--Li_Colour": `${emotions[activeItem].color}`,
-                                    } as CSSProperties
-                                }
-                            >
-                                <ul>
-                                    {emotions[activeItem].expressions.map(
-                                        (item, index) => (
-                                            <li key={index}>
-                                                <i>
-                                                    <FiCheckCircle />
-                                                </i>
-                                                <p>{item}</p>
-                                            </li>
-                                        )
-                                    )}
-                                </ul>
+                            <div className={styles.emotionsBox}>
+                            
+                                <div
+                                    className={styles.emotionInfoList}
+                                    style={
+                                        {
+                                            "--Li_Colour": `${emotions[activeItem].color}`,
+                                        } as CSSProperties
+                                    }
+                                >
+                                    <ul>
+                                        {emotions[activeItem].expressions.map(
+                                            (item, index) => (
+                                                <li key={index}>
+                                                    <i>
+                                                        <FiCheckCircle />
+                                                    </i>
+                                                    <p>{item}</p>
+                                                </li>
+                                            )
+                                        )}
+                                    </ul>{" "}
+                                </div>
+                                <div className={styles.emotionsBoxIcon}>
+                                    <img src={emotions[activeItem].button} alt={'Emotion emoji icon button'} />
+                                </div>
                             </div>
                         </div>
                     </div>
                 </section>
-                <section className={styles.reasonsSection} >
+                <section className={styles.reasonsSection}>
                     <div className={styles.container}>
                         <div className={styles.reasonsContents}>
                             <h3>Why Emodio?</h3>
@@ -275,7 +291,6 @@ function Home() {
                                     </div>
                                     <div
                                         className={`${styles.reasonsBox} ${styles.reasonsLeft}`}
-                                        
                                     >
                                         <h4>Emodio</h4>
                                         <p>
@@ -286,7 +301,6 @@ function Home() {
                                     </div>
                                     <div
                                         className={`${styles.reasonsBox} ${styles.reasonsRight}`}
-                                      
                                     >
                                         <h4>Emodio</h4>
                                         <p>
@@ -297,7 +311,6 @@ function Home() {
                                     </div>
                                     <div
                                         className={`${styles.reasonsBox} ${styles.reasonsLeft}`}
-                                        
                                     >
                                         <h4>Emodio</h4>
                                         <p>
@@ -319,9 +332,7 @@ function Home() {
                 </section>
                 <section className={styles.lowerSection}>
                     <div className={styles.container}>
-                        <div
-                            className={styles.lowerContents}
-                        >
+                        <div className={styles.lowerContents}>
                             <div className={styles.lowerFirstContent}>
                                 <h3>
                                     Start using{" "}
