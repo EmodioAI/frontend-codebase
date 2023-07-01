@@ -14,49 +14,49 @@
     color: var(--Main_Colour);
     margin-bottom: 10px;
 }
-
-.box_one {
-    width: 70%;
-    height: 60%;
+.containerBox {
+    height: 80%;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
+}
+
+.button_box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     position: absolute;
-    left: 290px;
-    transition: 0.2s;
+    transition: 0.2s 100ms ease-in-out;
     overflow: auto;
     /* left: 500%; */
 }
-.box_two {
-    width: 70%;
-    height: 60%;
+.audio_box {
     display: flex;
-    justify-content: space-around;
     align-items: center;
     position: absolute;
-    left: 290px;
-    transition: 0.2s;
     overflow: auto;
     left: 500%;
 }
 
-/* Buuton Box */
+/* Button Box */
 .buttonBox {
     position: relative;
     display: inline-flex;
-    padding: 0.6rem 1.1rem;
-    background: var(--Tint_Two);
-    color: var(--Main_Colour);
+    padding: 0.6rem 1.5rem;
+    background: var(--Main_Colour);
+    color: #fff;
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
-    width: 9rem;
+    width: 12rem;
     font-size: 1.2rem;
     transition: 0.5s;
     user-select: none;
     overflow: hidden;
-    border-radius: 4px;
     font-weight: 570;
     font-family: var(--Roboto);
-    cursor: pointer;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin: 20px 0;
 }
 
 .buttonBox button {
@@ -76,23 +76,7 @@
     align-items: center;
 }
 
-.buttonBox::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 50%;
-    background: rgba(255, 255, 255, 0.2);
-}
-
-.buttonBox:nth-child(1):hover {
-    background: #008cf0;
-    color: #ffffff;
-    box-shadow: 0 2px 10px #008cf0;
-}
-
-.buttonBox:nth-child(2):hover {
+.buttonBox:hover {
     background: #a100cd;
     color: #ffffff;
     box-shadow: 0 2px 10px #a100cd;
@@ -200,36 +184,30 @@
         font-size: 1.8rem;
     }
 
-    .box_one {
+    .button_box {
         width: 60%;
-        height: 60%;
-        left: 450px;
         overflow: auto;
     }
-    .box_two {
-        width: 60%;
-        height: 60%;
-        left: 450px;
+    .audio_box {
         overflow: auto;
         left: 500%;
     }
 
-    /* Buuton Box */
+    /* Button Box */
     .buttonBox {
-        padding: 0.6rem 1.1rem;
-        width: 12rem;
-        font-size: 1.6rem;
+        padding: 1rem 2rem;
+        width: 15rem;
+        font-size: 1.8rem;
     }
 
     /* Audio box */
 
     .audioBox {
-        height: 200px;
+        width: 100%;
         margin-top: 100px;
     }
 
     .player {
-        width: 600px;
         height: 80px;
     }
 
@@ -256,36 +234,29 @@
         font-size: 1.8rem;
     }
 
-    .box_one {
-        width: 60%;
-        height: 60%;
-        left: 450px;
+    .button_box {
+        width: 50%;
         overflow: auto;
     }
-    .box_two {
-        width: 60%;
-        height: 60%;
-        left: 450px;
+    .audio_box {
         overflow: auto;
-        left: 500%;
     }
 
-    /* Buuton Box */
+    /* Button Box */
     .buttonBox {
-        padding: 0.6rem 1.1rem;
-        width: 12rem;
-        font-size: 1.6rem;
+        padding: 1rem 2rem;
+        width: 15rem;
+        font-size: 1.8rem;
     }
 
     /* Audio box */
 
     .audioBox {
-        height: 200px;
+        width: 100%;
         margin-top: 100px;
     }
 
     .player {
-        width: 600px;
         height: 80px;
     }
 
@@ -308,18 +279,19 @@
         padding: 20px;
     }
 
-    .box_one {
+    .button_box {
         width: 60%;
-        height: 60%;
-        left: 300px;
+
         overflow: auto;
     }
-    .box_two {
-        width: 60%;
-        height: 60%;
-        left: 300px;
+    .audio_box {
         overflow: auto;
-        left: 500%;
+    }
+    /* Audio box */
+
+    .audioBox {
+        width: 100%;
+        margin-top: 10px;
     }
 }
 
@@ -333,36 +305,31 @@
         font-size: 1.2rem;
     }
 
-    .box_one {
-        width: 60%;
-        height: 60%;
-        left: 290px;
-        overflow: auto;
+    .button_box {
+        overflow: hidden;
     }
-    .box_two {
-        width: 60%;
-        height: 60%;
-        left: 290px;
+    .audio_box {
+        overflow: hidden;
+    }
+    .audio_box {
         overflow: auto;
         left: 500%;
     }
 
-    /* Buuton Box */
+    /* Button Box */
     .buttonBox {
-        padding: 0.6rem 1.1rem;
-        width: 10rem;
+        padding: 0.6rem 1.4rem;
+        width: 11rem;
         font-size: 1.3rem;
     }
 
     /* Audio box */
 
     .audioBox {
-        height: 200px;
         margin-top: 10px;
     }
 
     .player {
-        width: 600px;
         height: 50px;
     }
 
@@ -389,21 +356,15 @@
         font-size: 1rem;
     }
 
-    .box_one {
-        width: 60%;
-        height: 60%;
-        left: 40%;
+    .button_box {
         overflow: auto;
     }
-    .box_two {
-        width: 60%;
-        height: 60%;
-        left: 40%;
+    .audio_box {
         overflow: auto;
         left: 500%;
     }
 
-    /* Buuton Box */
+    /* Button Box */
     .buttonBox {
         padding: 0.5rem 1.1rem;
         width: 10rem;
@@ -413,12 +374,12 @@
     /* Audio box */
 
     .audioBox {
+        width: 90%;
         height: 200px;
         margin-top: 10px;
     }
 
     .player {
-        width: 600px;
         height: 50px;
     }
 
@@ -445,30 +406,24 @@
         font-size: 0.7rem;
     }
 
-    .box_one {
-        width: 60%;
-        height: 60%;
-        left: 40%;
+    .button_box {
         overflow: auto;
     }
-    .box_two {
-        width: 60%;
-        height: 60%;
-        left: 40%;
-        overflow: auto;
+    .audio_box {
         left: 500%;
     }
 
-    /* Buuton Box */
+    /* Button Box */
     .buttonBox {
         padding: 0.5rem 1.1rem;
-        width: 7rem;
+        width: 9rem;
         font-size: 0.9rem;
     }
 
     /* Audio box */
 
     .audioBox {
+        width: 90%;
         height: 200px;
         margin-top: 10px;
     }
@@ -501,24 +456,22 @@
         font-size: 0.6rem;
     }
 
-    .box_one {
+    .button_box {
         width: 60%;
         height: 60%;
         left: 40%;
         overflow: auto;
     }
-    .box_two {
-        width: 60%;
-        height: 60%;
-        left: 40%;
+    .audio_box {
+        width: 50%;
         overflow: auto;
         left: 500%;
     }
 
-    /* Buuton Box */
+    /* Button Box */
     .buttonBox {
         padding: 0.5rem 1.1rem;
-        width: 6rem;
+        width: 8rem;
         font-size: 0.7rem;
     }
 
@@ -530,7 +483,7 @@
     }
 
     .player {
-        width: 300px;
+        width: 100%;
         height: 40px;
         padding: 2px 10px;
     }
@@ -538,6 +491,8 @@
     .playBtn {
         font-size: 10px;
         padding: 0px;
+        height: 70%;
+        width: 70%;
     }
 
     .info {

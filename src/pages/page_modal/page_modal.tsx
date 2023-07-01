@@ -12,11 +12,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState, persistor } from "../../store/store";
 import { setPageStep } from "../../store/actions";
 import { GrClose } from "react-icons/gr";
+import { useNavigate } from "react-router";
 
 function PageModal() {
     //get state from store
     const dispatch = useDispatch();
     const pageStep = useSelector((state: RootState) => state.page_step);
+    const navigate = useNavigate();
 
     // state to keep track of the step
     const [step, setStep] = useState<StepNumber>(pageStep);
@@ -54,10 +56,7 @@ function PageModal() {
     //function to purge the store
     function purgeStore() {
         persistor.purge();
-        setStep(() => {
-            dispatch(setPageStep(1));
-            return 1;
-        });
+        navigate("/");
     }
 
     return (

@@ -1,0 +1,721 @@
+.homeBody {
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+}
+.homeBody::-webkit-scrollbar {
+    width: 0px;
+}
+.headerBar {
+    width: 100%;
+    height: 70x;
+    background: #ffffff;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+}
+
+.container {
+    margin: 0 auto;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.leftContent h1 {
+    font-size: 1.4rem;
+    font-family: var(--Comfortaa);
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--Main_Colour);
+}
+
+.rightContent ul {
+    list-style: none;
+    text-transform: none;
+    display: inline-flex;
+}
+
+.rightContent ul li {
+    padding: 0 20px;
+    font-size: 1rem;
+    font-family: var(--Poppins);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Intro Section */
+.introSection {
+    margin-top: 70px;
+    height: 22rem;
+    background-color: var(--Home_Bac_Colour);
+    position: relative;
+}
+
+.wave {
+    position: absolute;
+    bottom: -190px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+    z-index: -2;
+}
+
+.wave svg {
+    position: relative;
+    display: block;
+    width: calc(108% + 1.3px);
+    height: 200px;
+    transform: rotateY(180deg);
+}
+
+.wave .shapeFill {
+    fill: var(--Home_Bac_Colour);
+}
+
+.introContents {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.introContentTitle {
+    width: 100%;
+    margin-top: 30px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.introContentTitle h1 {
+    font-size: 4rem;
+    font-weight: 600;
+    line-height: 93px;
+    font-family: var(--Roboto);
+}
+
+.introContentInfo {
+    margin-top: 10px;
+    width: 70%;
+    text-align: center;
+}
+
+.introContentInfo p {
+    font-size: 1.2rem;
+    color: #ffffff;
+    font-family: var(--Comfortaa);
+    font-weight: 600;
+}
+
+.introContentButton {
+    margin-top: 10px;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.introContentButton button {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.6rem 1.5rem;
+    background: #ab58d6;
+    color: #fff;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+    width: 12rem;
+    font-size: 1.2rem;
+    transition: 0.5s;
+    user-select: none;
+    overflow: hidden;
+    font-weight: 570;
+    font-family: var(--Roboto);
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin: 20px 0;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: inset 4px 4px 8px 0px #7b00b166;
+}
+
+.introContentImage {
+    width: 350px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.introContentImage img {
+    width: 100%;
+    height: 100%;
+}
+
+/* Emotions section */
+.emotionsSection {
+    width: 100%;
+    margin-top: 10rem;
+    padding-top: 0.5rem;
+}
+.emotionsContents {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.emotionContentTitle {
+    font-size: 1.5rem;
+    font-family: var(--Poppins);
+    font-weight: 600;
+}
+
+.emotionsList {
+    width: 100%;
+    height: 3rem;
+}
+
+.emotionsList ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.emotionsList ul li {
+    font-size: 1.2rem;
+    font-family: var(--Poppins);
+    font-weight: 500;
+    color: #000000;
+    padding: 0.7rem 1rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 12rem;
+    user-select: none;
+    overflow: hidden;
+    font-weight: bold;
+    font-family: var(--Roboto);
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    cursor: pointer;
+    text-align: center;
+    border: 2px solid #ffffff;
+    transition: 0.5s ease-in-out;
+}
+
+.emotionsList ul li:hover,
+.emotionsList ul li.active {
+    border: 2px solid var(--Li_Colour);
+    /* background-color: rgba(var(--Li-Colour), 0.2); */
+}
+
+.emotionsBox {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+
+.emotionsBoxIcon {
+    padding-right: 40rem;
+    width: 100px;
+}
+
+.emotionInfoList {
+    margin-top: 10px;
+    width: 27%;
+    outline: 1px solid var(--Li_Colour);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    transition: 0.2s ease-in-out;
+    box-shadow: 1px 2px 5px 0px var(--Li_Colour);
+}
+
+.emotionInfoList ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.emotionInfoList ul li {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 5px;
+    margin: 10px 0;
+}
+.emotionInfoList ul li i {
+    float: left;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--Li_Colour);
+}
+.emotionInfoList ul li p {
+    float: right;
+    width: 70%;
+    font-size: 1rem;
+    font-family: var(--Roboto);
+}
+
+/* Reasons Section */
+.reasonsSection {
+    width: 100%;
+    margin-top: 0.5rem;
+    background-color: #fbf4ff;
+}
+
+.reasonsContents {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-direction: column;
+}
+.reasonsContents h3 {
+    color: var(--Home_Text_Colour);
+    font-size: 1.7rem;
+    font-family: var(--Comfortaa);
+}
+
+.reasonsContentsMain {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.reasonsContainer {
+    margin-top: 10px;
+    width: 60%;
+}
+
+.reasonsBox {
+    width: 60%;
+    background-color: #ffffff;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 2px 2px 8px 0px #e7e7e7, -2px -2px 8px 0px #e7e7e7;
+    height: 4.5rem;
+    margin-bottom: 25px;
+    padding: 8px;
+}
+.reasonsRight {
+    float: right;
+}
+
+.reasonsLeft {
+    float: left;
+}
+
+.reasonsBox h4 {
+    color: var(--Home_Text_Colour);
+    font-size: 1.1rem;
+    font-family: var(--Poppins);
+}
+
+.reasonsBox p {
+    color: #7d7d7d;
+    font-size: 0.9rem;
+    font-family: var(--Roboto);
+}
+
+.reasonsImage {
+    width: 40%;
+    height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reasonsImage img {
+    width: 100%;
+    height: 100%;
+}
+
+/* Lower section */
+.lowersection {
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+.lowerContents {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.lowerFirstContent {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 50px;
+    margin-top: 10px;
+}
+
+.lowerFirstContent h3,
+.lowerContents h3 {
+    color: #455a63;
+    font-size: 2.1rem;
+    font-family: var(--Roboto);
+}
+
+.lowerFirstContent img {
+    width: 100px;
+}
+
+.lowerContents button {
+    font-size: 1.2rem;
+    font-family: var(--Poppins);
+    font-weight: 500;
+    color: #ffffff;
+    padding: 0.7rem 1rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 12rem;
+    user-select: none;
+    overflow: hidden;
+    font-weight: bold;
+    font-family: var(--Roboto);
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    cursor: pointer;
+    text-align: center;
+    background-color: var(--Main_Colour);
+    transition: 0.5s ease-in-out;
+    border: none;
+    margin-top: 40px;
+}
+
+.footer {
+    width: 100%;
+    background: var(--Home_Bac_Colour);
+}
+
+.footerContents {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+}
+
+.footerContents div {
+    font-size: 1.1rem;
+    font-family: var(--Roboto);
+    font-weight: 600;
+}
+
+/* Media Queries */
+@media (min-width: 1200px) and (max-width: 1499px) {
+    .emotionInfoList {
+        width: 31%;
+    }
+
+    .emotionsBoxIcon {
+        padding-right: 30rem;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1199px) {
+    .container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .emotionInfoList {
+        width: 35%;
+    }
+
+    .emotionsBoxIcon {
+        padding-right: 20rem;
+    }
+
+    .emotionsBoxIcon img {
+        width: 300px;
+    }
+}
+
+@media (min-width: 800px) and (max-width: 1023px) {
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .introContentTitle h1 {
+        font-size: 3.5rem;
+        line-height: 60px;
+    }
+
+    .introContentInfo p {
+        font-size: 1.1rem;
+    }
+
+    .emotionContentTitle {
+        font-size: 1.3rem;
+    }
+
+    .emotionsList ul li {
+        font-size: 1.1rem;
+        padding: 0.7rem 1rem;
+    }
+
+    .emotionInfoList {
+        width: 40%;
+    }
+
+    .emotionsBoxIcon {
+        padding-right: 20rem;
+    }
+
+    .emotionsBoxIcon img {
+        width: 270px;
+    }
+
+    .reasonsContents h3 {
+        font-size: 1.5rem;
+    }
+
+    .reasonsBox h4 {
+        font-size: 1rem;
+    }
+
+    .reasonsBox p {
+        font-size: 0.75rem;
+    }
+
+    .lowerFirstContent h3,
+    .lowerContents h3 {
+        font-size: 1.9rem;
+    }
+
+    .footerContents div {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 500px) and (max-width: 799px) {
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .headerBar {
+        height: 50x;
+    }
+
+    .rightContent ul li {
+        padding: 0 10px;
+        font-size: 0.8rem;
+    }
+
+    .introSection {
+        margin-top: 50px;
+        height: 25rem;
+    }
+
+    .introContentTitle h1 {
+        font-size: 3rem;
+        line-height: 40px;
+    }
+
+    .introContentInfo p {
+        font-size: 1rem;
+    }
+
+    .emotionContentTitle {
+        font-size: 1.1rem;
+    }
+
+    .emotionsList ul li {
+        font-size: 0.75rem;
+        padding: 0.5rem 0.2rem;
+    }
+
+    .emotionInfoList {
+        width: 55%;
+        padding: 0.5rem;
+    }
+
+    .emotionsBoxIcon {
+        padding-right: 10rem;
+    }
+
+    .emotionsBoxIcon img {
+        width: 150px;
+    }
+
+    .emotionInfoList ul li {
+        margin: 5px 0;
+    }
+
+    .emotionInfoList ul li i {
+        width: 20%;
+    }
+
+    .emotionInfoList ul li p {
+        font-size: 0.75rem;
+    }
+
+    .reasonsContents h3 {
+        font-size: 1.5rem;
+    }
+
+    .reasonsBox h4 {
+        font-size: 1rem;
+    }
+
+    .reasonsBox p {
+        font-size: 0.75rem;
+    }
+
+    .reasonsBox {
+        width: 85%;
+    }
+
+    .lowerFirstContent h3,
+    .lowerContents h3 {
+        font-size: 1.2rem;
+    }
+
+    .footerContents div {
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 499px) {
+    .container {
+        width: 98%;
+        padding: 5px;
+    }
+
+    .headerBar {
+        height: 50x;
+    }
+
+    .rightContent ul li {
+        padding: 0 10px;
+        font-size: 0.8rem;
+    }
+
+    .introSection {
+        margin-top: 40px;
+        height: 25rem;
+    }
+
+    .introContentTitle h1 {
+        font-size: 2.5rem;
+        line-height: 40px;
+    }
+
+    .introContentInfo p {
+        font-size: 0.9rem;
+    }
+
+    .introContentButton button {
+        font-size: 1.1rem;
+        padding: 0.5rem 0.7rem;
+    }
+
+    .introContentImage {
+        height: 90px;
+    }
+
+    .emotionsSection {
+        margin-top: 12rem;
+    }
+
+    .emotionContentTitle {
+        font-size: 0.85rem;
+    }
+
+    .emotionsList ul li {
+        font-size: 0.65rem;
+        padding: 0.5rem 0.2rem;
+    }
+
+    .emotionInfoList {
+        width: 55%;
+        padding: 0.5rem;
+    }
+
+    .emotionsBoxIcon {
+        padding-right: 10rem;
+    }
+
+    .emotionsBoxIcon img {
+        width: 150px;
+    }
+
+    .emotionInfoList ul li {
+        margin: 5px 0;
+    }
+
+    .emotionInfoList ul li i {
+        width: 20%;
+    }
+
+    .emotionInfoList ul li p {
+        font-size: 0.7rem;
+    }
+
+    .reasonsContents h3 {
+        font-size: 1.3rem;
+    }
+
+    .reasonsBox h4 {
+        font-size: 0.9rem;
+    }
+
+    .reasonsBox p {
+        font-size: 0.65rem;
+    }
+
+    .reasonsBox {
+        width: 90%;
+    }
+
+    .lowerFirstContent h3,
+    .lowerContents h3 {
+        font-size: 1rem;
+    }
+
+    .lowerContents button {
+        font-size: 1.1rem;
+        padding: 0.5rem 0.7rem;
+    }
+
+    .footer {
+        margin-top: 20px;
+    }
+    .footerContents div {
+        font-size: 0.8rem;
+    }
+
+    .footerContents {
+        margin-top: 5px;
+        padding: 5px;
+    }
+}

@@ -89,90 +89,95 @@ function ScreenFour(props: ScreenFourProps) {
                 <div className={styles.title}>
                     <h3>Listen with different preferences.</h3>
                 </div>
-                <div
-                    data-testid="active-page-box"
-                    className={
-                        changePage === "page_one"
-                            ? styles.box_one
-                            : styles.box_two
-                    }
-                >
+                <div className={styles.containerBox}>
                     <div
-                        className={styles.buttonBox}
-                        onClick={() => {
-                            setChangePage("page_two");
-                            props.changeButton("disabled");
-                            handleAudioEnded();
-                            setProgress(0);
-                        }}
-                        data-testid="play-button"
+                        data-testid="active-page-box"
+                        className={
+                            changePage === "page_one"
+                                ? styles.button_box
+                                : styles.audio_box
+                        }
                     >
-                        <i>
-                            <GoPlay />
-                        </i>
-                        <button>Play</button>
-                    </div>
-
-                    <div className={styles.buttonBox} onClick={handleDownload}>
-                        <i>
-                            <RiDownloadCloudFill />
-                        </i>
-                        <button>Download</button>
-                    </div>
-                </div>
-                <div
-                    className={
-                        changePage === "page_one"
-                            ? styles.box_two
-                            : styles.boxe_one
-                    }
-                >
-                    <div className={styles.backBtn}>
-                        <NavButton
-                            text="Go Back"
-                            type={"previous"}
-                            status={"enabled"}
+                        <div
+                            className={styles.buttonBox}
                             onClick={() => {
-                                setChangePage("page_one");
-                                props.changeButton("enabled");
+                                setChangePage("page_two");
+                                props.changeButton("disabled");
+                                handleAudioEnded();
+                                setProgress(0);
                             }}
-                        />
-                    </div>
-                    <div className={styles.audioBox}>
-                        <audio
-                            id="audio-play"
-                            src={test}
-                            ref={audioRef}
-                            onTimeUpdate={handleTimeUpdate}
-                            onEnded={handleAudioEnded}
-                        ></audio>
-                        <div className={styles.player}>
-                            <div className={styles.control}>
-                                <i
-                                    className={styles.playBtn}
-                                    onClick={playPause}
-                                >
-                                    {changeIcon === true ? (
-                                        <FaPlay />
-                                    ) : (
-                                        <FaPause />
-                                    )}
-                                </i>
-                            </div>
-                            <div className={styles.info}>
-                                Audio mack
-                                <div className={styles.bar}>
-                                    <div
-                                        className={styles.progress}
-                                        style={customStyles as any}
-                                    ></div>
-                                </div>
-                            </div>
+                            data-testid="play-button"
+                        >
+                            <i>
+                                <GoPlay />
+                            </i>
+                            <button>Play</button>
+                        </div>
 
-                            <div className={styles.current}>
-                                {currentTime === 0
-                                    ? "00:00"
-                                    : `${formatTime(currentTime)}`}
+                        <div
+                            className={styles.buttonBox}
+                            onClick={handleDownload}
+                        >
+                            <i>
+                                <RiDownloadCloudFill />
+                            </i>
+                            <button>Download</button>
+                        </div>
+                    </div>
+                    <div
+                        className={
+                            changePage === "page_one"
+                                ? styles.audio_box
+                                : styles.button_box
+                        }
+                    >
+                        <div className={styles.backBtn}>
+                            <NavButton
+                                text="Go Back"
+                                type={"previous"}
+                                status={"enabled"}
+                                onClick={() => {
+                                    setChangePage("page_one");
+                                    props.changeButton("enabled");
+                                }}
+                            />
+                        </div>
+                        <div className={styles.audioBox}>
+                            <audio
+                                id="audio-play"
+                                src={test}
+                                ref={audioRef}
+                                onTimeUpdate={handleTimeUpdate}
+                                onEnded={handleAudioEnded}
+                            ></audio>
+                            <div className={styles.player}>
+                                <div className={styles.control}>
+                                    <i
+                                        className={styles.playBtn}
+                                        onClick={playPause}
+                                    >
+                                        {changeIcon === true ? (
+                                            <FaPlay />
+                                        ) : (
+                                            <FaPause />
+                                        )}
+                                    </i>
+                                </div>
+                                <div className={styles.info}>
+                                    Audio mack
+                                    <div className={styles.bar}>
+                                        <div
+                                            className={styles.progress}
+                                            style={customStyles as any}
+                                        ></div>
+                                    </div>
+                                </div>
+
+                                <div className={styles.current}>
+                                    {currentTime === 0
+                                        ? "00:00"
+                                        : `${formatTime(currentTime)}`}
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -2,7 +2,7 @@
     position: relative;
     width: 100%;
     height: 100vh;
-    background: radial-gradient(ellipse at bottom, #d2001a 0%, #9733ee 100%);
+    background: #200033;
     background-size: 300% 300%;
     overflow: hidden;
 }
