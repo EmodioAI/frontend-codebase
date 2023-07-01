@@ -4,20 +4,20 @@ import style from "../page_modal/page_modal.module.css";
 import group_emotions from "../../assets/Group 6841.png";
 import phone_image from "../../assets/phone.png";
 import thumb_image from "../../assets/thumb.png";
-import happy_button from '../../assets/Happy button.png';
+import happy_button from "../../assets/Happy button.png";
 import disgust_button from "../../assets/Disgust button.png";
 import fear_button from "../../assets/Fear button.png";
 import sad_button from "../../assets/Sad button.png";
 import anger_button from "../../assets/Anger button.png";
+import calm_button from "../../assets/Calm button.png";
+import neutral_button from "../../assets/Neutral button.png";
+import surprise_button from "../../assets/Surprise button.png";
 import { FiCheckCircle } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
-
 
 function Home() {
     const navigate = useNavigate();
     const [activeItem, setActiveItem] = useState<number>(0);
-
-
 
     function scrollToSection(className: string) {
         const elements = document.getElementsByClassName(className);
@@ -49,7 +49,7 @@ function Home() {
                 "Lack of energy",
             ],
             color: "#008EFF ",
-            button: sad_button
+            button: sad_button,
         },
         {
             emotion: "Anger",
@@ -61,7 +61,7 @@ function Home() {
                 "Tense body language",
             ],
             color: "#FF0000",
-            button: anger_button
+            button: anger_button,
         },
         {
             emotion: "Fear",
@@ -72,8 +72,8 @@ function Home() {
                 "Avoidance behavior",
                 "Increased heart rate",
             ],
-            color: "#BD00FF" ,
-            button:fear_button,
+            color: "#BD00FF",
+            button: fear_button,
         },
         {
             emotion: "Disgust",
@@ -85,7 +85,7 @@ function Home() {
                 "Avoiding contact",
             ],
             color: "#00CB51",
-            button:disgust_button
+            button: disgust_button,
         },
         {
             emotion: "Surprised",
@@ -96,8 +96,8 @@ function Home() {
                 "Raised eyebrows",
                 "Sudden reaction",
             ],
-            color: "#f38375",
-            button: happy_button
+            color: "#CE0D8D",
+            button: surprise_button,
         },
         {
             emotion: "Calm",
@@ -108,8 +108,8 @@ function Home() {
                 "Steady breathing",
                 "Clear mind",
             ],
-            color: "#354f52",
-            button:fear_button
+            color: "#03E0E0",
+            button: calm_button,
         },
         {
             emotion: "Neutral",
@@ -120,8 +120,8 @@ function Home() {
                 "Neutral facial expression",
                 "Unbiased",
             ],
-            color: "#0ead69",
-            button: disgust_button
+            color: "#6D6F72",
+            button: neutral_button,
         },
     ];
 
@@ -147,7 +147,7 @@ function Home() {
                                         scrollToSection(styles.reasonsSection)
                                     }
                                 >
-                                    Why Coose Us
+                                    Why Choose Us
                                 </li>
                                 <li
                                     onClick={() =>
@@ -244,7 +244,6 @@ function Home() {
                                 </ul>
                             </div>
                             <div className={styles.emotionsBox}>
-                            
                                 <div
                                     className={styles.emotionInfoList}
                                     style={
@@ -267,7 +266,10 @@ function Home() {
                                     </ul>{" "}
                                 </div>
                                 <div className={styles.emotionsBoxIcon}>
-                                    <img src={emotions[activeItem].button} alt={'Emotion emoji icon button'} />
+                                    <img
+                                        src={emotions[activeItem].button}
+                                        alt={"Emotion emoji icon button"}
+                                    />
                                 </div>
                             </div>
                         </div>

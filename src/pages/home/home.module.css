@@ -10,7 +10,9 @@
     width: 100%;
     height: 70x;
     background: #ffffff;
-    position: sticky;
+    position: fixed;
+    top: 0;
+    z-index: 10;
 }
 
 .container {
@@ -46,6 +48,7 @@
 
 /* Intro Section */
 .introSection {
+    margin-top: 70px;
     height: 22rem;
     background-color: var(--Home_Bac_Colour);
     position: relative;
@@ -211,21 +214,20 @@
 }
 
 .emotionsList ul li:hover,
-.emotionsList ul li.active{
+.emotionsList ul li.active {
     border: 2px solid var(--Li_Colour);
     /* background-color: rgba(var(--Li-Colour), 0.2); */
 }
 
-.emotionsBox{
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
-
+.emotionsBox {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
 }
 
-.emotionsBoxIcon{
+.emotionsBoxIcon {
     padding-right: 40rem;
     width: 100px;
 }
@@ -251,7 +253,6 @@
     align-items: center;
     flex-direction: column;
     width: 100%;
-
 }
 
 .emotionInfoList ul li {
@@ -425,4 +426,296 @@
     font-size: 1.1rem;
     font-family: var(--Roboto);
     font-weight: 600;
+}
+
+/* Media Queries */
+@media (min-width: 1200px) and (max-width: 1499px) {
+    .emotionInfoList {
+        width: 31%;
+    }
+
+    .emotionsBoxIcon {
+        padding-right: 30rem;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1199px) {
+    .container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .emotionInfoList {
+        width: 35%;
+    }
+
+    .emotionsBoxIcon {
+        padding-right: 20rem;
+    }
+
+    .emotionsBoxIcon img {
+        width: 300px;
+    }
+}
+
+@media (min-width: 800px) and (max-width: 1023px) {
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .introContentTitle h1 {
+        font-size: 3.5rem;
+        line-height: 60px;
+    }
+
+    .introContentInfo p {
+        font-size: 1.1rem;
+    }
+
+    .emotionContentTitle {
+        font-size: 1.3rem;
+    }
+
+    .emotionsList ul li {
+        font-size: 1.1rem;
+        padding: 0.7rem 1rem;
+    }
+
+    .emotionInfoList {
+        width: 40%;
+    }
+
+    .emotionsBoxIcon {
+        padding-right: 20rem;
+    }
+
+    .emotionsBoxIcon img {
+        width: 270px;
+    }
+
+    .reasonsContents h3 {
+        font-size: 1.5rem;
+    }
+
+    .reasonsBox h4 {
+        font-size: 1rem;
+    }
+
+    .reasonsBox p {
+        font-size: 0.75rem;
+    }
+
+    .lowerFirstContent h3,
+    .lowerContents h3 {
+        font-size: 1.9rem;
+    }
+
+    .footerContents div {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 500px) and (max-width: 799px) {
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .headerBar {
+        height: 50x;
+    }
+
+    .rightContent ul li {
+        padding: 0 10px;
+        font-size: 0.8rem;
+    }
+
+    .introSection {
+        margin-top: 50px;
+        height: 25rem;
+    }
+
+    .introContentTitle h1 {
+        font-size: 3rem;
+        line-height: 40px;
+    }
+
+    .introContentInfo p {
+        font-size: 1rem;
+    }
+
+    .emotionContentTitle {
+        font-size: 1.1rem;
+    }
+
+    .emotionsList ul li {
+        font-size: 0.75rem;
+        padding: 0.5rem 0.2rem;
+    }
+
+    .emotionInfoList {
+        width: 55%;
+        padding: 0.5rem;
+    }
+
+    .emotionsBoxIcon {
+        padding-right: 10rem;
+    }
+
+    .emotionsBoxIcon img {
+        width: 150px;
+    }
+
+    .emotionInfoList ul li {
+        margin: 5px 0;
+    }
+
+    .emotionInfoList ul li i {
+        width: 20%;
+    }
+
+    .emotionInfoList ul li p {
+        font-size: 0.75rem;
+    }
+
+    .reasonsContents h3 {
+        font-size: 1.5rem;
+    }
+
+    .reasonsBox h4 {
+        font-size: 1rem;
+    }
+
+    .reasonsBox p {
+        font-size: 0.75rem;
+    }
+
+    .reasonsBox {
+        width: 85%;
+    }
+
+    .lowerFirstContent h3,
+    .lowerContents h3 {
+        font-size: 1.2rem;
+    }
+
+    .footerContents div {
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 499px) {
+    .container {
+        width: 98%;
+        padding: 5px;
+    }
+
+    .headerBar {
+        height: 50x;
+    }
+
+    .rightContent ul li {
+        padding: 0 10px;
+        font-size: 0.8rem;
+    }
+
+    .introSection {
+        margin-top: 40px;
+        height: 25rem;
+    }
+
+    .introContentTitle h1 {
+        font-size: 2.5rem;
+        line-height: 40px;
+    }
+
+    .introContentInfo p {
+        font-size: 0.9rem;
+    }
+
+    .introContentButton button {
+        font-size: 1.1rem;
+        padding: 0.5rem 0.7rem;
+    }
+
+    .introContentImage {
+        height: 90px;
+    }
+
+    .emotionsSection {
+        margin-top: 12rem;
+    }
+
+    .emotionContentTitle {
+        font-size: 0.85rem;
+    }
+
+    .emotionsList ul li {
+        font-size: 0.65rem;
+        padding: 0.5rem 0.2rem;
+    }
+
+    .emotionInfoList {
+        width: 55%;
+        padding: 0.5rem;
+    }
+
+    .emotionsBoxIcon {
+        padding-right: 10rem;
+    }
+
+    .emotionsBoxIcon img {
+        width: 150px;
+    }
+
+    .emotionInfoList ul li {
+        margin: 5px 0;
+    }
+
+    .emotionInfoList ul li i {
+        width: 20%;
+    }
+
+    .emotionInfoList ul li p {
+        font-size: 0.7rem;
+    }
+
+    .reasonsContents h3 {
+        font-size: 1.3rem;
+    }
+
+    .reasonsBox h4 {
+        font-size: 0.9rem;
+    }
+
+    .reasonsBox p {
+        font-size: 0.65rem;
+    }
+
+    .reasonsBox {
+        width: 90%;
+    }
+
+    .lowerFirstContent h3,
+    .lowerContents h3 {
+        font-size: 1rem;
+    }
+
+    .lowerContents button {
+        font-size: 1.1rem;
+        padding: 0.5rem 0.7rem;
+    }
+
+    .footer {
+        margin-top: 20px;
+    }
+    .footerContents div {
+        font-size: 0.8rem;
+    }
+
+    .footerContents {
+        margin-top: 5px;
+        padding: 5px;
+    }
 }
