@@ -6,7 +6,8 @@
     background: var(--Background_Colour);
     cursor: pointer;
     border: none;
-    border-radius: 50px;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
     font-family: var(--Poppins);
     transition: display 20s ease;
     -moz-transition: display 20s ease; /* Firefox 4 */

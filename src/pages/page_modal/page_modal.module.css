@@ -59,7 +59,7 @@
 
 .rightside .buttonContainer {
     height: 15%;
-    width: 60%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -817,7 +817,7 @@
 
     .rightside .buttonContainer {
         height: 15%;
-        width: 60%;
+        width: 100%;
     }
 }
 
@@ -847,7 +847,7 @@
 
     .rightside .buttonContainer {
         height: 15%;
-        width: 60%;
+        width: 100%;
     }
 }
 
@@ -877,7 +877,7 @@
 
     .rightside .buttonContainer {
         height: 15%;
-        width: 60%;
+        width: 100%;
     }
 }
 
