@@ -105,7 +105,7 @@ function FileUpload(props: ScreenTwoProps) {
                     reader.readAsBinaryString(file);
                 } else if (fileExtension === "pdf") {
                     const fileText = await readPDFText(file);
-                    console.log(fileText)
+                    console.log(fileText);
 
                     // props.changeButton("enabled");
                     // dispatch(
@@ -115,14 +115,13 @@ function FileUpload(props: ScreenTwoProps) {
                     //         state: "success",
                     //     })
                     // );
-                } 
-                else if(fileExtension === "txt"){
+                } else if (fileExtension === "txt") {
                     const reader = new FileReader();
 
                     reader.onload = (event: ProgressEvent<FileReader>) => {
                         const content = event.target?.result as string;
-                        const paragraphs = content.split('\n');
-                        console.log(content.split('\n'))
+                        const paragraphs = content.split("\n");
+                        console.log(content.split("\n"));
 
                         dispatch(setUploadedTextContent(paragraphs));
                         props.changeButton("enabled");
@@ -133,9 +132,8 @@ function FileUpload(props: ScreenTwoProps) {
                                 state: "success",
                             })
                         );
-                    }        
-                    
-                    
+                    };
+
                     reader.onerror = () => {
                         dispatch(
                             setNotificationDetails({
@@ -144,13 +142,10 @@ function FileUpload(props: ScreenTwoProps) {
                                 state: "error",
                             })
                         );
-                    }
+                    };
 
                     reader.readAsBinaryString(file);
-
-                }
-                
-                else {
+                } else {
                     dispatch(
                         setNotificationDetails({
                             status: true,
