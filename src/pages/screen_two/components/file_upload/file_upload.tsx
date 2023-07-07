@@ -106,14 +106,45 @@ function FileUpload(props: ScreenTwoProps) {
                 } else if (fileExtension === "pdf") {
                     const fileText = await readPDFText(file);
                     console.log(fileText);
-                    props.changeButton("enabled");
-                    dispatch(
-                        setNotificationDetails({
-                            status: true,
-                            message: "File upload successful",
-                            state: "success",
-                        })
-                    );
+
+                    // props.changeButton("enabled");
+                    // dispatch(
+                    //     setNotificationDetails({
+                    //         status: true,
+                    //         message: "File upload successful",
+                    //         state: "success",
+                    //     })
+                    // );
+                } else if (fileExtension === "txt") {
+                    const reader = new FileReader();
+
+                    reader.onload = (event: ProgressEvent<FileReader>) => {
+                        const content = event.target?.result as string;
+                        const paragraphs = content.split("\n");
+                        console.log(content.split("\n"));
+
+                        dispatch(setUploadedTextContent(paragraphs));
+                        props.changeButton("enabled");
+                        dispatch(
+                            setNotificationDetails({
+                                status: true,
+                                message: "File upload successful",
+                                state: "success",
+                            })
+                        );
+                    };
+
+                    reader.onerror = () => {
+                        dispatch(
+                            setNotificationDetails({
+                                status: true,
+                                message: "A problem occurred. Try again",
+                                state: "error",
+                            })
+                        );
+                    };
+
+                    reader.readAsBinaryString(file);
                 } else {
                     dispatch(
                         setNotificationDetails({
@@ -170,7 +201,7 @@ function FileUpload(props: ScreenTwoProps) {
                     </i>
                     <p>Browse File to Upload</p>
                     <p className={styles.formInfo}>
-                        Supported files: DOCX, DOC, PDF
+                        Supported files: DOCX, TXT, PDF
                     </p>
                 </form>
 

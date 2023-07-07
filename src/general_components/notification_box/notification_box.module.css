@@ -3,11 +3,11 @@
     top: 1%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #e1b2ff;
+    background-color: var(--Main_Colour);
     display: flex;
     align-items: center;
     border-radius: 500px;
-    padding: 0.5rem;
+    padding: 0.3rem;
     pointer-events: none;
     transition: 0.2s ease-in-out;
     transition-delay: unset;
@@ -44,9 +44,9 @@
 }
 
 .notificationMessageOpen {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     margin: 0px 10px;
-    color: #200033;
+    color: var(--TE_Text_Color);
     font-weight: 500;
     font-family: var(--Poppins);
     transition: 0.2s ease-in-out;
