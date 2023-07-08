@@ -10,7 +10,7 @@ import {
     RelievedFace,
     FaceVomiting,
     SadButRelievedFace,
-    FaceWithRaisedEyebrow,
+    FaceWithOpenMouth,
 } from "fluent-emoji";
 import { ScreenThreeProps } from "./screen_three.props";
 
@@ -72,7 +72,7 @@ function ScreenThree(props: ScreenThreeProps) {
                     <div className={styles.icon}>
                         <div className={styles.tooltip}>Surprised</div>
                         <span>
-                            <FaceWithRaisedEyebrow />
+                            <FaceWithOpenMouth />
                         </span>
                     </div>
                 </div>
