@@ -60,7 +60,10 @@ function TextEditor(props: ScreenTwoProps) {
 
         if (event.target.value) {
             const text = event.target.value;
-            const words = text.trim().split(" ");
+            const words = text
+                .trim()
+                .split(" ")
+                .filter((item) => item !== "");
             setWordCount(words.length);
             props.changeButton("enabled");
         } else {
