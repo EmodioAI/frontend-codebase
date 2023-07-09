@@ -6,6 +6,8 @@ import {
     SET_FILE,
     SET_TEXT_CONTENT,
     SET_NOTIFICATION_DETAILS,
+    SET_ANALYSIS_RESULTS,
+    SET_NEW_CONTENT_STATE,
 } from "./actionTypes";
 
 // sets the page step
@@ -40,10 +42,25 @@ export const setUploadedTextContent = (text_content: string[]) => {
     };
 };
 
+//sets state of uploaded contents
+export const setnewContentState = (state: boolean) => {
+    return {
+        type: SET_NEW_CONTENT_STATE,
+        payload: state,
+    };
+};
 //sets notification details
 export const setNotificationDetails = (details: NotificationProps) => {
     return {
         type: SET_NOTIFICATION_DETAILS,
         payload: details,
+    };
+};
+
+//sets results from emotion analysis
+export const setAnalysisResults = (results: string[]) => {
+    return {
+        type: SET_ANALYSIS_RESULTS,
+        payload: results,
     };
 };
