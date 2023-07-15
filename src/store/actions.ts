@@ -8,6 +8,7 @@ import {
     SET_NOTIFICATION_DETAILS,
     SET_ANALYSIS_RESULTS,
     SET_NEW_CONTENT_STATE,
+    SET_ACTIVE
 } from "./actionTypes";
 
 // sets the page step
@@ -64,3 +65,11 @@ export const setAnalysisResults = (results: string[]) => {
         payload: results,
     };
 };
+
+//sets active state
+export const setActive = (active: boolean) => {
+    return {
+        type: SET_ACTIVE,
+        payload: active,
+    };
+}

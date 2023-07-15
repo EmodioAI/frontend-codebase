@@ -9,9 +9,11 @@ import {
     SET_NOTIFICATION_DETAILS,
     SET_ANALYSIS_RESULTS,
     SET_NEW_CONTENT_STATE,
+    SET_ACTIVE
 } from "./actionTypes";
 
 interface IState {
+    is_active: boolean;
     page_step: StepNumber;
     input_choice: 0 | 1 | 2;
     file: { name: string; size: number } | null;
@@ -24,6 +26,7 @@ interface IState {
 }
 
 const initialState: IState = {
+    is_active: false,
     page_step: 1,
     input_choice: 0,
     file: null,
@@ -40,6 +43,11 @@ const Reducers = (state = initialState, action: PayloadAction<any>) => {
         case PURGE:
             return {
                 ...initialState,
+            };
+        case SET_ACTIVE:
+            return {
+                ...state,
+                is_active: action.payload,
             };
 
         case SET_PAGE_STEP:
