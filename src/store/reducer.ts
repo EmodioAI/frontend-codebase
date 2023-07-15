@@ -7,6 +7,8 @@ import {
     SET_FILE,
     SET_TEXT_CONTENT,
     SET_NOTIFICATION_DETAILS,
+    SET_ANALYSIS_RESULTS,
+    SET_NEW_CONTENT_STATE,
 } from "./actionTypes";
 
 interface IState {
@@ -14,9 +16,11 @@ interface IState {
     input_choice: 0 | 1 | 2;
     file: { name: string; size: number } | null;
     text_content: string[];
+    isNewContent: boolean;
     status: boolean;
     message: string;
     state: "success" | "error" | null;
+    analysis_results: string[];
 }
 
 const initialState: IState = {
@@ -24,9 +28,11 @@ const initialState: IState = {
     input_choice: 0,
     file: null,
     text_content: [],
+    isNewContent: false,
     status: false,
     message: "",
     state: null,
+    analysis_results: [],
 };
 
 const Reducers = (state = initialState, action: PayloadAction<any>) => {
@@ -58,12 +64,23 @@ const Reducers = (state = initialState, action: PayloadAction<any>) => {
                 ...state,
                 text_content: action.payload,
             };
+        case SET_NEW_CONTENT_STATE:
+            return {
+                ...state,
+                isNewContent: action.payload,
+            };
         case SET_NOTIFICATION_DETAILS:
             return {
                 ...state,
                 status: action.payload.status,
                 message: action.payload.message,
                 state: action.payload.state,
+            };
+
+        case SET_ANALYSIS_RESULTS:
+            return {
+                ...state,
+                analysis_results: action.payload,
             };
 
         default:

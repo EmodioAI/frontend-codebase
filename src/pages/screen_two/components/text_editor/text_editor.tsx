@@ -2,7 +2,10 @@ import { useRef, useState, useEffect } from "react";
 import styles from "./text_editor.module.css";
 import { ScreenTwoProps } from "../../screen_two.props";
 import { useDispatch } from "react-redux";
-import { setUploadedTextContent } from "../../../../store/actions";
+import {
+    setUploadedTextContent,
+    setnewContentState,
+} from "../../../../store/actions";
 
 function TextEditor(props: ScreenTwoProps) {
     const dispatch = useDispatch();
@@ -57,7 +60,10 @@ function TextEditor(props: ScreenTwoProps) {
 
         if (event.target.value) {
             const text = event.target.value;
-            const words = text.trim().split(" ");
+            const words = text
+                .trim()
+                .split(" ")
+                .filter((item) => item !== "");
             setWordCount(words.length);
             props.changeButton("enabled");
         } else {
@@ -65,6 +71,7 @@ function TextEditor(props: ScreenTwoProps) {
             props.changeButton("disabled");
         }
         dispatch(setUploadedTextContent(event.target.value.split("\n")));
+        dispatch(setnewContentState(true));
     }
 
     const lineCount = inputText.split("\n").length; // Count the number of lines
