@@ -24,8 +24,7 @@ function Home() {
 
     useEffect(() => {
         persistor.purge();
-
-    })
+    });
 
     const [activeItem, setActiveItem] = useState<number>(0);
 
@@ -205,7 +204,12 @@ function Home() {
                                 </p>
                             </div>
                             <div className={styles.introContentButton}>
-                                <button onClick={() => {dispatch(setActive(true));navigate("/workspace")}}>
+                                <button
+                                    onClick={() => {
+                                        dispatch(setActive(true));
+                                        navigate("/workspace");
+                                    }}
+                                >
                                     Get Started
                                 </button>
                             </div>

@@ -4,9 +4,7 @@ import PageModal from "./pages/page_modal/page_modal";
 import Home from "./pages/home/home";
 import ProtectedRoute from "./general_components/protected_routes/protected_routes";
 
-
 const routhPaths = Routes.ROUTES;
-
 
 const routes = createBrowserRouter([
     {

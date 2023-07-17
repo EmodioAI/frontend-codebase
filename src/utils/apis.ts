@@ -1,4 +1,5 @@
 import axios from "axios";
+import { setToken } from "../store/actions";
 
 export const API_ENDPOINT = "http://127.0.0.1:8000";
 
@@ -31,13 +32,40 @@ export async function getEmotion(data: ParagraphData) {
     }).then((response) => {
         if (response.status === 200) {
             if (response.data.status === "success") {
+                //set token
+                setToken(response.data.token);
                 return response.data.emotion;
             } else {
                 throw new Error("Something went wrong");
             }
         }
     });
-    // .catch((error) => {
-    //     alert(error);
-    // });
+}
+
+
+//API call to sreceive synthesised audio from the backend
+export async function getAudio(token:string) {
+    //helper config
+    const getAudioConfig: Params = {
+        baseUrl: API_ENDPOINT,
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+        },
+        method: "get",
+    };
+
+    return await axios({
+        ...getAudioConfig,
+        url: `${getAudioConfig.baseUrl}/${"audio_synthesis"}`,
+    }).then((response) => {
+        if (response.status === 200) {
+            if (response.data.status === "success") {
+                //set token
+                return response;
+            } else {
+                throw new Error("Something went wrong");
+            }
+        }
+    });
 }

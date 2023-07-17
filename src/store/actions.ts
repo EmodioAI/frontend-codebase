@@ -8,7 +8,8 @@ import {
     SET_NOTIFICATION_DETAILS,
     SET_ANALYSIS_RESULTS,
     SET_NEW_CONTENT_STATE,
-    SET_ACTIVE
+    SET_ACTIVE,
+    SET_TOKEN,
 } from "./actionTypes";
 
 // sets the page step
@@ -72,4 +73,12 @@ export const setActive = (active: boolean) => {
         type: SET_ACTIVE,
         payload: active,
     };
+};
+
+//sets token
+export const setToken = (token: string) => {
+    return {
+        type: SET_TOKEN,
+        payload: token,
+    }
 }

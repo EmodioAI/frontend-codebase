@@ -9,7 +9,8 @@ import {
     SET_NOTIFICATION_DETAILS,
     SET_ANALYSIS_RESULTS,
     SET_NEW_CONTENT_STATE,
-    SET_ACTIVE
+    SET_ACTIVE,
+    SET_TOKEN,
 } from "./actionTypes";
 
 interface IState {
@@ -23,6 +24,7 @@ interface IState {
     message: string;
     state: "success" | "error" | null;
     analysis_results: string[];
+    token: string;
 }
 
 const initialState: IState = {
@@ -36,6 +38,7 @@ const initialState: IState = {
     message: "",
     state: null,
     analysis_results: [],
+    token: "",
 };
 
 const Reducers = (state = initialState, action: PayloadAction<any>) => {
@@ -89,6 +92,12 @@ const Reducers = (state = initialState, action: PayloadAction<any>) => {
             return {
                 ...state,
                 analysis_results: action.payload,
+            };
+
+        case SET_TOKEN:
+            return {
+                ...state,
+                token: action.payload,
             };
 
         default:
