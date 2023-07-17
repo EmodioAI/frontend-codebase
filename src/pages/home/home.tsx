@@ -1,4 +1,4 @@
-import { CSSProperties, useState } from "react";
+import { CSSProperties, useEffect, useState } from "react";
 import styles from "./home.module.css";
 import style from "../page_modal/page_modal.module.css";
 import group_emotions from "../../assets/Group 6841.png";
@@ -14,9 +14,18 @@ import neutral_button from "../../assets/Neutral button.png";
 import surprise_button from "../../assets/Surprise button.png";
 import { FiCheckCircle } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
+import { setActive } from "../../store/actions";
+import { useDispatch } from "react-redux";
+import { persistor } from "../../store/store";
 
 function Home() {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        persistor.purge();
+    });
+
     const [activeItem, setActiveItem] = useState<number>(0);
 
     function scrollToSection(className: string) {
@@ -195,7 +204,12 @@ function Home() {
                                 </p>
                             </div>
                             <div className={styles.introContentButton}>
-                                <button onClick={() => navigate("/workspace")}>
+                                <button
+                                    onClick={() => {
+                                        dispatch(setActive(true));
+                                        navigate("/workspace");
+                                    }}
+                                >
                                     Get Started
                                 </button>
                             </div>
