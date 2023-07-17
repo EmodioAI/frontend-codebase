@@ -42,15 +42,14 @@ export async function getEmotion(data: ParagraphData) {
     });
 }
 
-
 //API call to sreceive synthesised audio from the backend
-export async function getAudio(token:string) {
+export async function getAudio(token: string) {
     //helper config
     const getAudioConfig: Params = {
         baseUrl: API_ENDPOINT,
         headers: {
             "Content-Type": "application/json",
-            "Authorization": `Bearer ${token}`
+            Authorization: `Bearer ${token}`,
         },
         method: "get",
     };

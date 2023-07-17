@@ -62,7 +62,7 @@
     overflow: hidden;
     line-height: 0;
     transform: rotate(180deg);
-    z-index: -2;
+    z-index: -10;
 }
 
 .wave svg {
@@ -156,6 +156,40 @@
 .introContentImage img {
     width: 100%;
     height: 100%;
+}
+
+.circle {
+    position: absolute;
+    bottom: 0;
+    aspect-ratio: 1/1;
+    background: #fbf4ff;
+    box-shadow: 0 0 10px #fbf4ff, 0 0 20px #fbf4ff, 0 0 30px #fbf4ff,
+        0 0 50px #fbf4ff;
+    border-radius: 50%;
+    animation: animate 5s linear forwards;
+}
+
+@keyframes animate {
+    0% {
+        transform: translateY(30vh);
+        opacity: 1;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-300vh);
+        opacity: 0;
+    }
+}
+.circle::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 25%;
+    width: 50%;
+    opacity: 0.5;
+    background: linear-gradient(#fbf4ff, transparent);
 }
 
 /* Emotions section */

@@ -78,7 +78,7 @@ function ScreenThree(props: ScreenThreeProps) {
                     state: "error",
                 })
             );
-            props.changeButton("disabled");
+            props.changeButton("enabled");
 
             return (
                 <div className={styles.error}>
