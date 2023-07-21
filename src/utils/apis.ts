@@ -1,7 +1,7 @@
 import axios from "axios";
 import { setToken } from "../store/actions";
 
-export const API_ENDPOINT = "http://127.0.0.1:8000";
+export const API_ENDPOINT = "https://backend-codebase-bzbd7k4ura-ew.a.run.app";
 
 //interface for the Helper
 interface Params {
@@ -34,7 +34,7 @@ export async function getEmotion(data: ParagraphData) {
             if (response.data.status === "success") {
                 //set token
                 setToken(response.data.token);
-                return response.data.emotion;
+                return response.data.emotions;
             } else {
                 throw new Error("Something went wrong");
             }

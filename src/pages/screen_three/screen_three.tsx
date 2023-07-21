@@ -7,7 +7,6 @@ import {
     AngryFace,
     FearfulFace,
     NeutralFace,
-    RelievedFace,
     FaceVomiting,
     SadButRelievedFace,
     FaceWithOpenMouth,
@@ -50,7 +49,6 @@ function ScreenThree(props: ScreenThreeProps) {
         fearful: "var(--Fear_Colour)",
         disgust: "var(--Disgust_Colour)",
         neutral: "var(--Neutral_Colour)",
-        calm: "var(--Calm_Colour)",
         surprised: "var(--Surprised_Colour)",
     };
 
@@ -123,12 +121,7 @@ function ScreenThree(props: ScreenThreeProps) {
                                     <SadButRelievedFace />
                                 </span>
                             </div>
-                            <div className={styles.icon}>
-                                <div className={styles.tooltip}>Calm</div>
-                                <span>
-                                    <RelievedFace />
-                                </span>
-                            </div>
+                          
                             <div className={styles.icon}>
                                 <div className={styles.tooltip}>Disgust</div>
                                 <span>
