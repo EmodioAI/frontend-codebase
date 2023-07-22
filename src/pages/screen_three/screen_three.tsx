@@ -121,7 +121,7 @@ function ScreenThree(props: ScreenThreeProps) {
                                     <SadButRelievedFace />
                                 </span>
                             </div>
-                          
+
                             <div className={styles.icon}>
                                 <div className={styles.tooltip}>Disgust</div>
                                 <span>

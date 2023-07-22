@@ -167,7 +167,6 @@
     background: var(--Sad_Colour);
 }
 
-
 /* 6th Emotion */
 .icon:nth-child(5) span {
     outline: 2px solid var(--Disgust_Colour);
