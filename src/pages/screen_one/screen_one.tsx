@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import styles from "./screen_one.module.css";
-import { FaRegKeyboard ,FaRegFileAudio} from "react-icons/fa";
+import { FaRegKeyboard, FaRegFileAudio } from "react-icons/fa";
 import { MdUploadFile } from "react-icons/md";
 import { ScreenOneProps } from "./screen_one.props";
 import { useDispatch } from "react-redux";
@@ -44,7 +44,7 @@ function ScreenOne(props: ScreenOneProps) {
                 props.changeButton("disabled");
                 dispatch(setInputChoice(0));
             }
-        } else if(e.target.id === "checkbox_two") {
+        } else if (e.target.id === "checkbox_two") {
             checkboxOne.checked = false;
             checkboxThree.checked = false;
             props.changeButton("enabled");
@@ -54,7 +54,7 @@ function ScreenOne(props: ScreenOneProps) {
                 props.changeButton("disabled");
                 dispatch(setInputChoice(0));
             }
-        }else if(e.target.id==='checkbox_three'){
+        } else if (e.target.id === "checkbox_three") {
             checkboxOne.checked = false;
             checkboxTwo.checked = false;
             props.changeButton("enabled");
@@ -64,7 +64,6 @@ function ScreenOne(props: ScreenOneProps) {
                 props.changeButton("disabled");
                 dispatch(setInputChoice(0));
             }
-
         }
     }
 

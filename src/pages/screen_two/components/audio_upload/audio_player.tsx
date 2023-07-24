@@ -48,7 +48,7 @@ function AudioUpload(props: ScreenTwoProps) {
                     setNotificationDetails({
                         status: true,
                         message: "Speech transcription successful",
-                        state:"success",
+                        state: "success",
                     })
                 );
             }
@@ -92,7 +92,6 @@ function AudioUpload(props: ScreenTwoProps) {
                 setAudiofile(file);
                 setIsNewContent(true);
                 dispatch(setnewContentState(true));
-
             }
         } else {
             props.changeButton("disabled");
@@ -103,7 +102,7 @@ function AudioUpload(props: ScreenTwoProps) {
     return (
         <>
             {status && <Notification />}
-            
+
             <div data-testid="file-upload" className={styles.container}>
                 <form onClick={handleFormClick}>
                     <input

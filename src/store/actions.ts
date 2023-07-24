@@ -21,7 +21,7 @@ export const setPageStep = (page_step: StepNumber) => {
 };
 
 // sets the input choice
-export const setInputChoice = (input_choice: 0 | 1 | 2|3) => {
+export const setInputChoice = (input_choice: 0 | 1 | 2 | 3) => {
     return {
         type: SET_INPUT_CHOICE,
         payload: input_choice,

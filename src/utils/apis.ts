@@ -70,32 +70,34 @@ export async function getAudio(token: string) {
 }
 
 //API call to transcribe text from audio
-export async function getTranscription(file:File) {
+export async function getTranscription(file: File) {
     console.log(file);
     const formData = new FormData();
-    formData.append('audio_file', file);
-    
+    formData.append("audio_file", file);
+
     //helper config
     const getTranscriptionConfig = {
-      baseUrl: API_ENDPOINT,
-      method: "post",
+        baseUrl: API_ENDPOINT,
+        method: "post",
     };
-  
+
     return await axios({
-      ...getTranscriptionConfig,
-      url: `${getTranscriptionConfig.baseUrl}/${"speech_transcription"}`,
-      data: formData,
+        ...getTranscriptionConfig,
+        url: `${getTranscriptionConfig.baseUrl}/${"speech_transcription"}`,
+        data: formData,
     }).then((response) => {
-      if (response.status === 200) {
-        if (response.data.status === "success") {
-          if (response.data.transcription == null || response.data.transcription == undefined) {
-            throw new Error("No text found");
-          }
-          return response.data.transcription;
-        } else {
-          throw new Error("Something went wrong, try again");
+        if (response.status === 200) {
+            if (response.data.status === "success") {
+                if (
+                    response.data.transcription == null ||
+                    response.data.transcription == undefined
+                ) {
+                    throw new Error("No text found");
+                }
+                return response.data.transcription;
+            } else {
+                throw new Error("Something went wrong, try again");
+            }
         }
-      }
     });
-  }
-  
+}

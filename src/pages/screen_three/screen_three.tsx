@@ -57,13 +57,13 @@ function ScreenThree(props: ScreenThreeProps) {
         //check if text content is empty
         if (contents.length === 0) {
             dispatch(
-                setNotificationDetails({    
+                setNotificationDetails({
                     status: true,
                     message: "No content to analyse",
                     state: "error",
                 })
             );
-            dispatch(setPageStep(1))
+            dispatch(setPageStep(1));
         }
     }, []);
 

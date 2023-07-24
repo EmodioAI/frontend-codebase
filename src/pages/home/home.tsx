@@ -141,7 +141,7 @@ function Home() {
             color: "#CE0D8D",
             button: surprise_button,
         },
-        
+
         {
             emotion: "Neutral",
             expressions: [
