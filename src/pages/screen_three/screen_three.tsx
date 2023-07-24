@@ -17,6 +17,7 @@ import { ParagraphData, getEmotion } from "../../utils/apis";
 import {
     setAnalysisResults,
     setNotificationDetails,
+    setPageStep,
     setnewContentState,
 } from "../../store/actions";
 import LoadingAnimation from "../../general_components/loading_animation/loading_animation";
@@ -51,6 +52,20 @@ function ScreenThree(props: ScreenThreeProps) {
         neutral: "var(--Neutral_Colour)",
         surprised: "var(--Surprised_Colour)",
     };
+
+    useEffect(() => {
+        //check if text content is empty
+        if (contents.length === 0) {
+            dispatch(
+                setNotificationDetails({    
+                    status: true,
+                    message: "No content to analyse",
+                    state: "error",
+                })
+            );
+            dispatch(setPageStep(1))
+        }
+    }, []);
 
     useEffect(() => {
         if (!isFetching && isNewContent) {

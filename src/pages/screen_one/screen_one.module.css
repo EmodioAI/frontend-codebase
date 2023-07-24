@@ -29,7 +29,7 @@
 }
 
 .lowerContent {
-    margin-top: 3rem;
+    margin-top: 1rem;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -39,7 +39,7 @@
 }
 
 .lowerContent div {
-    margin: 30px 0;
+    margin: 15px 0;
 }
 
 .lowerContent div label {
@@ -57,9 +57,9 @@
     background: var(--Main_Colour);
     color: #fff;
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
-    width: 12rem;
+    width: 13rem;
     font-size: 1.2rem;
-    transition: 0.2s;
+    transition: 0.1s;
     user-select: none;
     overflow: hidden;
     font-weight: 570;
@@ -93,9 +93,8 @@
 } */
 
 .lowerContent div label input[type="checkbox"]:checked ~ span {
-    background: #a100cd;
+    background: #f00055;
     color: #ffffff;
-    box-shadow: 0 2px 10px #a100cd;
 }
 
 /* Media Queries */

@@ -8,7 +8,6 @@ import disgust_button from "../../assets/Disgust button.png";
 import fear_button from "../../assets/Fear button.png";
 import sad_button from "../../assets/Sad button.png";
 import anger_button from "../../assets/Anger button.png";
-import calm_button from "../../assets/Calm button.png";
 import neutral_button from "../../assets/Neutral button.png";
 import surprise_button from "../../assets/Surprise button.png";
 import { FiCheckCircle } from "react-icons/fi";
@@ -142,18 +141,7 @@ function Home() {
             color: "#CE0D8D",
             button: surprise_button,
         },
-        {
-            emotion: "Calm",
-            expressions: [
-                "Feeling relaxed",
-                "Peaceful",
-                "Tranquil",
-                "Steady breathing",
-                "Clear mind",
-            ],
-            color: "#03E0E0",
-            button: calm_button,
-        },
+        
         {
             emotion: "Neutral",
             expressions: [
