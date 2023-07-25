@@ -167,43 +167,33 @@
     background: var(--Sad_Colour);
 }
 
-/* 5th Emotion */
+/* 6th Emotion */
 .icon:nth-child(5) span {
-    outline: 2px solid var(--Calm_Colour);
+    outline: 2px solid var(--Disgust_Colour);
 }
 
 .wrapper :nth-child(5) .tooltip,
 .wrapper :nth-child(5) .tooltip:before {
-    background: var(--Calm_Colour);
-}
-
-/* 6th Emotion */
-.icon:nth-child(6) span {
-    outline: 2px solid var(--Disgust_Colour);
-}
-
-.wrapper :nth-child(6) .tooltip,
-.wrapper :nth-child(6) .tooltip:before {
     background: var(--Disgust_Colour);
 }
 
 /* 7th Emotion */
-.icon:nth-child(7) span {
+.icon:nth-child(6) span {
     outline: 2px solid var(--Neutral_Colour);
 }
 
-.wrapper :nth-child(7) .tooltip,
-.wrapper :nth-child(7) .tooltip:before {
+.wrapper :nth-child(6) .tooltip,
+.wrapper :nth-child(6) .tooltip:before {
     background: var(--Neutral_Colour);
 }
 
 /* 8th Emotion */
-.icon:nth-child(8) span {
+.icon:nth-child(7) span {
     outline: 2px solid var(--Surprised_Colour);
 }
 
-.wrapper :nth-child(8) .tooltip,
-.wrapper :nth-child(8) .tooltip:before {
+.wrapper :nth-child(7) .tooltip,
+.wrapper :nth-child(7) .tooltip:before {
     background: var(--Surprised_Colour);
 }
 

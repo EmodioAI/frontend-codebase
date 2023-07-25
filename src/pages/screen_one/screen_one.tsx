@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import styles from "./screen_one.module.css";
-import { FaRegKeyboard } from "react-icons/fa";
+import { FaRegKeyboard, FaRegFileAudio } from "react-icons/fa";
 import { MdUploadFile } from "react-icons/md";
 import { ScreenOneProps } from "./screen_one.props";
 import { useDispatch } from "react-redux";
@@ -30,9 +30,13 @@ function ScreenOne(props: ScreenOneProps) {
         const checkboxTwo = document.getElementById(
             "checkbox_two"
         ) as HTMLInputElement;
+        const checkboxThree = document.getElementById(
+            "checkbox_three"
+        ) as HTMLInputElement;
 
         if (e.target.id === "checkbox_one") {
             checkboxTwo.checked = false;
+            checkboxThree.checked = false;
             props.changeButton("enabled");
             dispatch(setInputChoice(1));
 
@@ -40,12 +44,23 @@ function ScreenOne(props: ScreenOneProps) {
                 props.changeButton("disabled");
                 dispatch(setInputChoice(0));
             }
-        } else {
+        } else if (e.target.id === "checkbox_two") {
             checkboxOne.checked = false;
+            checkboxThree.checked = false;
             props.changeButton("enabled");
             dispatch(setInputChoice(2));
 
             if (!checkboxTwo.checked) {
+                props.changeButton("disabled");
+                dispatch(setInputChoice(0));
+            }
+        } else if (e.target.id === "checkbox_three") {
+            checkboxOne.checked = false;
+            checkboxTwo.checked = false;
+            props.changeButton("enabled");
+            dispatch(setInputChoice(3));
+
+            if (!checkboxThree.checked) {
                 props.changeButton("disabled");
                 dispatch(setInputChoice(0));
             }
@@ -90,6 +105,21 @@ function ScreenOne(props: ScreenOneProps) {
                                     <MdUploadFile />
                                 </i>
                                 Upload File
+                            </span>
+                        </label>
+                    </div>
+                    <div>
+                        <label htmlFor="checkbox_three">
+                            <input
+                                type="checkbox"
+                                id="checkbox_three"
+                                onChange={handleCheckboxClick}
+                            />
+                            <span>
+                                <i>
+                                    <FaRegFileAudio />
+                                </i>
+                                Upload Audio
                             </span>
                         </label>
                     </div>

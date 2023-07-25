@@ -16,7 +16,7 @@ import {
 interface IState {
     is_active: boolean;
     page_step: StepNumber;
-    input_choice: 0 | 1 | 2;
+    input_choice: 0 | 1 | 2 | 3;
     file: { name: string; size: number } | null;
     text_content: string[];
     isNewContent: boolean;

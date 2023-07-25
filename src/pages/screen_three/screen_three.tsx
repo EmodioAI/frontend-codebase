@@ -7,7 +7,6 @@ import {
     AngryFace,
     FearfulFace,
     NeutralFace,
-    RelievedFace,
     FaceVomiting,
     SadButRelievedFace,
     FaceWithOpenMouth,
@@ -18,6 +17,7 @@ import { ParagraphData, getEmotion } from "../../utils/apis";
 import {
     setAnalysisResults,
     setNotificationDetails,
+    setPageStep,
     setnewContentState,
 } from "../../store/actions";
 import LoadingAnimation from "../../general_components/loading_animation/loading_animation";
@@ -50,9 +50,22 @@ function ScreenThree(props: ScreenThreeProps) {
         fearful: "var(--Fear_Colour)",
         disgust: "var(--Disgust_Colour)",
         neutral: "var(--Neutral_Colour)",
-        calm: "var(--Calm_Colour)",
         surprised: "var(--Surprised_Colour)",
     };
+
+    useEffect(() => {
+        //check if text content is empty
+        if (contents.length === 0) {
+            dispatch(
+                setNotificationDetails({
+                    status: true,
+                    message: "No content to analyse",
+                    state: "error",
+                })
+            );
+            dispatch(setPageStep(1));
+        }
+    }, []);
 
     useEffect(() => {
         if (!isFetching && isNewContent) {
@@ -78,7 +91,7 @@ function ScreenThree(props: ScreenThreeProps) {
                     state: "error",
                 })
             );
-            props.changeButton("disabled");
+            props.changeButton("enabled");
 
             return (
                 <div className={styles.error}>
@@ -123,12 +136,7 @@ function ScreenThree(props: ScreenThreeProps) {
                                     <SadButRelievedFace />
                                 </span>
                             </div>
-                            <div className={styles.icon}>
-                                <div className={styles.tooltip}>Calm</div>
-                                <span>
-                                    <RelievedFace />
-                                </span>
-                            </div>
+
                             <div className={styles.icon}>
                                 <div className={styles.tooltip}>Disgust</div>
                                 <span>

@@ -1,6 +1,5 @@
 import { CSSProperties, useEffect, useState } from "react";
 import styles from "./home.module.css";
-import style from "../page_modal/page_modal.module.css";
 import group_emotions from "../../assets/Group 6841.png";
 import phone_image from "../../assets/phone.png";
 import thumb_image from "../../assets/thumb.png";
@@ -9,7 +8,6 @@ import disgust_button from "../../assets/Disgust button.png";
 import fear_button from "../../assets/Fear button.png";
 import sad_button from "../../assets/Sad button.png";
 import anger_button from "../../assets/Anger button.png";
-import calm_button from "../../assets/Calm button.png";
 import neutral_button from "../../assets/Neutral button.png";
 import surprise_button from "../../assets/Surprise button.png";
 import { FiCheckCircle } from "react-icons/fi";
@@ -22,8 +20,43 @@ function Home() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
+    const [circles, setCircles] = useState<JSX.Element[]>([]);
+
     useEffect(() => {
         persistor.purge();
+
+        function generateLine() {
+            const widthSize = Math.random() * 5;
+            const duration = Math.random() * 3;
+
+            const newCircle = (
+                <div
+                    key={Math.random()} // Assign a unique key to each circle element
+                    className={styles.circle}
+                    style={{
+                        width: `${widthSize}px`,
+                        left: `${Math.random() * +window.innerWidth}px`,
+                        animationDuration: `2${duration}s`,
+                    }}
+                ></div>
+            );
+
+            setCircles((prevCircles) => [...prevCircles, newCircle]);
+
+            setTimeout(() => {
+                setCircles((prevCircles) =>
+                    prevCircles.filter((circle) => circle.key !== newCircle.key)
+                );
+            }, 5000);
+        }
+
+        const interval = setInterval(() => {
+            generateLine();
+        }, 50);
+
+        return () => {
+            clearInterval(interval);
+        };
     });
 
     const [activeItem, setActiveItem] = useState<number>(0);
@@ -108,18 +141,7 @@ function Home() {
             color: "#CE0D8D",
             button: surprise_button,
         },
-        {
-            emotion: "Calm",
-            expressions: [
-                "Feeling relaxed",
-                "Peaceful",
-                "Tranquil",
-                "Steady breathing",
-                "Clear mind",
-            ],
-            color: "#03E0E0",
-            button: calm_button,
-        },
+
         {
             emotion: "Neutral",
             expressions: [
@@ -170,6 +192,7 @@ function Home() {
                     </div>
                 </header>
                 <section className={styles.introSection}>
+                    {circles}
                     <div className={styles.wave}>
                         <svg
                             data-name="Layer 1"
@@ -183,9 +206,6 @@ function Home() {
                             ></path>
                         </svg>
                     </div>
-                    <div className={style.stars}></div>
-                    <div className={style.starsTwo}></div>
-                    <div className={style.starsThree}></div>
 
                     <div className={styles.container}>
                         <div className={styles.introContents}>

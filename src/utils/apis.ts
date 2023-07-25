@@ -1,7 +1,7 @@
 import axios from "axios";
 import { setToken } from "../store/actions";
 
-export const API_ENDPOINT = "http://127.0.0.1:8000";
+export const API_ENDPOINT = "https://backend-codebase-bzbd7k4ura-ew.a.run.app";
 
 //interface for the Helper
 interface Params {
@@ -34,7 +34,7 @@ export async function getEmotion(data: ParagraphData) {
             if (response.data.status === "success") {
                 //set token
                 setToken(response.data.token);
-                return response.data.emotion;
+                return response.data.emotions;
             } else {
                 throw new Error("Something went wrong");
             }
@@ -42,15 +42,14 @@ export async function getEmotion(data: ParagraphData) {
     });
 }
 
-
 //API call to sreceive synthesised audio from the backend
-export async function getAudio(token:string) {
+export async function getAudio(token: string) {
     //helper config
     const getAudioConfig: Params = {
         baseUrl: API_ENDPOINT,
         headers: {
             "Content-Type": "application/json",
-            "Authorization": `Bearer ${token}`
+            Authorization: `Bearer ${token}`,
         },
         method: "get",
     };
@@ -65,6 +64,39 @@ export async function getAudio(token:string) {
                 return response;
             } else {
                 throw new Error("Something went wrong");
+            }
+        }
+    });
+}
+
+//API call to transcribe text from audio
+export async function getTranscription(file: File) {
+    console.log(file);
+    const formData = new FormData();
+    formData.append("audio_file", file);
+
+    //helper config
+    const getTranscriptionConfig = {
+        baseUrl: API_ENDPOINT,
+        method: "post",
+    };
+
+    return await axios({
+        ...getTranscriptionConfig,
+        url: `${getTranscriptionConfig.baseUrl}/${"speech_transcription"}`,
+        data: formData,
+    }).then((response) => {
+        if (response.status === 200) {
+            if (response.data.status === "success") {
+                if (
+                    response.data.transcription == null ||
+                    response.data.transcription == undefined
+                ) {
+                    throw new Error("No text found");
+                }
+                return response.data.transcription;
+            } else {
+                throw new Error("Something went wrong, try again");
             }
         }
     });
