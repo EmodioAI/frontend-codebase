@@ -8,7 +8,9 @@ import {
     SET_TEXT_CONTENT,
     SET_NOTIFICATION_DETAILS,
     SET_ANALYSIS_RESULTS,
-    SET_NEW_CONTENT_STATE,
+    SET_NEW_AUDIO_CONTENT_STATE,
+    SET_NEW_FILE_CONTENT_STATE,
+    SET_NEW_ANALYSIS_CONTENT_STATE,
     SET_ACTIVE,
     SET_TOKEN,
 } from "./actionTypes";
@@ -19,7 +21,9 @@ interface IState {
     input_choice: 0 | 1 | 2 | 3;
     file: { name: string; size: number } | null;
     text_content: string[];
-    isNewContent: boolean;
+    isNewAudioContent: boolean;
+    isNewFileContent: boolean;
+    isNewAnalysisContent: boolean;
     status: boolean;
     message: string;
     state: "success" | "error" | null;
@@ -33,7 +37,9 @@ const initialState: IState = {
     input_choice: 0,
     file: null,
     text_content: [],
-    isNewContent: false,
+    isNewAudioContent: false,
+    isNewFileContent: false,
+    isNewAnalysisContent: false,
     status: false,
     message: "",
     state: null,
@@ -70,15 +76,29 @@ const Reducers = (state = initialState, action: PayloadAction<any>) => {
                 ...state,
                 file: action.payload,
             };
+
         case SET_TEXT_CONTENT:
             return {
                 ...state,
                 text_content: action.payload,
             };
-        case SET_NEW_CONTENT_STATE:
+
+        case SET_NEW_AUDIO_CONTENT_STATE:
             return {
                 ...state,
-                isNewContent: action.payload,
+                isNewAudioContent: action.payload,
+            };
+
+        case SET_NEW_FILE_CONTENT_STATE:
+            return {
+                ...state,
+                isNewFileContent: action.payload,
+            };
+
+        case SET_NEW_ANALYSIS_CONTENT_STATE:
+            return {
+                ...state,
+                isNewAnalysisContent: action.payload,
             };
         case SET_NOTIFICATION_DETAILS:
             return {

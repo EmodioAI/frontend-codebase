@@ -130,7 +130,7 @@
 
 /* 1st Emotion */
 .icon:nth-child(1) span {
-    outline: 2px solid var(--Happy_Colour);
+    outline: 7px solid var(--Happy_Colour);
 }
 .wrapper :nth-child(1) .tooltip,
 .wrapper :nth-child(1) .tooltip:before {
@@ -139,7 +139,7 @@
 
 /* 2nd Emotion */
 .icon:nth-child(2) span {
-    outline: 2px solid var(--Anger_Colour);
+    outline: 7px solid var(--Anger_Colour);
 }
 
 .wrapper :nth-child(2) .tooltip,
@@ -149,7 +149,7 @@
 
 /* 3rd Emotion */
 .icon:nth-child(3) span {
-    outline: 2px solid var(--Fear_Colour);
+    outline: 7px solid var(--Fear_Colour);
 }
 
 .wrapper :nth-child(3) .tooltip,
@@ -159,7 +159,7 @@
 
 /* 4th Emotion */
 .icon:nth-child(4) span {
-    outline: 2px solid var(--Sad_Colour);
+    outline: 7px solid var(--Sad_Colour);
 }
 
 .wrapper :nth-child(4) .tooltip,
@@ -169,7 +169,7 @@
 
 /* 6th Emotion */
 .icon:nth-child(5) span {
-    outline: 2px solid var(--Disgust_Colour);
+    outline: 7px solid var(--Disgust_Colour);
 }
 
 .wrapper :nth-child(5) .tooltip,
@@ -179,7 +179,7 @@
 
 /* 7th Emotion */
 .icon:nth-child(6) span {
-    outline: 2px solid var(--Neutral_Colour);
+    outline: 7px solid var(--Neutral_Colour);
 }
 
 .wrapper :nth-child(6) .tooltip,
@@ -189,7 +189,7 @@
 
 /* 8th Emotion */
 .icon:nth-child(7) span {
-    outline: 2px solid var(--Surprised_Colour);
+    outline: 7px solid var(--Surprised_Colour);
 }
 
 .wrapper :nth-child(7) .tooltip,

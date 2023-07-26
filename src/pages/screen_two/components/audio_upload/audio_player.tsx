@@ -7,7 +7,9 @@ import { getTranscription } from "../../../../utils/apis";
 import {
     setNotificationDetails,
     setUploadedTextContent,
-    setnewContentState,
+    setNewFileContentState,
+    setNewAnalysisContentState,
+    setNewAudioContentState,
 } from "../../../../store/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../../store/store";
@@ -19,16 +21,19 @@ import Notification from "../../../../general_components/notification_box/notifi
 
 function AudioUpload(props: ScreenTwoProps) {
     const dispatch = useDispatch();
+
     const status = useSelector((state: RootState) => state.status);
+    const isNewAudio = useSelector(
+        (state: RootState) => state.isNewFileContent
+    );
 
     const audioFileRef = useRef<HTMLInputElement>(null);
 
-    const [isNewContent, setIsNewContent] = useState<boolean>(false);
     const [audioFile, setAudiofile] = useState<File>();
 
     const { data, isFetching, isError, error } = useQuery({
         queryKey: ["transcription"],
-        enabled: isNewContent,
+        enabled: isNewAudio,
         queryFn: () => getTranscription(audioFile as File),
     });
 
@@ -38,12 +43,14 @@ function AudioUpload(props: ScreenTwoProps) {
     }, []);
 
     useEffect(() => {
-        if (!isFetching && isNewContent) {
+        if (!isFetching && isNewAudio) {
             // check if data is available
             if (data) {
                 dispatch(setUploadedTextContent([data]));
                 props.changeButton("enabled");
-                setIsNewContent(false);
+                dispatch(setNewFileContentState(false));
+                dispatch(setNewAnalysisContentState(true));
+                dispatch(setNewAudioContentState(true));
                 dispatch(
                     setNotificationDetails({
                         status: true,
@@ -64,9 +71,9 @@ function AudioUpload(props: ScreenTwoProps) {
                 })
             );
             props.changeButton("disabled");
-            setIsNewContent(false);
+            dispatch(setNewFileContentState(false));
         }
-    }, [data, error, isFetching, isError, isNewContent]);
+    }, [data, error, isFetching, isError, isNewAudio]);
 
     const handleFormClick = () => {
         if (audioFileRef.current) {
@@ -90,12 +97,11 @@ function AudioUpload(props: ScreenTwoProps) {
             if (allowedExtensions.includes(fileExtension)) {
                 // set file to state
                 setAudiofile(file);
-                setIsNewContent(true);
-                dispatch(setnewContentState(true));
+                dispatch(setNewFileContentState(true));
             }
         } else {
             props.changeButton("disabled");
-            setIsNewContent(false);
+            dispatch(setNewFileContentState(false));
         }
     }
 

@@ -4,7 +4,8 @@ import { ScreenTwoProps } from "../../screen_two.props";
 import { useDispatch } from "react-redux";
 import {
     setUploadedTextContent,
-    setnewContentState,
+    setNewAnalysisContentState,
+    setNewAudioContentState,
 } from "../../../../store/actions";
 
 function TextEditor(props: ScreenTwoProps) {
@@ -71,7 +72,8 @@ function TextEditor(props: ScreenTwoProps) {
             props.changeButton("disabled");
         }
         dispatch(setUploadedTextContent(event.target.value.split("\n")));
-        dispatch(setnewContentState(true));
+        dispatch(setNewAnalysisContentState(true));
+        dispatch(setNewAudioContentState(true));
     }
 
     const lineCount = inputText.split("\n").length; // Count the number of lines

@@ -18,7 +18,8 @@ import {
     setAnalysisResults,
     setNotificationDetails,
     setPageStep,
-    setnewContentState,
+    setNewAnalysisContentState,
+    setToken,
 } from "../../store/actions";
 import LoadingAnimation from "../../general_components/loading_animation/loading_animation";
 import { AxiosError } from "axios";
@@ -28,7 +29,9 @@ function ScreenThree(props: ScreenThreeProps) {
     const dispatch = useDispatch();
 
     const fileContent = useSelector((state: RootState) => state.text_content);
-    const isNewContent = useSelector((state: RootState) => state.isNewContent);
+    const isNewContent = useSelector(
+        (state: RootState) => state.isNewAnalysisContent
+    );
     const analysisResults = useSelector(
         (state: RootState) => state.analysis_results
     );
@@ -37,6 +40,7 @@ function ScreenThree(props: ScreenThreeProps) {
     const inputData: ParagraphData = {
         paragraphs: contents,
     };
+
     const { data, isFetching, isError, error } = useQuery({
         queryKey: ["analysis"],
         enabled: isNewContent,
@@ -63,6 +67,7 @@ function ScreenThree(props: ScreenThreeProps) {
                     state: "error",
                 })
             );
+            dispatch(setNewAnalysisContentState(false));
             dispatch(setPageStep(1));
         }
     }, []);
@@ -70,8 +75,10 @@ function ScreenThree(props: ScreenThreeProps) {
     useEffect(() => {
         if (!isFetching && isNewContent) {
             if (data) {
-                dispatch(setAnalysisResults(data));
-                dispatch(setnewContentState(false));
+                dispatch(setAnalysisResults(data.emotions));
+                dispatch(setToken(data.token));
+                dispatch(setNewAnalysisContentState(false));
+                props.changeButton("enabled");
             }
         }
         if (!isFetching) {
@@ -91,7 +98,8 @@ function ScreenThree(props: ScreenThreeProps) {
                     state: "error",
                 })
             );
-            props.changeButton("enabled");
+            props.changeButton("disabled");
+            dispatch(setNewAnalysisContentState(false));
 
             return (
                 <div className={styles.error}>
