@@ -14,6 +14,7 @@ import {
     SET_ACTIVE,
     SET_TOKEN,
 } from "./actionTypes";
+import { EmotionData } from "../pages/screen_three/screen_three.props";
 
 interface IState {
     is_active: boolean;
@@ -27,7 +28,7 @@ interface IState {
     status: boolean;
     message: string;
     state: "success" | "error" | null;
-    analysis_results: string[];
+    analysis_results: EmotionData[];
     token: string;
 }
 

@@ -1,14 +1,10 @@
-import { useState } from "react";
 import CanvasJSReact from "@canvasjs/react-charts";
+interface Data {
+    [emotion: string]: { [tone: string]: number };
+}
 
-function PlotEmotions() {
+function PlotEmotions(props: Data) {
     var CanvasJSChart = CanvasJSReact.CanvasJSChart;
-
-    const [emotions] = useState({
-        sequence: "I am so happy",
-        labels: ["happy", "surprise", "neutral", "sad", "disgust", "anger"],
-        scores: [0.94593, 0.04282, 0.00757, 0.00138, 0.00115, 0.00114],
-    });
 
     const options = {
         exportEnabled: true,
@@ -25,10 +21,10 @@ function PlotEmotions() {
                 legendText: "{label}",
                 indexLabelFontSize: 16,
                 indexLabel: "{label} - {y}%",
-                dataPoints: emotions.labels.map((label, index) => {
+                dataPoints: Object.keys(props.data).map((emotion) => {
                     return {
-                        y: emotions.scores[index] * 100, // Multiply by 100 to get a similar scale
-                        label: label.charAt(0).toUpperCase() + label.slice(1), // Capitalize the label
+                        y: props.data[emotion] * 100,// Multiply by 1,000,000,000 to get a similar scale
+                        label: emotion.charAt(0).toUpperCase() + emotion.slice(1), // Capitalize the label
                     };
                 }),
             },

@@ -1,15 +1,12 @@
-import { useState } from "react";
 import CanvasJSReact from "@canvasjs/react-charts";
 // var CanvasJSReact = require("@canvasjs/react-charts");
 
-function PlotTones() {
+interface Data {
+    [emotion: string]: { [tone: string]: number };
+}
+function PlotTones(props: Data) {
     var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
-    const [tones] = useState({
-        sequence: "I am so happy",
-        labels: ["positive", "neutral", "negative"],
-        scores: [0.99139, 0.0064, 0.00221],
-    });
 
     const options = {
         animationEnabled: true,
@@ -29,10 +26,10 @@ function PlotTones() {
         data: [
             {
                 type: "bar",
-                dataPoints: tones.labels.map((label, index) => {
+                dataPoints: Object.keys(props.data).map((tone) => {
                     return {
-                        y: tones.scores[index], // Multiply by 1,000,000,000 to get a similar scale
-                        label: label.charAt(0).toUpperCase() + label.slice(1), // Capitalize the label
+                      y: props.data[tone], // Multiply by 1,000,000,000 to get a similar scale
+                      label: tone.charAt(0).toUpperCase() + tone.slice(1), // Capitalize the label
                     };
                 }),
             },

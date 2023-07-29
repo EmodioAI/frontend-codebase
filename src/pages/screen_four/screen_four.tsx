@@ -31,7 +31,7 @@ function ScreenFour(props: ScreenFourProps) {
 
     const { data, isFetching, isError, error } = useQuery({
         queryKey: ["audio"],
-        enabled: isNewContent,
+        enabled: false,
         queryFn: () => getAudio(token),
     });
 

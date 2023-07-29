@@ -1,5 +1,6 @@
 import { NotificationProps } from "../general_components/notification_box/notification_box.props";
 import { StepNumber } from "../general_components/progress_bar/progress_bar.props";
+import { EmotionData } from "../pages/screen_three/screen_three.props";
 import {
     SET_INPUT_CHOICE,
     SET_PAGE_STEP,
@@ -13,6 +14,8 @@ import {
     SET_NEW_FILE_CONTENT_STATE,
     SET_NEW_ANALYSIS_CONTENT_STATE,
 } from "./actionTypes";
+
+
 
 // sets the page step
 export const setPageStep = (page_step: StepNumber) => {
@@ -77,7 +80,7 @@ export const setNotificationDetails = (details: NotificationProps) => {
 };
 
 //sets results from emotion analysis
-export const setAnalysisResults = (results: string[]) => {
+export const setAnalysisResults = (results: EmotionData[]) => {
     return {
         type: SET_ANALYSIS_RESULTS,
         payload: results,
