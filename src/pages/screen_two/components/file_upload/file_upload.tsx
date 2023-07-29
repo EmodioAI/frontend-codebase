@@ -128,8 +128,9 @@ function FileUpload(props: ScreenTwoProps) {
 
                     reader.onload = (event: ProgressEvent<FileReader>) => {
                         const content = event.target?.result as string;
-                        const paragraphs = content.split("\n");
-                        console.log(content.split("\n"));
+                        const paragraphs = content
+                            .replace(/\r|\t/g, "")
+                            .split("\n");
 
                         dispatch(setUploadedTextContent(paragraphs));
                         dispatch(setNewAnalysisContentState(true));

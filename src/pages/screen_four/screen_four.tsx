@@ -49,6 +49,10 @@ function ScreenFour(props: ScreenFourProps) {
                 props.changeButton("enabled");
             }
         }
+
+        if (isFetching) {
+            props.changeButton("disabled");
+        }
     }, [data, error, isFetching, isError, isNewContent]);
 
     function handleTimeUpdate() {

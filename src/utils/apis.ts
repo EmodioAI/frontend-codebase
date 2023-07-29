@@ -32,7 +32,7 @@ export async function getEmotion(data: ParagraphData) {
         if (response.status === 200) {
             if (response.data.status === "success") {
                 return {
-                    emotions: response.data.emotions,
+                    emotions: response.data.results,
                     token: response.data.token,
                 };
             } else {
@@ -51,6 +51,7 @@ export async function getAudio(token: string): Promise<HTMLAudioElement> {
             Authorization: `Bearer ${token}`,
         },
         method: "get",
+        responseType: "arraybuffer" as "arraybuffer",
     };
 
     try {
@@ -61,9 +62,11 @@ export async function getAudio(token: string): Promise<HTMLAudioElement> {
 
         if (response.status === 200 && response.data) {
             // Create a Blob from the audio data
-            const audioBlob = new Blob([response.data], { type: "audio/wav" });
+            console.log(response);
+            const audioBlob = new Blob([response.data], { type: "audio/mpeg" });
             const audioElement = new Audio();
             audioElement.src = URL.createObjectURL(audioBlob);
+            console.log(audioElement.src);
             return audioElement;
         } else {
             throw new Error("Something went wrong");

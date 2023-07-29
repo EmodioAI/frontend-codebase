@@ -14,6 +14,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../../store/store";
 import Notification from "../../../../general_components/notification_box/notification_box";
+import LoadingAnimation from "../../../../general_components/loading_animation/loading_animation";
 
 // interface MyResponse {
 //     error?: string;
@@ -73,6 +74,9 @@ function AudioUpload(props: ScreenTwoProps) {
             props.changeButton("disabled");
             dispatch(setNewFileContentState(false));
         }
+        if (isFetching) {
+            props.changeButton("disabled");
+        }
     }, [data, error, isFetching, isError, isNewAudio]);
 
     const handleFormClick = () => {
@@ -110,22 +114,28 @@ function AudioUpload(props: ScreenTwoProps) {
             {status && <Notification />}
 
             <div data-testid="file-upload" className={styles.container}>
-                <form onClick={handleFormClick}>
-                    <input
-                        data-testid="input-file-uploader"
-                        type="file"
-                        className={styles.fileInput}
-                        accept=".wav,.mp3"
-                        hidden
-                        onChange={handleFileChange}
-                        ref={audioFileRef}
-                    />
-                    <i>
-                        <FaCloudUploadAlt />
-                    </i>
-                    <p>Browse File to Upload</p>
-                    <p className={styles.formInfo}>Supported files: MP3,WAV</p>
-                </form>
+                {isFetching ? (
+                    <LoadingAnimation />
+                ) : (
+                    <form onClick={handleFormClick}>
+                        <input
+                            data-testid="input-file-uploader"
+                            type="file"
+                            className={styles.fileInput}
+                            accept=".wav,.mp3"
+                            hidden
+                            onChange={handleFileChange}
+                            ref={audioFileRef}
+                        />
+                        <i>
+                            <FaCloudUploadAlt />
+                        </i>
+                        <p>Browse File to Upload</p>
+                        <p className={styles.formInfo}>
+                            Supported files: MP3,WAV
+                        </p>
+                    </form>
+                )}
             </div>
         </>
     );
