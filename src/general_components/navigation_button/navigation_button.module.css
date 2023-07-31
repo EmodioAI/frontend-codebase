@@ -19,7 +19,7 @@
 }
 
 .next {
-    color:var(--Main_Colour);
+    color: var(--Main_Colour);
     border: 2px solid var(--Main_Colour);
 }
 
