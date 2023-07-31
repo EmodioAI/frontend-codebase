@@ -15,6 +15,7 @@ function Plot(props: PlotProps) {
     );
     const emotionData = analysisResults[props.analysisIndex].emotion_results;
     const toneData = analysisResults[props.analysisIndex].tone_results;
+
     return (
         <>
             <section className={styles.container} data-testid="plot">
@@ -24,6 +25,7 @@ function Plot(props: PlotProps) {
                     </div>
                     <div className={styles.plot_emotions}>
                         <PlotEmotions data={emotionData} />
+
                     </div>
                 </div>
                 <div className={styles.close}>
