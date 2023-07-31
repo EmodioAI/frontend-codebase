@@ -13,17 +13,19 @@ function Plot(props: PlotProps) {
     const analysisResults = useSelector(
         (state: RootState) => state.analysis_results
     );
-    const emotionData = analysisResults[props.analysisIndex].emotion_results
-    const toneData = analysisResults[props.analysisIndex].tone_results
+    const emotionData = analysisResults[props.analysisIndex].emotion_results;
+    const toneData = analysisResults[props.analysisIndex].tone_results;
+
     return (
         <>
             <section className={styles.container} data-testid="plot">
                 <div className={styles.plot}>
                     <div className={styles.plot_tones}>
-                        <PlotTones data={toneData}/>
+                        <PlotTones data={toneData} />
                     </div>
                     <div className={styles.plot_emotions}>
-                        <PlotEmotions data={emotionData}/>
+                        <PlotEmotions data={emotionData} />
+
                     </div>
                 </div>
                 <div className={styles.close}>

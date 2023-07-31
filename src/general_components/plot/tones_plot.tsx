@@ -28,8 +28,9 @@ function PlotTones(props: Data) {
                 type: "bar",
                 dataPoints: Object.keys(props.data).map((tone) => {
                     return {
-                      y: props.data[tone], // Multiply by 1,000,000,000 to get a similar scale
-                      label: tone.charAt(0).toUpperCase() + tone.slice(1), // Capitalize the label
+                        y: props.data[tone], // Multiply by 1,000,000,000 to get a similar scale
+                        label: tone.charAt(0).toUpperCase() + tone.slice(1), // Capitalize the label
+
                     };
                 }),
             },

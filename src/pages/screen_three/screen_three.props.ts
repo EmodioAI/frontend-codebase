@@ -8,13 +8,13 @@ export interface ScreenThreeProps {
     changeButton: (data: NavButtonStatus) => void;
 }
 
-
 export interface EmotionData {
     emotion: string;
     emotion_results: {
-      [emotion: string]: number;
+        [emotion: string]: number;
     };
     tone_results: {
-      [tone: string]: number;
+        [tone: string]: number;
     };
-  }
+}
+

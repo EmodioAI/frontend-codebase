@@ -31,7 +31,7 @@ export async function getEmotion(data: ParagraphData) {
     }).then((response) => {
         if (response.status === 200) {
             if (response.data.status === "success") {
-                console.log(response.data.results,)
+
                 return {
                     emotions: response.data.results,
                     token: response.data.token,

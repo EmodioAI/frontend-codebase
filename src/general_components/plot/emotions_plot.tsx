@@ -23,8 +23,10 @@ function PlotEmotions(props: Data) {
                 indexLabel: "{label} - {y}%",
                 dataPoints: Object.keys(props.data).map((emotion) => {
                     return {
-                        y: props.data[emotion] * 100,// Multiply by 1,000,000,000 to get a similar scale
-                        label: emotion.charAt(0).toUpperCase() + emotion.slice(1), // Capitalize the label
+                        y: props.data[emotion] * 100, // Multiply by 1,000,000,000 to get a similar scale
+                        label:
+                            emotion.charAt(0).toUpperCase() + emotion.slice(1), // Capitalize the label
+
                     };
                 }),
             },
