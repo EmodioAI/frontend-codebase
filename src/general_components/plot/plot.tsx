@@ -25,7 +25,6 @@ function Plot(props: PlotProps) {
                     </div>
                     <div className={styles.plot_emotions}>
                         <PlotEmotions data={emotionData} />
-
                     </div>
                 </div>
                 <div className={styles.close}>

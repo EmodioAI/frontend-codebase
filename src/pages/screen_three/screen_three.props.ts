@@ -17,4 +17,3 @@ export interface EmotionData {
         [tone: string]: number;
     };
 }
-
