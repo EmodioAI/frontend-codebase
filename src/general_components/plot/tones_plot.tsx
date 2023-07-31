@@ -7,6 +7,7 @@ interface Data {
 function PlotTones(props: Data) {
     var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
+
     const options = {
         animationEnabled: true,
         theme: "light2",
@@ -29,6 +30,7 @@ function PlotTones(props: Data) {
                     return {
                         y: props.data[tone], // Multiply by 1,000,000,000 to get a similar scale
                         label: tone.charAt(0).toUpperCase() + tone.slice(1), // Capitalize the label
+
                     };
                 }),
             },

@@ -35,6 +35,7 @@ function ScreenThree(props: ScreenThreeProps) {
         (state: RootState) => state.isNewAnalysisContent
     );
     const analysisResults: EmotionData[] = useSelector(
+
         (state: RootState) => state.analysis_results
     );
     const [contents] = useState<string[]>(fileContent);
@@ -82,7 +83,7 @@ function ScreenThree(props: ScreenThreeProps) {
     useEffect(() => {
         if (!isFetching && isNewContent) {
             if (data) {
-                console.log(data);
+
                 dispatch(setAnalysisResults(data.emotions));
                 dispatch(setToken(data.token));
                 dispatch(setNewAnalysisContentState(false));
