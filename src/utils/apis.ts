@@ -1,5 +1,4 @@
-import axios from "axios";
-import { setToken } from "../store/actions";
+import axios, { AxiosResponse } from "axios";
 
 export const API_ENDPOINT = "https://backend-codebase-bzbd7k4ura-ew.a.run.app";
 
@@ -32,9 +31,11 @@ export async function getEmotion(data: ParagraphData) {
     }).then((response) => {
         if (response.status === 200) {
             if (response.data.status === "success") {
-                //set token
-                setToken(response.data.token);
-                return response.data.emotions;
+                console.log(response.data.results,)
+                return {
+                    emotions: response.data.results,
+                    token: response.data.token,
+                };
             } else {
                 throw new Error("Something went wrong");
             }
@@ -42,36 +43,43 @@ export async function getEmotion(data: ParagraphData) {
     });
 }
 
-//API call to sreceive synthesised audio from the backend
-export async function getAudio(token: string) {
-    //helper config
-    const getAudioConfig: Params = {
+//API call to recieve audio from the backend
+export async function getAudio(token: string): Promise<HTMLAudioElement> {
+    const getAudioConfig = {
         baseUrl: API_ENDPOINT,
         headers: {
-            "Content-Type": "application/json",
+            "Content-Type": "audio/mpeg",
             Authorization: `Bearer ${token}`,
         },
         method: "get",
+        responseType: "arraybuffer" as "arraybuffer",
     };
 
-    return await axios({
-        ...getAudioConfig,
-        url: `${getAudioConfig.baseUrl}/${"audio_synthesis"}`,
-    }).then((response) => {
-        if (response.status === 200) {
-            if (response.data.status === "success") {
-                //set token
-                return response;
-            } else {
-                throw new Error("Something went wrong");
-            }
+    try {
+        const response: AxiosResponse = await axios({
+            ...getAudioConfig,
+            url: `${getAudioConfig.baseUrl}/${"audio_synthesis/"}`,
+        });
+
+        if (response.status === 200 && response.data) {
+            // Create a Blob from the audio data
+            console.log(response);
+            const audioBlob = new Blob([response.data], { type: "audio/mpeg" });
+            const audioElement = new Audio();
+            audioElement.src = URL.createObjectURL(audioBlob);
+            console.log(audioElement.src);
+            return audioElement;
+        } else {
+            throw new Error("Something went wrong");
         }
-    });
+    } catch (error) {
+        console.error("Error fetching audio:", error);
+        throw error; // Re-throw the error to maintain the return type
+    }
 }
 
 //API call to transcribe text from audio
 export async function getTranscription(file: File) {
-    console.log(file);
     const formData = new FormData();
     formData.append("audio_file", file);
 

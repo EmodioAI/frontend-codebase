@@ -4,21 +4,56 @@ import { GoPlay } from "react-icons/go";
 import { RiDownloadCloudFill } from "react-icons/ri";
 import NavButton from "../../general_components/navigation_button/navigation_button";
 import { CustomStyles, modal, ScreenFourProps } from "./screen_four.props";
-import test from "../../assets/test.wav";
+// import test from "../../assets/test.wav";
 import { FaPlay, FaPause } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../store/store";
+import { useQuery } from "@tanstack/react-query";
+import { getAudio } from "../../utils/apis";
+import { setNewAudioContentState } from "../../store/actions";
+import LoadingAnimation from "../../general_components/loading_animation/loading_animation";
 
 function ScreenFour(props: ScreenFourProps) {
+    const dispatch = useDispatch();
+
+    const isNewContent = useSelector(
+        (state: RootState) => state.isNewAudioContent
+    );
+    const token = useSelector((state: RootState) => state.token);
+
     const [changePage, setChangePage] = useState<modal>("page_one");
     const [changeIcon, setChangeIcon] = useState<boolean>(true);
     const [currentTime, setCurrentTime] = useState<number>(0);
+    const [audio, setAudio] = useState<HTMLAudioElement>();
     const [progress, setProgress] = useState(0);
+
     const audioRef = useRef<HTMLAudioElement>(null);
+
+    const { data, isFetching, isError, error } = useQuery({
+        queryKey: ["audio"],
+        enabled: false,
+        queryFn: () => getAudio(token),
+    });
 
     useEffect(() => {
         if (changePage === "page_one") {
             props.changeButton("enabled");
         }
     }, [changePage]);
+
+    useEffect(() => {
+        if (!isFetching && isNewContent) {
+            if (data) {
+                setAudio(data);
+                dispatch(setNewAudioContentState(false));
+                props.changeButton("enabled");
+            }
+        }
+
+        if (isFetching) {
+            props.changeButton("disabled");
+        }
+    }, [data, error, isFetching, isError, isNewContent]);
 
     function handleTimeUpdate() {
         const audioCurrent = audioRef.current;
@@ -76,112 +111,123 @@ function ScreenFour(props: ScreenFourProps) {
 
     const handleDownload = () => {
         // Replace "your-audio-file.mp3" with the actual path to your file
-        const downloadUrl = test;
+        const downloadUrl = (audio as HTMLAudioElement).src;
         const link = document.createElement("a");
         link.href = downloadUrl;
-        link.download = "your-audio-file.mp3"; // Optional: specify the downloaded file name
+        link.download = "synthesised_audio.wav"; // Optional: specify the downloaded file name
         link.click();
     };
 
     return (
         <>
             <section className={styles.container} data-testid="screen-four">
-                <div className={styles.title}>
-                    <h3>Listen with different preferences.</h3>
-                </div>
-                <div className={styles.containerBox}>
-                    <div
-                        data-testid="active-page-box"
-                        className={
-                            changePage === "page_one"
-                                ? styles.button_box
-                                : styles.audio_box
-                        }
-                    >
-                        <div
-                            className={styles.buttonBox}
-                            onClick={() => {
-                                setChangePage("page_two");
-                                props.changeButton("disabled");
-                                handleAudioEnded();
-                                setProgress(0);
-                            }}
-                            data-testid="play-button"
-                        >
-                            <i>
-                                <GoPlay />
-                            </i>
-                            <button>Play</button>
+                {isFetching ? (
+                    <LoadingAnimation />
+                ) : (
+                    <>
+                        <div className={styles.title}>
+                            <h3>Listen with different preferences.</h3>
                         </div>
-
-                        <div
-                            className={styles.buttonBox}
-                            onClick={handleDownload}
-                        >
-                            <i>
-                                <RiDownloadCloudFill />
-                            </i>
-                            <button>Download</button>
-                        </div>
-                    </div>
-                    <div
-                        className={
-                            changePage === "page_one"
-                                ? styles.audio_box
-                                : styles.button_box
-                        }
-                    >
-                        <div className={styles.backBtn}>
-                            <NavButton
-                                text="Go Back"
-                                type={"previous"}
-                                status={"enabled"}
-                                onClick={() => {
-                                    setChangePage("page_one");
-                                    props.changeButton("enabled");
-                                }}
-                            />
-                        </div>
-                        <div className={styles.audioBox}>
-                            <audio
-                                id="audio-play"
-                                src={test}
-                                ref={audioRef}
-                                onTimeUpdate={handleTimeUpdate}
-                                onEnded={handleAudioEnded}
-                            ></audio>
-                            <div className={styles.player}>
-                                <div className={styles.control}>
-                                    <i
-                                        className={styles.playBtn}
-                                        onClick={playPause}
-                                    >
-                                        {changeIcon === true ? (
-                                            <FaPlay />
-                                        ) : (
-                                            <FaPause />
-                                        )}
+                        <div className={styles.containerBox}>
+                            <div
+                                data-testid="active-page-box"
+                                className={
+                                    changePage === "page_one"
+                                        ? styles.button_box
+                                        : styles.audio_box
+                                }
+                            >
+                                <div
+                                    className={styles.buttonBox}
+                                    onClick={() => {
+                                        setChangePage("page_two");
+                                        props.changeButton("disabled");
+                                        handleAudioEnded();
+                                        setProgress(0);
+                                    }}
+                                    data-testid="play-button"
+                                >
+                                    <i>
+                                        <GoPlay />
                                     </i>
-                                </div>
-                                <div className={styles.info}>
-                                    Audio mack
-                                    <div className={styles.bar}>
-                                        <div
-                                            className={styles.progress}
-                                            style={customStyles as any}
-                                        ></div>
-                                    </div>
+                                    <button>Play</button>
                                 </div>
 
-                                <div className={styles.current}>
-                                    {currentTime === 0
-                                        ? "00:00"
-                                        : `${formatTime(currentTime)}`}
+                                <div
+                                    className={styles.buttonBox}
+                                    onClick={handleDownload}
+                                >
+                                    <i>
+                                        <RiDownloadCloudFill />
+                                    </i>
+                                    <button>Download</button>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
+                            <div
+                                className={
+                                    changePage === "page_one"
+                                        ? styles.audio_box
+                                        : styles.button_box
+                                }
+                            >
+                                <div className={styles.backBtn}>
+                                    <NavButton
+                                        text="Go Back"
+                                        type={"previous"}
+                                        status={"enabled"}
+                                        onClick={() => {
+                                            setChangePage("page_one");
+                                            props.changeButton("enabled");
+                                        }}
+                                    />
+                                </div>
+                                <div className={styles.audioBox}>
+                                    <audio
+                                        id="audio-play"
+                                        src={
+                                            audio
+                                                ? (audio as HTMLAudioElement)
+                                                      .src
+                                                : ""
+                                        }
+                                        ref={audioRef}
+                                        onTimeUpdate={handleTimeUpdate}
+                                        onEnded={handleAudioEnded}
+                                    ></audio>
+                                    <div className={styles.player}>
+                                        <div className={styles.control}>
+                                            <i
+                                                className={styles.playBtn}
+                                                onClick={playPause}
+                                            >
+                                                {changeIcon === true ? (
+                                                    <FaPlay />
+                                                ) : (
+                                                    <FaPause />
+                                                )}
+                                            </i>
+                                        </div>
+                                        <div className={styles.info}>
+                                            Audio mack
+                                            <div className={styles.bar}>
+                                                <div
+                                                    className={styles.progress}
+                                                    style={customStyles as any}
+                                                ></div>
+                                            </div>
+                                        </div>
+
+                                        <div className={styles.current}>
+                                            {currentTime === 0
+                                                ? "00:00"
+                                                : `${formatTime(currentTime)}`}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>{" "}
+                    </>
+                )}
             </section>
         </>
     );

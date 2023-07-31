@@ -9,7 +9,8 @@ import {
     setNotificationDetails,
     setUploadedFile,
     setUploadedTextContent,
-    setnewContentState,
+    setNewAnalysisContentState,
+    setNewAudioContentState,
 } from "../../../../store/actions";
 import { RootState } from "../../../../store/store";
 import Notification from "../../../../general_components/notification_box/notification_box";
@@ -83,7 +84,9 @@ function FileUpload(props: ScreenTwoProps) {
                         const content = event.target?.result as string;
                         const paragraphs = getParagraphs(content);
                         dispatch(setUploadedTextContent(paragraphs));
-                        dispatch(setnewContentState(true));
+                        dispatch(setNewAnalysisContentState(true));
+                        dispatch(setNewAudioContentState(true));
+
                         props.changeButton("enabled");
                         dispatch(
                             setNotificationDetails({
@@ -107,7 +110,10 @@ function FileUpload(props: ScreenTwoProps) {
                     reader.readAsBinaryString(file);
                 } else if (fileExtension === "pdf") {
                     const fileText = await readPDFText(file);
-                    console.log(fileText);
+                    dispatch(setUploadedTextContent([fileText]));
+                    dispatch(setNewAnalysisContentState(true));
+                    dispatch(setNewAudioContentState(true));
+
                     // dispatch(setnewContentState(true))
                     // props.changeButton("enabled");
                     // dispatch(
@@ -122,11 +128,13 @@ function FileUpload(props: ScreenTwoProps) {
 
                     reader.onload = (event: ProgressEvent<FileReader>) => {
                         const content = event.target?.result as string;
-                        const paragraphs = content.split("\n");
-                        console.log(content.split("\n"));
+                        const paragraphs = content
+                            .replace(/\r|\t/g, "")
+                            .split("\n");
 
                         dispatch(setUploadedTextContent(paragraphs));
-                        dispatch(setnewContentState(true));
+                        dispatch(setNewAnalysisContentState(true));
+                        dispatch(setNewAudioContentState(true));
 
                         props.changeButton("enabled");
                         dispatch(

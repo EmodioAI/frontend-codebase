@@ -1,5 +1,6 @@
 import { NotificationProps } from "../general_components/notification_box/notification_box.props";
 import { StepNumber } from "../general_components/progress_bar/progress_bar.props";
+import { EmotionData } from "../pages/screen_three/screen_three.props";
 import {
     SET_INPUT_CHOICE,
     SET_PAGE_STEP,
@@ -7,10 +8,14 @@ import {
     SET_TEXT_CONTENT,
     SET_NOTIFICATION_DETAILS,
     SET_ANALYSIS_RESULTS,
-    SET_NEW_CONTENT_STATE,
     SET_ACTIVE,
     SET_TOKEN,
+    SET_NEW_AUDIO_CONTENT_STATE,
+    SET_NEW_FILE_CONTENT_STATE,
+    SET_NEW_ANALYSIS_CONTENT_STATE,
 } from "./actionTypes";
+
+
 
 // sets the page step
 export const setPageStep = (page_step: StepNumber) => {
@@ -45,9 +50,24 @@ export const setUploadedTextContent = (text_content: string[]) => {
 };
 
 //sets state of uploaded contents
-export const setnewContentState = (state: boolean) => {
+export const setNewAudioContentState = (state: boolean) => {
     return {
-        type: SET_NEW_CONTENT_STATE,
+        type: SET_NEW_AUDIO_CONTENT_STATE,
+        payload: state,
+    };
+};
+
+//sets state of uploaded contents
+export const setNewFileContentState = (state: boolean) => {
+    return {
+        type: SET_NEW_FILE_CONTENT_STATE,
+        payload: state,
+    };
+};
+//sets state of uploaded contents
+export const setNewAnalysisContentState = (state: boolean) => {
+    return {
+        type: SET_NEW_ANALYSIS_CONTENT_STATE,
         payload: state,
     };
 };
@@ -60,7 +80,7 @@ export const setNotificationDetails = (details: NotificationProps) => {
 };
 
 //sets results from emotion analysis
-export const setAnalysisResults = (results: string[]) => {
+export const setAnalysisResults = (results: EmotionData[]) => {
     return {
         type: SET_ANALYSIS_RESULTS,
         payload: results,

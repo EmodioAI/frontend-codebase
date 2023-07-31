@@ -1,0 +1,49 @@
+.container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 110%;
+    height: 110%;
+    background: var(--Background_Colour);
+    border-radius: 20px;
+    z-index: 20;
+}
+.plot {
+    width: 100%;
+}
+.plot_tones {
+    float: left;
+    width: 30%;
+}
+.plot_emotions {
+    float: right;
+    width: 70%;
+}
+.close {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+}
+.close p {
+    font-size: 1.1rem;
+    font-weight: 580;
+    padding: 0.45rem;
+    width: 100px;
+    background: var(--Background_Colour);
+    cursor: pointer;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    font-family: var(--Poppins);
+    transition: display 20s ease;
+    -moz-transition: display 20s ease; /* Firefox 4 */
+    -webkit-transition: display 20s ease; /* Safari and Chrome */
+    -o-transition: display 20s ease; /* Opera */
+    -ms-transition: display 20s ease-in-out; /* Explorer 10 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--Main_Colour);
+    color: var(--Main_Colour);
+}

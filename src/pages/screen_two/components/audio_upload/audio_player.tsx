@@ -7,11 +7,14 @@ import { getTranscription } from "../../../../utils/apis";
 import {
     setNotificationDetails,
     setUploadedTextContent,
-    setnewContentState,
+    setNewFileContentState,
+    setNewAnalysisContentState,
+    setNewAudioContentState,
 } from "../../../../store/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../../store/store";
 import Notification from "../../../../general_components/notification_box/notification_box";
+import LoadingAnimation from "../../../../general_components/loading_animation/loading_animation";
 
 // interface MyResponse {
 //     error?: string;
@@ -19,16 +22,19 @@ import Notification from "../../../../general_components/notification_box/notifi
 
 function AudioUpload(props: ScreenTwoProps) {
     const dispatch = useDispatch();
+
     const status = useSelector((state: RootState) => state.status);
+    const isNewAudio = useSelector(
+        (state: RootState) => state.isNewFileContent
+    );
 
     const audioFileRef = useRef<HTMLInputElement>(null);
 
-    const [isNewContent, setIsNewContent] = useState<boolean>(false);
     const [audioFile, setAudiofile] = useState<File>();
 
     const { data, isFetching, isError, error } = useQuery({
         queryKey: ["transcription"],
-        enabled: isNewContent,
+        enabled: isNewAudio,
         queryFn: () => getTranscription(audioFile as File),
     });
 
@@ -38,12 +44,14 @@ function AudioUpload(props: ScreenTwoProps) {
     }, []);
 
     useEffect(() => {
-        if (!isFetching && isNewContent) {
+        if (!isFetching && isNewAudio) {
             // check if data is available
             if (data) {
                 dispatch(setUploadedTextContent([data]));
                 props.changeButton("enabled");
-                setIsNewContent(false);
+                dispatch(setNewFileContentState(false));
+                dispatch(setNewAnalysisContentState(true));
+                dispatch(setNewAudioContentState(true));
                 dispatch(
                     setNotificationDetails({
                         status: true,
@@ -64,9 +72,12 @@ function AudioUpload(props: ScreenTwoProps) {
                 })
             );
             props.changeButton("disabled");
-            setIsNewContent(false);
+            dispatch(setNewFileContentState(false));
         }
-    }, [data, error, isFetching, isError, isNewContent]);
+        if (isFetching) {
+            props.changeButton("disabled");
+        }
+    }, [data, error, isFetching, isError, isNewAudio]);
 
     const handleFormClick = () => {
         if (audioFileRef.current) {
@@ -90,12 +101,11 @@ function AudioUpload(props: ScreenTwoProps) {
             if (allowedExtensions.includes(fileExtension)) {
                 // set file to state
                 setAudiofile(file);
-                setIsNewContent(true);
-                dispatch(setnewContentState(true));
+                dispatch(setNewFileContentState(true));
             }
         } else {
             props.changeButton("disabled");
-            setIsNewContent(false);
+            dispatch(setNewFileContentState(false));
         }
     }
 
@@ -104,22 +114,28 @@ function AudioUpload(props: ScreenTwoProps) {
             {status && <Notification />}
 
             <div data-testid="file-upload" className={styles.container}>
-                <form onClick={handleFormClick}>
-                    <input
-                        data-testid="input-file-uploader"
-                        type="file"
-                        className={styles.fileInput}
-                        accept=".wav,.mp3"
-                        hidden
-                        onChange={handleFileChange}
-                        ref={audioFileRef}
-                    />
-                    <i>
-                        <FaCloudUploadAlt />
-                    </i>
-                    <p>Browse File to Upload</p>
-                    <p className={styles.formInfo}>Supported files: MP3,WAV</p>
-                </form>
+                {isFetching ? (
+                    <LoadingAnimation />
+                ) : (
+                    <form onClick={handleFormClick}>
+                        <input
+                            data-testid="input-file-uploader"
+                            type="file"
+                            className={styles.fileInput}
+                            accept=".wav,.mp3"
+                            hidden
+                            onChange={handleFileChange}
+                            ref={audioFileRef}
+                        />
+                        <i>
+                            <FaCloudUploadAlt />
+                        </i>
+                        <p>Browse File to Upload</p>
+                        <p className={styles.formInfo}>
+                            Supported files: MP3,WAV
+                        </p>
+                    </form>
+                )}
             </div>
         </>
     );

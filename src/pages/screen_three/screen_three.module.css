@@ -33,13 +33,38 @@
 .error i path {
     color: red;
 }
-
-.textBox {
+.text_wrapper {
     height: 90%;
     min-height: 90%;
     max-height: 90%;
+    width: 100%;
+    display: flex;
+}
+.textBox {
+    height: 100%;
     width: 85%;
     overflow-y: scroll;
+}
+
+.charts {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-right: 10px;
+    overflow-y: scroll;
+    scrollbar-width: thin; /* Add this line to adjust the scrollbar width */
+    scrollbar-color: transparent transparent;
+    padding: 5px;
+    cursor: pointer;
+}
+.charts p {
+    padding: 10px;
+    box-shadow: inset -3px -3px 7px #ffffff73,
+        inset 3px 3px 5px rgba(94, 104, 121, 0.283);
+    border-radius: 50%;
+}
+.charts::-webkit-scrollbar {
+    display: none;
 }
 
 .textBox::-webkit-scrollbar {
@@ -130,7 +155,7 @@
 
 /* 1st Emotion */
 .icon:nth-child(1) span {
-    outline: 2px solid var(--Happy_Colour);
+    outline: 7px solid var(--Happy_Colour);
 }
 .wrapper :nth-child(1) .tooltip,
 .wrapper :nth-child(1) .tooltip:before {
@@ -139,7 +164,7 @@
 
 /* 2nd Emotion */
 .icon:nth-child(2) span {
-    outline: 2px solid var(--Anger_Colour);
+    outline: 7px solid var(--Anger_Colour);
 }
 
 .wrapper :nth-child(2) .tooltip,
@@ -149,7 +174,7 @@
 
 /* 3rd Emotion */
 .icon:nth-child(3) span {
-    outline: 2px solid var(--Fear_Colour);
+    outline: 7px solid var(--Fear_Colour);
 }
 
 .wrapper :nth-child(3) .tooltip,
@@ -159,7 +184,7 @@
 
 /* 4th Emotion */
 .icon:nth-child(4) span {
-    outline: 2px solid var(--Sad_Colour);
+    outline: 7px solid var(--Sad_Colour);
 }
 
 .wrapper :nth-child(4) .tooltip,
@@ -169,7 +194,7 @@
 
 /* 6th Emotion */
 .icon:nth-child(5) span {
-    outline: 2px solid var(--Disgust_Colour);
+    outline: 7px solid var(--Disgust_Colour);
 }
 
 .wrapper :nth-child(5) .tooltip,
@@ -179,7 +204,7 @@
 
 /* 7th Emotion */
 .icon:nth-child(6) span {
-    outline: 2px solid var(--Neutral_Colour);
+    outline: 7px solid var(--Neutral_Colour);
 }
 
 .wrapper :nth-child(6) .tooltip,
@@ -189,7 +214,7 @@
 
 /* 8th Emotion */
 .icon:nth-child(7) span {
-    outline: 2px solid var(--Surprised_Colour);
+    outline: 7px solid var(--Surprised_Colour);
 }
 
 .wrapper :nth-child(7) .tooltip,

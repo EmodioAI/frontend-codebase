@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./screen_three.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store/store";
@@ -11,32 +11,43 @@ import {
     SadButRelievedFace,
     FaceWithOpenMouth,
 } from "fluent-emoji";
-import { ScreenThreeProps } from "./screen_three.props";
+import { EmotionData, ScreenThreeProps } from "./screen_three.props";
 import { useQuery } from "@tanstack/react-query";
 import { ParagraphData, getEmotion } from "../../utils/apis";
 import {
     setAnalysisResults,
     setNotificationDetails,
     setPageStep,
-    setnewContentState,
+    setNewAnalysisContentState,
+    setToken,
 } from "../../store/actions";
 import LoadingAnimation from "../../general_components/loading_animation/loading_animation";
 import { AxiosError } from "axios";
 import { MdSignalWifiConnectedNoInternet0 } from "react-icons/md";
+import { GrBarChart } from "react-icons/gr";
+import Plot from "../../general_components/plot/plot";
 
 function ScreenThree(props: ScreenThreeProps) {
     const dispatch = useDispatch();
 
     const fileContent = useSelector((state: RootState) => state.text_content);
-    const isNewContent = useSelector((state: RootState) => state.isNewContent);
-    const analysisResults = useSelector(
+    const isNewContent = useSelector(
+        (state: RootState) => state.isNewAnalysisContent
+    );
+    const analysisResults:EmotionData[] = useSelector(
         (state: RootState) => state.analysis_results
     );
     const [contents] = useState<string[]>(fileContent);
+    const [showPlot, setShowPlot] = useState<boolean>(false);
+    const [analysisIndex, setAnalysisIndex] = useState<number>(0);
+
+    const chartsRef = useRef<HTMLDivElement>(null);
+    const textBoxRef = useRef<HTMLDivElement>(null);
 
     const inputData: ParagraphData = {
         paragraphs: contents,
     };
+
     const { data, isFetching, isError, error } = useQuery({
         queryKey: ["analysis"],
         enabled: isNewContent,
@@ -63,6 +74,7 @@ function ScreenThree(props: ScreenThreeProps) {
                     state: "error",
                 })
             );
+            dispatch(setNewAnalysisContentState(false));
             dispatch(setPageStep(1));
         }
     }, []);
@@ -70,12 +82,17 @@ function ScreenThree(props: ScreenThreeProps) {
     useEffect(() => {
         if (!isFetching && isNewContent) {
             if (data) {
-                dispatch(setAnalysisResults(data));
-                dispatch(setnewContentState(false));
+                console.log(data)
+                dispatch(setAnalysisResults(data.emotions));
+                dispatch(setToken(data.token));
+                dispatch(setNewAnalysisContentState(false));
+                props.changeButton("enabled");
             }
         }
         if (!isFetching) {
             props.changeButton("enabled");
+        } else {
+            props.changeButton("disabled");
         }
     }, [data, error, isFetching, isError, isNewContent]);
 
@@ -91,7 +108,8 @@ function ScreenThree(props: ScreenThreeProps) {
                     state: "error",
                 })
             );
-            props.changeButton("enabled");
+            props.changeButton("disabled");
+            dispatch(setNewAnalysisContentState(false));
 
             return (
                 <div className={styles.error}>
@@ -104,8 +122,16 @@ function ScreenThree(props: ScreenThreeProps) {
         }
     }
 
+    function handlePlots(index: number) {
+        setShowPlot(true);
+        setAnalysisIndex(index);
+    }
+
     return (
         <>
+            {showPlot && (
+                <Plot setShowPlot={setShowPlot} analysisIndex={analysisIndex} />
+            )}
             <section className={styles.container} data-testid="screen-three">
                 {isFetching ? (
                     <LoadingAnimation />
@@ -130,6 +156,7 @@ function ScreenThree(props: ScreenThreeProps) {
                                     <FearfulFace />
                                 </span>
                             </div>
+
                             <div className={styles.icon}>
                                 <div className={styles.tooltip}>Sad</div>
                                 <span>
@@ -157,25 +184,43 @@ function ScreenThree(props: ScreenThreeProps) {
                             </div>
                         </div>
 
-                        <div className={styles.textBox}>
-                            {contents.map(
-                                (paragraph: string, index: number) => {
-                                    return (
-                                        <div
-                                            className={styles.paragraph}
-                                            style={{
-                                                backgroundColor:
-                                                    emotioncolourMap[
-                                                        analysisResults[index]
-                                                    ],
-                                            }}
-                                            key={index}
-                                        >
-                                            {paragraph}
-                                        </div>
-                                    );
-                                }
-                            )}
+                        <div className={styles.text_wrapper}>
+                            <div className={styles.textBox} ref={textBoxRef}>
+                                {contents.map(
+                                    (paragraph: string, index: number) => {
+                                        return (
+                                            <>
+                                                <div
+                                                    className={styles.paragraph}
+                                                    style={{
+                                                        backgroundColor:
+                                                            emotioncolourMap[
+                                                                analysisResults?.[
+                                                                    index
+                                                                ]?.emotion
+                                                            ] || "white",
+                                                    }}
+                                                    key={index}
+                                                >
+                                                    {paragraph}
+                                                </div>
+                                                <div
+                                                    className={styles.charts}
+                                                    ref={chartsRef}
+                                                >
+                                                    <p
+                                                        onClick={() =>
+                                                            handlePlots(index)
+                                                        }
+                                                    >
+                                                        <GrBarChart />
+                                                    </p>
+                                                </div>
+                                            </>
+                                        );
+                                    }
+                                )}
+                            </div>
                         </div>
                     </>
                 )}
