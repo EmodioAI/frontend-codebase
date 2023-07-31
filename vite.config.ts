@@ -13,4 +13,9 @@ export default defineConfig({
         setupFiles: ["src/setupTest.ts"],
         watch: false,
     },
+    build: {
+        commonjsOptions: {
+            transformMixedEsModules: true,
+        },
+    },
 });
