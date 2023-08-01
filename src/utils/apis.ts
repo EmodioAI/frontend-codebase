@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from "axios";
 
-export const API_ENDPOINT = "https://backend-codebase-bzbd7k4ura-ew.a.run.app";
+export const API_ENDPOINT = "https://backend-service-bzbd7k4ura-od.a.run.app";
 
 //interface for the Helper
 interface Params {
@@ -62,11 +62,9 @@ export async function getAudio(token: string): Promise<HTMLAudioElement> {
 
         if (response.status === 200 && response.data) {
             // Create a Blob from the audio data
-            console.log(response);
             const audioBlob = new Blob([response.data], { type: "audio/mpeg" });
             const audioElement = new Audio();
             audioElement.src = URL.createObjectURL(audioBlob);
-            console.log(audioElement.src);
             return audioElement;
         } else {
             throw new Error("Something went wrong");
@@ -95,12 +93,7 @@ export async function getTranscription(file: File) {
     }).then((response) => {
         if (response.status === 200) {
             if (response.data.status === "success") {
-                if (
-                    response.data.transcription == null ||
-                    response.data.transcription == undefined
-                ) {
-                    throw new Error("No text found");
-                }
+                
                 return response.data.transcription;
             } else {
                 throw new Error("Something went wrong, try again");
