@@ -58,10 +58,10 @@ function ScreenThree(props: ScreenThreeProps) {
         happy: "var(--Happy_Colour)",
         sad: "var(--Sad_Colour)",
         anger: "var(--Anger_Colour)",
-        fearful: "var(--Fear_Colour)",
+        fear: "var(--Fear_Colour)",
         disgust: "var(--Disgust_Colour)",
         neutral: "var(--Neutral_Colour)",
-        surprised: "var(--Surprised_Colour)",
+        surprise: "var(--Surprised_Colour)",
     };
 
     useEffect(() => {

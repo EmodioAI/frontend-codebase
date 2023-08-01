@@ -93,7 +93,6 @@ export async function getTranscription(file: File) {
     }).then((response) => {
         if (response.status === 200) {
             if (response.data.status === "success") {
-                
                 return response.data.transcription;
             } else {
                 throw new Error("Something went wrong, try again");
